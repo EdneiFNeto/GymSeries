@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">GymSeries</string>
+    <string name="braco">Serie Braço</string>
+    <string name="biceps">Biceps</string>
+    <string name="serie_peito">Série Peito</string>
+    <string name="peito">Peito</string>
+    <string name="serie_ombro">Ombro</string>
+    <string name="ombro">Ombro</string>
+    <string name="serie_perna">Série Perna</string>
+    <string name="perna">Perna</string>
+    <string name="imc">Calcular IMC</string>
+    <string name="view_serie">Visualizar Série</string>
+    <string name="title_biceps">Biceps</string>
+    <string name="title_triceps">Triceps</string>
+    <string name="barra_fixa_com_pegada_supinada">Barra fixa com pegada supinada</string>
+    <string name="rosca_direta">Rosca Direta</string>
+    <string name="rosca_martelo">Rosca Martelo</string>
+    <string name="rosca_concentrada">Rosca Concentrada</string>
+    <string name="rosca_inversa">Rosca Inversa</string>
+    <string name="button_salvar">Salvar</string>
+    <string name="testa">Extensão de tríceps deitado</string>
+    <string name="supinado">Supino no banco reto com pegada fechada</string>
+    <string name="mergulho">Mergulho no banco</string>
+    <string name="triceps_no_banco">Tríceps no banco</string>
+    <string name="extencao_alter_sob_cabeca">Extensão de halteres sob a cabeça</string>
+    <string name="tirceps_barra_alta">Tríceps na polia alta com barra reta</string>
+    <string name="tirceps_corda">Tríceps Cordas</string>
+    <string name="numero_repeticoes">Nº Repetições</string>
+    <string name="text_peso">Kg</string>
+    <string name="title_dialog_treino">Repetições/Pesos</string>
+    <string name="text_num_peso">Quantidade Peso</string>
+    <string name="triceps">Triceps</string>
+    <string name="serie_costas">Serie Costas</string>
+    <string name="costas">Costas</string>
 </resources>
