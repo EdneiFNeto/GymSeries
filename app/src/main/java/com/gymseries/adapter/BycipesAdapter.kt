@@ -10,7 +10,7 @@ import com.gymseries.R
 import com.gymseries.model.Biceps
 import com.gymseries.utils.AlertDialogUtis
 
-class BycipesAdapter(val context: Context, private val biceps: Array<Biceps>) :
+class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>) :
     RecyclerView.Adapter<BycipesAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {

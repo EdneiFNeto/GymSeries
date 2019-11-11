@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Tricesctivity"></activity>
+
+        <activity android:name=".ui.Tricesctivity" />
         <activity
             android:name=".ui.SerieActivity"
             android:noHistory="true" />
@@ -25,9 +26,14 @@
         <activity
             android:name=".ui.PeitoActivity"
             android:noHistory="true" />
+
         <activity
             android:name=".ui.BicepsActivity"
             android:noHistory="true" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:noHistory="true" />
+        
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,10 +5,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.BycipesAdapter
-import com.gymseries.adapter.TricepsAdapter
+import com.gymseries.async.ListarBicepsAsyncTasks
 import com.gymseries.model.Biceps
-import com.gymseries.model.Triceps
-import com.gymseries.utils.ResourcesUtils
 
 class BicepsActivity : AppCompatActivity() {
 
@@ -16,21 +14,12 @@ class BicepsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_biceps_triceps)
 
-
         var recyclerViewBiceps = findViewById<RecyclerView>(R.id.recycle_view_biceps)
+        val listBiceps = ArrayList<Biceps>()
+        var adapter = BycipesAdapter(this, listBiceps)
 
-        var listBiceps:Array<Biceps> = arrayOf(
-            Biceps(ResourcesUtils.getString(this, R.string.barra_fixa_com_pegada_supinada)),
-            Biceps(ResourcesUtils.getString(this, R.string.rosca_direta)),
-            Biceps(ResourcesUtils.getString(this, R.string.rosca_martelo)),
-            Biceps(ResourcesUtils.getString(this, R.string.rosca_concentrada)),
-            Biceps(ResourcesUtils.getString(this, R.string.rosca_inversa))
-        )
-
-        var adapterBiceps = BycipesAdapter(this, listBiceps)
-        recyclerViewBiceps.adapter = adapterBiceps
-
-
+        recyclerViewBiceps.adapter = adapter
+        ListarBicepsAsyncTasks(this, listBiceps, adapter).execute()
 
     }
 }
