@@ -1,8 +1,9 @@
-package com.gymseries
+package com.gymseries.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
+import com.gymseries.R
 import com.gymseries.adapter.IntensAdapter
 import com.gymseries.model.Itens
 import com.gymseries.utils.ResourcesUtils
@@ -14,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var recyclerView = findViewById<RecyclerView>(R.id.recycle_view_main)
-
 
         var listItens = arrayOf(
             Itens(

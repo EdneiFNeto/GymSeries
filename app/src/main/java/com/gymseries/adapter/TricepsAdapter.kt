@@ -11,38 +11,5 @@ import com.gymseries.R
 import com.gymseries.model.Triceps
 import com.gymseries.utils.AlertDialogUtis
 
-class TricepsAdapter(val context: Context, private val triceps: Array<Triceps>) :
-    RecyclerView.Adapter<TricepsAdapter.MyHolder>() {
+class  TricepsAdapter(context: Context, list: List<Triceps>) : BaseAdapter<Triceps>(context, list)
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        return MyHolder(LayoutInflater.from(context).inflate(R.layout.activity_treino, parent, false))
-    }
-
-    override fun getItemCount(): Int {
-        return triceps.size
-    }
-
-    override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        var tricep: Triceps = triceps[position]
-        holder.add(tricep)
-
-        holder.itemView.setOnClickListener{
-            AlertDialogUtis.alertDailogAddPesoNumRepeticao(context, holder, tricep)
-        }
-    }
-
-    class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-
-        val title_item_treino = itemView.findViewById<TextView>(R.id.text_title_treino)
-        val imageView = itemView.findViewById<ImageView>(R.id.imageView_treino)
-        val text_kg = itemView.findViewById<TextView>(R.id.text_kg)
-        val text_num_repeticao = itemView.findViewById<TextView>(R.id.text_num_repeticao)
-
-        fun add(tricep:  Triceps){
-            title_item_treino.text = tricep.descr
-        }
-    }
-
-}

@@ -13,7 +13,6 @@ class ListarBicepsAsyncTasks(
     private val adapter: BycipesAdapter
 ) : AsyncTask<String, String, List<Biceps>>() {
 
-
     override fun onPostExecute(result: List<Biceps>?) {
         super.onPostExecute(result)
         if (result != null) {
@@ -31,9 +30,8 @@ class ListarBicepsAsyncTasks(
     }
 
     override fun doInBackground(vararg params: String?): List<Biceps> {
-
         var appData = AppData.getInstance(context)
-        var dao = appData.bicepsDao()
+        var dao = appData.bicepsRoom()
         return dao.all()
     }
 }

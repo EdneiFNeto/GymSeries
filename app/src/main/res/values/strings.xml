@@ -18,6 +18,7 @@
     <string name="rosca_concentrada">Rosca Concentrada</string>
     <string name="rosca_inversa">Rosca Inversa</string>
     <string name="button_salvar">Salvar</string>
+
     <string name="testa">Extensão de tríceps deitado</string>
     <string name="supinado">Supino no banco reto com pegada fechada</string>
     <string name="mergulho">Mergulho no banco</string>
@@ -25,6 +26,7 @@
     <string name="extencao_alter_sob_cabeca">Extensão de halteres sob a cabeça</string>
     <string name="tirceps_barra_alta">Tríceps na polia alta com barra reta</string>
     <string name="tirceps_corda">Tríceps Cordas</string>
+
     <string name="numero_repeticoes">Nº Repetições</string>
     <string name="text_peso">Kg</string>
     <string name="title_dialog_treino">Repetições/Pesos</string>
@@ -33,4 +35,5 @@
     <string name="serie_costas">Serie Costas</string>
     <string name="costas">Costas</string>
     <string name="habilitar_treino">Habilitar Treino</string>
+    <string name="title_dialog">Adicionar</string>
 </resources>

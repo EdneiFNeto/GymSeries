@@ -30,11 +30,12 @@
         <activity
             android:name=".ui.BicepsActivity"
             android:noHistory="true" />
+
         <activity
-            android:name=".ui.SplashActivity"
-            android:noHistory="true" />
+            android:name=".ui.MainActivity"/>
         
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.SplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

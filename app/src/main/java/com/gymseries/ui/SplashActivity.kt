@@ -13,7 +13,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-
         var biceps = arrayOf(
             Biceps(id = 1, descr = ResourcesUtils.getString(this, R.string.barra_fixa_com_pegada_supinada), status = false, pepeticao = "0", peso = "0"),
             Biceps(id = 2, descr = ResourcesUtils.getString(this, R.string.rosca_direta), status = false, pepeticao = "0", peso = "0"),
