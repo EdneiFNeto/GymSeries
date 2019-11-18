@@ -4,6 +4,6 @@ import androidx.room.*
 import com.gymseries.database.interfaces.BaseDao
 
 @Dao
-interface GenericDao<T>{
+interface GenericDao{
 
 }

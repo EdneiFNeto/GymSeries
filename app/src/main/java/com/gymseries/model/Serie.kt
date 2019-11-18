@@ -4,12 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Triceps(
+class Serie(
 
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    val status: Boolean,
-    val peso: String,
-    val descr: String,
-    val repeticoes: String
-) {}
+    var id:Long
+    ) {}

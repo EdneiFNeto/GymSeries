@@ -14,19 +14,20 @@ class InsertTricepsAsynctasks(val context: Context, var triceps: ArrayList<Trice
 
     override fun onPostExecute(result: List<Triceps>?) {
         super.onPostExecute(result)
-        if (result != null) {
-            if (result.isNotEmpty())
-                context.startActivity(Intent(context, MainActivity::class.java));
-        }
+        context.startActivity(Intent(context, MainActivity::class.java));
     }
 
     override fun doInBackground(vararg params: String?): List<Triceps> {
 
         var data = AppData.getInstance(context)
         var dao = data.tricepsDao()
-        for (t in triceps)
-            dao.insert(t)
 
+        //if my list is empty
+        //insert data
+        if (dao.all().isEmpty()) {
+            for (t in triceps)
+                dao.insert(t)
+        }
 
         return dao.all()
     }

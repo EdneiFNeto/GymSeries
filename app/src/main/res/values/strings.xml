@@ -36,4 +36,6 @@
     <string name="costas">Costas</string>
     <string name="habilitar_treino">Habilitar Treino</string>
     <string name="title_dialog">Adicionar</string>
+    <string name="title_exercicio">Exercício</string>
+    <string name="title_serie_kg">Kg</string>
 </resources>

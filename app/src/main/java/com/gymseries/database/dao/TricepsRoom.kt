@@ -15,8 +15,11 @@ interface TricepsRoom {
     fun delete()
 
     @Update
-    fun update(triceps: Triceps)
+    fun update(triceps: Triceps):Int
 
     @Query("SELECT * FROM triceps")
     fun all():List<Triceps>
+
+    @Query("SELECT * FROM triceps WHERE status = :status ")
+    fun allStates(status: Boolean):List<Triceps>
 }

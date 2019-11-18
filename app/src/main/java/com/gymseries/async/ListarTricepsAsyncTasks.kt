@@ -20,14 +20,9 @@ class ListarTricepsAsyncTasks(val context: Context,
         if(result!= null){
             if(result.isNotEmpty()){
                 for(t in result){
-                    Log.e(TAG, "Trices ${t.descr}")
                     triceps.add(t)
                 }
                 adapter.notifyDataSetChanged()
-            }else{
-                Toast.makeText(context, "Trices empty", Toast.LENGTH_LONG).show()
-                var tempTriceps = arrayListOf<Triceps>()
-                InsertTricepsAsynctasks(context, triceps).execute()
             }
         }
     }

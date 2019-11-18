@@ -2,6 +2,7 @@ package com.gymseries.async
 
 import android.content.Context
 import android.os.AsyncTask
+import com.gymseries.database.AppData
 
 class UpdateTreinoAsyncTasks<T>(val context: Context,
                              val numRepeticao: String,
@@ -13,7 +14,7 @@ class UpdateTreinoAsyncTasks<T>(val context: Context,
     }
 
     override fun doInBackground(vararg params: String?): List<T> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return emptyList()
     }
 
     override fun onPreExecute() {

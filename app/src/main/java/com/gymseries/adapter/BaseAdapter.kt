@@ -16,9 +16,6 @@ abstract class BaseAdapter<T>(
 
     override fun onBindViewHolder(holder: MyHolder<T>, position: Int) {
         holder.add(list[position])
-        holder.itemView.setOnClickListener {
-            AlertDialogUtis.alertDailogAddPesoNumRepeticaoGeneric(context, holder, list)
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder<T> {
@@ -36,9 +33,15 @@ abstract class BaseAdapter<T>(
     }
 
     class MyHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private  var textview =  itemView.findViewById<TextView>(R.id.text_title_treino)
+
+        private  var title =  itemView.findViewById<TextView>(R.id.text_title_treino)
+        private  var repeticao =  itemView.findViewById<TextView>(R.id.text_num_repeticao)
+        private  var peso =  itemView.findViewById<TextView>(R.id.text_kg)
+
         fun add(t: T) {
-            textview.text = t.toString()
+            title.text = t.toString()
+            repeticao.text=t.toString()
+            peso.text=t.toString()
         }
     }
 }

@@ -27,7 +27,7 @@ class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>
         holder.add(biceps)
 
         holder.itemView.setOnClickListener{
-            AlertDialogUtis.alertDailogAddPesoNumRepeticao(context, holder, biceps)
+            //AlertDialogUtis.alertDailogAddPesoNumRepeticao(context, holder, biceps)
         }
     }
 
