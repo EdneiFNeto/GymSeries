@@ -16,7 +16,7 @@ class Tricesctivity : AppCompatActivity() {
 
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_triceps)
         val triceps = ArrayList<Triceps>()
-        var adapter = TricepsAdapter(this, triceps)
+        var adapter = TricepsAdapter(this, triceps, true)
         recyclerViewTriceps.adapter = adapter
 
         ListarTricepsAsyncTasks(this, triceps, adapter).execute()

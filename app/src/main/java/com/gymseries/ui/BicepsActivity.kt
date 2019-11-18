@@ -17,9 +17,8 @@ class BicepsActivity : AppCompatActivity() {
         var recyclerViewBiceps = findViewById<RecyclerView>(R.id.recycle_view_biceps)
         val listBiceps = ArrayList<Biceps>()
         var adapter = BycipesAdapter(this, listBiceps)
-
         recyclerViewBiceps.adapter = adapter
-        ListarBicepsAsyncTasks(this, listBiceps, adapter).execute()
 
+        ListarBicepsAsyncTasks(this, listBiceps, adapter).execute()
     }
 }

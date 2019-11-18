@@ -4,15 +4,20 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Switch
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdateTricepsAsync
-import com.gymseries.model.Triceps
+import com.gymseries.async.UpdatePernaAsync
+import com.gymseries.model.Perna
+import java.util.*
 
-class TricepsAdapter(val context: Context, private var triceps: ArrayList<Triceps>, private val changeLayout:Boolean ) :
-    RecyclerView.Adapter<TricepsAdapter.MyHolder>() {
+class PernaAdapter(
+    val context: Context, private val pernas: ArrayList<Perna>, private val changeLayout:Boolean):
+    RecyclerView.Adapter<PernaAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         if (changeLayout) {
@@ -36,62 +41,63 @@ class TricepsAdapter(val context: Context, private var triceps: ArrayList<Tricep
     }
 
     override fun getItemCount(): Int {
-        return triceps.size
+        return pernas.size
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val tricep = triceps[position]
-        holder.add(tricep)
+        val perna = pernas[position]
+        holder.add(perna)
 
         if (changeLayout) {
-            if (tricep.status) {
+            if (perna.status) {
                 holder.itemView.setBackgroundResource(R.color.colorAccent)
             } else {
                 holder.itemView.setBackgroundResource(android.R.color.transparent)
             }
 
             holder.itemView.setOnClickListener {
-                dialog(tricep, triceps)
+                dialog(perna, pernas)
             }
         }else{
-            holder.repeticao.text = tricep.repeticoes
-            holder.peso.text = tricep.peso
+            holder.repeticao.text = perna.repeticao
+            holder.peso.text = perna.peso
         }
     }
 
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var title =  itemView.findViewById<TextView>(R.id.text_title_treino)
-        var repeticao =  itemView.findViewById<TextView>(R.id.text_num_repeticao)
-        var peso =  itemView.findViewById<TextView>(R.id.text_kg)
+        var title = itemView.findViewById<TextView>(R.id.text_title_treino)
+        var repeticao = itemView.findViewById<TextView>(R.id.text_num_repeticao)
+        var peso = itemView.findViewById<TextView>(R.id.text_kg)
 
-        fun add(t: Triceps) {
-            title.text = t.descr
-            repeticao.text= "Repetições ${t.repeticoes}"
-            peso.text="Kg: ${t.peso}"
+        fun add(perna: Perna) {
+            title.text = perna.descr
+            repeticao.text = "Repetições ${perna.repeticao}"
+            peso.text = "Kg: ${perna.peso}"
         }
     }
 
 
-    fun dialog(triceps: Triceps, listTriceps: ArrayList<Triceps>) {
+    fun dialog(perna: Perna, pernas: ArrayList<Perna>) {
 
         //exeibe dialog para opcao de treinos
         var builder = AlertDialog.Builder(context)
         builder.setIcon(R.mipmap.ic_descri_treino)
-        val title = triceps.descr
+        val title = perna.descr
         builder.setTitle(title)
 
-        val view: View = LayoutInflater.from(context).inflate(R.layout.layout_select_peso_repeticao_treino, null)
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.layout_select_peso_repeticao_treino, null)
         var edittext_kg = view.findViewById<EditText>(R.id.edttext_kg)
         var edittext_num_repeticao = view.findViewById<EditText>(R.id.edittext_repeticao)
         var button_salvar = view.findViewById<Button>(R.id.button_salvar_dialog_treino)
         var status = view.findViewById<Switch>(R.id.switch_is_enabled)
 
-        edittext_kg.setText(triceps.peso)
-        edittext_num_repeticao.setText(triceps.repeticoes)
+        edittext_kg.setText(perna.peso)
+        edittext_num_repeticao.setText(perna.repeticao)
 
-        if(triceps.status)
+        if (perna.status)
             status.isChecked = true
 
         builder.setView(view)
@@ -100,21 +106,21 @@ class TricepsAdapter(val context: Context, private var triceps: ArrayList<Tricep
 
         button_salvar.setOnClickListener {
 
-            UpdateTricepsAsync(
+            UpdatePernaAsync(
                 context,
-                Triceps(
-                    id = triceps.id,
+                Perna(
+                    id = perna.id,
                     status = status.isChecked,
-                    repeticoes = edittext_num_repeticao.text.toString(),
+                    repeticao = edittext_num_repeticao.text.toString(),
                     peso = edittext_kg.text.toString(),
-                    descr = triceps.descr
+                    descr = perna.descr
                 ),
                 this,
-                listTriceps
+                pernas
             ).execute()
 
             dialog.dismiss()
         }
     }
-}
 
+}

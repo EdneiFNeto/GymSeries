@@ -2,8 +2,7 @@ package com.gymseries.async
 
 import android.content.Context
 import android.os.AsyncTask
-import android.util.Log
-import android.widget.Toast
+import com.gymseries.GenericsUtil
 import com.gymseries.adapter.TricepsAdapter
 import com.gymseries.database.AppData
 import com.gymseries.model.Triceps
@@ -16,18 +15,10 @@ class ListarTricepsAsyncTasks(val context: Context,
 
     override fun onPostExecute(result: List<Triceps>?) {
         super.onPostExecute(result)
-
-        if(result!= null){
-            if(result.isNotEmpty()){
-                for(t in result){
-                    triceps.add(t)
-                }
-                adapter.notifyDataSetChanged()
-            }
-        }
+        if (GenericsUtil<Triceps>().results(result, triceps))
+            adapter.notifyDataSetChanged()
     }
     override fun doInBackground(vararg params: String?): List<Triceps> {
-
         var data = AppData.getInstance(context)
         var tricepsDao = data.tricepsDao()
         return tricepsDao.all()

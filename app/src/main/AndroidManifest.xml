@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.CostasActivity"></activity>
         <activity android:name=".ui.Tricesctivity" />
         <activity
             android:name=".ui.SerieActivity"
@@ -26,15 +26,12 @@
         <activity
             android:name=".ui.PeitoActivity"
             android:noHistory="true" />
-
         <activity
             android:name=".ui.BicepsActivity"
             android:noHistory="true" />
-
+        <activity android:name=".ui.MainActivity" />
         <activity
-            android:name=".ui.MainActivity"/>
-        
-        <activity android:name=".ui.SplashActivity"
+            android:name=".ui.SplashActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

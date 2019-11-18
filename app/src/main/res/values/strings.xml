@@ -38,4 +38,25 @@
     <string name="title_dialog">Adicionar</string>
     <string name="title_exercicio">Exercício</string>
     <string name="title_serie_kg">Kg</string>
+    <string name="supino_reto">Supino Reto</string>
+    <string name="supino_45">Supino 45º</string>
+    <string name="voador">Voador</string>
+    <string name="crussifixo">Crussifixo</string>
+    <string name="ombro_remada_alta">Remada Alta</string>
+    <string name="ombro_remada_aparelho">Remada Aparelho</string>
+    <string name="ombro_alternada">Remada Alternada</string>
+    <string name="agaichamento_livre">Agaichamento Livre</string>
+    <string name="extensora">Extensora</string>
+    <string name="adutora">Adutora</string>
+    <string name="agaichamento_smith">Agachamento Smith</string>
+    <string name="title_peito">Peito</string>
+    <string name="title_ombro">Ombro</string>
+    <string name="title_costas">Costas</string>
+    <string name="barra_fixa">Barra Fixa</string>
+    <string name="remada_curvada">Remada curvada</string>
+    <string name="barra_fixa_pegada_larg">Barra fixa com pegada larga</string>
+    <string name="remada_uni_halter">Remada unilateral com haltere</string>
+    <string name="pulover_halter">Pullover com haltere</string>
+    <string name="remada_sentada">Pullover com haltere</string>
+    <string name="title_perna">Perna</string>
 </resources>

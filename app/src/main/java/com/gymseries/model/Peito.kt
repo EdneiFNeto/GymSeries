@@ -9,5 +9,6 @@ class Peito(
     var id:Long,
     var descr:String,
     var peso:String,
-    var repeticao:String
+    var repeticao:String,
+    var status:Boolean
 ){}

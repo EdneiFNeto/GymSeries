@@ -37,9 +37,9 @@ class IntensAdapter(private val context: Context, private  val list: Array<Itens
                 1-> context.startActivity(Intent(context, Tricesctivity::class.java))
                 2-> context.startActivity(Intent(context, PeitoActivity::class.java))
                 3-> context.startActivity(Intent(context, OmbroActivity::class.java))
-                4-> context.startActivity(Intent(context, PernaActivity::class.java))
-                5-> context.startActivity(Intent(context, IMCActivity::class.java))
-                6-> context.startActivity(Intent(context, SerieActivity::class.java))
+                4-> context.startActivity(Intent(context, CostasActivity::class.java))
+                5-> context.startActivity(Intent(context, PernaActivity::class.java))
+                6-> context.startActivity(Intent(context, IMCActivity::class.java))
                 7-> context.startActivity(Intent(context, SerieActivity::class.java))
             }
         }

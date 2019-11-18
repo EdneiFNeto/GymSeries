@@ -29,13 +29,7 @@ class AdapterGeneric<T>(val context: Context, private val peitos: ArrayList<T>):
 
 
     class MyHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val descr = itemView.findViewById<TextView>(R.id.text_descr_serie_adapter)
-        private val peso = itemView.findViewById<TextView>(R.id.text_peso_serie_adapter)
-        private val repeticoes = itemView.findViewById<TextView>(R.id.text_repeticao_serie_adapter)
-
         fun add(t: T){
-
         }
     }
 

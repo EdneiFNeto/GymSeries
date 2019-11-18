@@ -24,52 +24,53 @@ class InserBicepsAsyncTasks(
                 id = 1,
                 descr = ResourcesUtils.getString(context, R.string.triceps_no_banco),
                 status = true,
-                repeticoes = "0",
-                peso = "0"
+                repeticoes = "",
+                peso = ""
             ),
             Triceps(
                 id = 2,
                 descr = ResourcesUtils.getString(context, R.string.testa),
                 status = false,
-                repeticoes = "0",
-                peso = "0"
+                repeticoes = "",
+                peso = ""
             ),
             Triceps(
                 id = 3,
                 descr = ResourcesUtils.getString(context, R.string.supinado),
                 status = false,
-                repeticoes = "0",
-                peso = "0"
+                repeticoes = "",
+                peso = ""
             ),
             Triceps(
                 id = 4,
                 descr = ResourcesUtils.getString(context, R.string.tirceps_barra_alta),
                 status = false,
-                repeticoes = "0",
-                peso = "0"
+                repeticoes = "",
+                peso = ""
             ),
             Triceps(
                 id = 5,
                 descr = ResourcesUtils.getString(context, R.string.rosca_inversa),
                 status = false,
-                repeticoes = "0",
-                peso = "0"
+                repeticoes = "",
+                peso = ""
             ),
             Triceps(
                 id = 6,
                 descr = ResourcesUtils.getString(context, R.string.mergulho),
                 status = false,
-                repeticoes = "0",
-                peso = "0"
+                repeticoes = "",
+                peso = ""
             ),
             Triceps(
                 id = 7,
                 descr = ResourcesUtils.getString(context, R.string.tirceps_corda),
                 status = false,
-                repeticoes = "0",
-                peso = "0"
+                repeticoes = "",
+                peso = ""
             )
         )
+
         InsertTricepsAsynctasks(context, triceps).execute()
     }
 

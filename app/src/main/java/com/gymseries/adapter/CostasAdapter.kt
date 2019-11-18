@@ -1,24 +1,24 @@
 package com.gymseries.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Switch
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdateBicepsAsync
-import com.gymseries.async.UpdateTricepsAsync
-import com.gymseries.model.Biceps
-import com.gymseries.model.Triceps
-import com.gymseries.utils.AlertDialogUtis
+import com.gymseries.async.UpdateCostasAsyncAsync
+import com.gymseries.model.Costa
+import java.util.*
+import kotlin.collections.ArrayList
 
-class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>) :
-    RecyclerView.Adapter<BycipesAdapter.MyHolder>() {
-
-    private var TAG: String="BycipesAdapterLog"
+class CostasAdapter(val context: Context,
+                    private val costas: ArrayList<Costa>) :
+    RecyclerView.Adapter<CostasAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         return MyHolder(
@@ -31,46 +31,45 @@ class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>
     }
 
     override fun getItemCount(): Int {
-        return biceps.size
+        return costas.size
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
+        val costa = costas[position]
+        holder.add(costa)
 
-        var bicep: Biceps = biceps[position]
-        holder.add(bicep)
-
-        if (bicep.status) {
+        if (costa.status) {
             holder.itemView.setBackgroundResource(R.color.colorAccent)
         } else {
             holder.itemView.setBackgroundResource(android.R.color.transparent)
         }
 
         holder.itemView.setOnClickListener {
-            dialog(bicep, biceps)
+            dialog(costa, costas)
         }
     }
 
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val text_title_treino = itemView.findViewById<TextView>(R.id.text_title_treino)
-        val imageView = itemView.findViewById<ImageView>(R.id.imageView_treino)
-        val text_kg = itemView.findViewById<TextView>(R.id.text_kg)
-        val text_num_repeticao = itemView.findViewById<TextView>(R.id.text_num_repeticao)
+        var title = itemView.findViewById<TextView>(R.id.text_title_treino)
+        var repeticao = itemView.findViewById<TextView>(R.id.text_num_repeticao)
+        var peso = itemView.findViewById<TextView>(R.id.text_kg)
 
-        fun add(biceps: Biceps) {
-            text_title_treino.text = biceps.descr
-            text_kg.text = "Peso: ${biceps.peso}"
-            text_num_repeticao.text ="Repetição: ${biceps.repeticoes}"
+        fun add(costa: Costa) {
+            title.text = costa.descr
+            repeticao.text = "Repetições ${costa.repeticao}"
+            peso.text = "Kg: ${costa.peso}"
         }
     }
 
-    fun dialog(bicep: Biceps, biceps: ArrayList<Biceps>) {
+
+    fun dialog(costa: Costa, costas: ArrayList<Costa>) {
 
         //exeibe dialog para opcao de treinos
         var builder = AlertDialog.Builder(context)
         builder.setIcon(R.mipmap.ic_descri_treino)
-        val title = bicep.descr
+        val title = costa.descr
         builder.setTitle(title)
 
         val view: View =
@@ -80,10 +79,10 @@ class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>
         var button_salvar = view.findViewById<Button>(R.id.button_salvar_dialog_treino)
         var status = view.findViewById<Switch>(R.id.switch_is_enabled)
 
-        edittext_kg.setText(bicep.peso)
-        edittext_num_repeticao.setText(bicep.repeticoes)
+        edittext_kg.setText(costa.peso)
+        edittext_num_repeticao.setText(costa.repeticao)
 
-        if (bicep.status)
+        if (costa.status)
             status.isChecked = true
 
         builder.setView(view)
@@ -92,15 +91,19 @@ class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>
 
         button_salvar.setOnClickListener {
 
-            var b = Biceps(
-                id = bicep.id,
-                status = status.isChecked,
-                repeticoes = edittext_num_repeticao.text.toString(),
-                peso = edittext_kg.text.toString(),
-                descr = bicep.descr
-            )
+            UpdateCostasAsyncAsync(
+                context,
+                Costa(
+                    id = costa.id,
+                    status = status.isChecked,
+                    repeticao = edittext_num_repeticao.text.toString(),
+                    peso = edittext_kg.text.toString(),
+                    descr = costa.descr
+                ),
+                this,
+                costas
+            ).execute()
 
-            UpdateBicepsAsync(context, b, this, biceps).execute()
             dialog.dismiss()
         }
     }

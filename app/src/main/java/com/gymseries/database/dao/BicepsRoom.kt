@@ -13,7 +13,7 @@ interface BicepsRoom {
     fun delete()
 
     @Update
-    fun update(biceps: Biceps)
+    fun update(biceps: Biceps):Int
 
     @Query("SELECT * FROM biceps b")
     fun all():List<Biceps>

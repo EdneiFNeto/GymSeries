@@ -50,7 +50,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_peito"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
 
@@ -89,7 +89,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_triceps"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
 
@@ -128,7 +128,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_ombro"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
 
@@ -167,7 +167,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_perna"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
 

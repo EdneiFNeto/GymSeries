@@ -4,11 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Biceps(
+class Costa(
+
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    val descr: String,
-    val status: Boolean,
-    val repeticoes: String,
-    val peso: String
+    var id: Long,
+    var descr: String,
+    var peso: String,
+    var repeticao: String,
+    var status: Boolean
 ) {}
