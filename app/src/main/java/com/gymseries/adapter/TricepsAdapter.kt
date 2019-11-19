@@ -58,8 +58,7 @@ class TricepsAdapter(val context: Context, private var triceps: ArrayList<Tricep
             holder.peso.text = tricep.peso
         }
     }
-
-
+    
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var title =  itemView.findViewById<TextView>(R.id.text_title_treino)

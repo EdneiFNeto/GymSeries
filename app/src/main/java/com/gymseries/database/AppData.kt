@@ -14,6 +14,7 @@ import com.gymseries.model.*
         Ombro::class,
         Perna::class,
         Costa::class],
+
     version = 6,
     exportSchema = false
 )
@@ -24,7 +25,7 @@ abstract class AppData : RoomDatabase() {
     abstract fun peitoDao(): PeitoRoom
     abstract fun ombroDao(): OmbroRoom
     abstract fun pernaDao(): pernaRoom
-    abstract fun costasDao(): costasRoom
+    abstract fun costaDao(): CostaRoom
 
     companion object {
         fun getInstance(context: Context): AppData {

@@ -1,45 +1,34 @@
 package com.gymseries.adapter
 
 import android.content.Context
-import android.os.Binder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.gymseries.R
+import com.gymseries.model.MyHolderGeneric
+import org.w3c.dom.Text
 
-abstract class GenericAdapter<T>(private var itens: List<T>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class GenericAdapter<T>(val context: Context, private val list: List<T>) :
+    RecyclerView.Adapter<MyHolderGeneric<T>>() {
 
-    fun setItems(itens: List<T>) {
-        this.itens = itens
-        notifyDataSetChanged()
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return getViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(viewType, parent, false)
-            , viewType
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolderGeneric<T> {
+        return MyHolderGeneric(
+            LayoutInflater.from(context).inflate(
+                R.layout.activity_biceps_triceps,
+                parent,
+                false
+            )
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as Binder<T>).bind(itens[position])
-    }
-
     override fun getItemCount(): Int {
-        return this.itens.size
-
+        return list.size
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return getLayoutId(position, this.itens[position])
-    }
-
-    protected  abstract fun getLayoutId(position: Int, t: T): Int
-
-    abstract fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder
-
-    internal interface Binder<T> {
-        fun bind(data: T)
+    override fun onBindViewHolder(holder: MyHolderGeneric<T>, position: Int) {
+        val t = list[position]
+        holder.add(t)
     }
 }

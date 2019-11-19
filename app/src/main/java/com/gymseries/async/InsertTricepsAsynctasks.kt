@@ -52,7 +52,7 @@ class InsertTricepsAsynctasks(val context: Context, var triceps: ArrayList<Trice
         var data = AppData.getInstance(context)
         var dao = data.tricepsDao()
 
-        //if my list is empty
+        //if my lists is empty
         //insert data
         if (dao.all().isEmpty()) {
             for (t in triceps)

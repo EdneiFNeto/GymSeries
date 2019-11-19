@@ -18,7 +18,6 @@ import java.util.*
 class OmbroAdapter(val context: Context, private val ombros: ArrayList<Ombro>) :
     RecyclerView.Adapter<OmbroAdapter.MyHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         return MyHolder(
             LayoutInflater.from(context).inflate(

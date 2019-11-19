@@ -25,7 +25,7 @@ class UpdateCostasAsyncAsync(
 
     override fun doInBackground(vararg params: String?): List<Costa> {
         var data = AppData.getInstance(context)
-        var dao = data.costasDao()
+        var dao = data.costaDao()
         dao.update(costa)
         return dao.all()
     }

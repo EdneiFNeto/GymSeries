@@ -79,7 +79,7 @@ class InserBicepsAsyncTasks(
         var database = AppData.getInstance(context)
         var dao = database.bicepsRoom()
 
-        //if my list is empty
+        //if my lists is empty
         //insert boceps
         if (dao.all().isEmpty()) {
             for (bicep in biceps) {

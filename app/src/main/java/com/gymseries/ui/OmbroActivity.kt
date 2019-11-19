@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
+import com.gymseries.adapter.GenericAdapter
 import com.gymseries.adapter.OmbroAdapter
-import com.gymseries.adapter.PeitoAdapter
-import com.gymseries.async.ListarOmbrosAsync
-import com.gymseries.async.ListarPeitoAsync
+import com.gymseries.generics.ListOmbroAsync
 import com.gymseries.model.Ombro
-import com.gymseries.model.Peito
 
 class OmbroActivity : AppCompatActivity() {
 
@@ -20,6 +18,8 @@ class OmbroActivity : AppCompatActivity() {
         val ombros = ArrayList<Ombro>()
         var adapter = OmbroAdapter(this, ombros)
         recyclerViewTriceps.adapter = adapter
-        ListarOmbrosAsync(this, ombros, adapter).execute()
+
+        val ombro = Ombro(id = 0, descr = null, peso = null, repeticao = null,status = false )
+        ListOmbroAsync(this, ombros, ombro, adapter).execute()
     }
 }

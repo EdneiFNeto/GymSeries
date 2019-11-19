@@ -31,8 +31,8 @@ class SerieActivity : AppCompatActivity() {
         var adapterTriceps = TricepsAdapter(this, triceps, false)
         serie_triceps.adapter = adapterTriceps
 
-//        val ombros = arrayListOf<Ombro>()
-//        var adapterOmbros = OmbroSelecionadoAdapter(this, ombros)
+//        val lists = arrayListOf<Ombro>()
+//        var adapterOmbros = OmbroSelecionadoAdapter(this, lists)
 //        serie_ombro.adapter = adapterOmbros
 //
         val pernas = arrayListOf<Perna>()
