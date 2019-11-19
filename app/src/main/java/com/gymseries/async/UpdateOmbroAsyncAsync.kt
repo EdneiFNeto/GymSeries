@@ -25,7 +25,8 @@ class UpdateOmbroAsyncAsync(
     override fun doInBackground(vararg params: String?): List<Ombro> {
         var data = AppData.getInstance(context)
         var dao = data.ombroDao()
-        return dao.allStates(true)
+        dao.update(ombro)
+        return dao.all()
     }
 
 }

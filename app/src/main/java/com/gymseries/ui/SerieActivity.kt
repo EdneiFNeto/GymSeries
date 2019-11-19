@@ -19,8 +19,9 @@ class SerieActivity : AppCompatActivity() {
 
         var serie_peito = findViewById<RecyclerView>(R.id.recycleview_series_peito)
         var serie_triceps = findViewById<RecyclerView>(R.id.recycleview_series_triceps)
-        var serie_ombro = findViewById<RecyclerView>(R.id.recycleview_series_ombro)
         var serie_perna = findViewById<RecyclerView>(R.id.recycleview_series_perna)
+
+        var serie_ombro = findViewById<RecyclerView>(R.id.recycleview_series_ombro)
 
         val peitos = arrayListOf<Peito>()
         var peitoAdapter = PeitoAdapter(this, peitos, false)
