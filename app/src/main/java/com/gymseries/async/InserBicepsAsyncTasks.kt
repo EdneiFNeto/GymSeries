@@ -3,6 +3,7 @@ package com.gymseries.async
 import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
+import androidx.sqlite.db.SimpleSQLiteQuery
 import com.gymseries.R
 import com.gymseries.database.AppData
 import com.gymseries.model.Biceps
@@ -81,12 +82,13 @@ class InserBicepsAsyncTasks(
 
         //if my lists is empty
         //insert boceps
-        if (dao.all().isEmpty()) {
+        var all = dao.all(SimpleSQLiteQuery("SELECT * FROM Biceps"))
+        if (all.isEmpty()) {
             for (bicep in biceps) {
                 dao.insert(bicep)
             }
         }
 
-        return dao.all()
+        return all
     }
 }

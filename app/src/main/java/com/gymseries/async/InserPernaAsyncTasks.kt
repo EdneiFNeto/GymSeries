@@ -1,14 +1,11 @@
 package com.gymseries.async
 
 import android.content.Context
-import android.content.Intent
 import android.os.AsyncTask
 import com.gymseries.R
 import com.gymseries.database.AppData
 import com.gymseries.model.Costa
-import com.gymseries.model.Ombro
 import com.gymseries.model.Perna
-import com.gymseries.ui.MainActivity
 import com.gymseries.utils.ResourcesUtils
 import java.util.ArrayList
 
@@ -63,7 +60,7 @@ class InserPernaAsyncTasks(val context: Context, private val pernas: ArrayList<P
     override fun doInBackground(vararg params: String?): List<Perna> {
 
         var appData = AppData.getInstance(context)
-        var dao = appData.pernaDao()
+        var dao = appData.pernaRoom1()
         if(dao.all().isEmpty()){
             for (p in pernas){
                 dao.insert(p)

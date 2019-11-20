@@ -5,7 +5,6 @@ import android.os.AsyncTask
 import com.gymseries.GenericsUtil
 import com.gymseries.adapter.PernaAdapter
 import com.gymseries.database.AppData
-import com.gymseries.model.Ombro
 import com.gymseries.model.Perna
 import java.util.ArrayList
 
@@ -25,7 +24,7 @@ class UpdatePernaAsync(
 
     override fun doInBackground(vararg params: String?): List<Perna> {
         var data = AppData.getInstance(context)
-        var dao = data.pernaDao()
+        var dao = data.pernaRoom1()
         dao.update(perna)
         return dao.all()
     }

@@ -47,7 +47,7 @@ class InsertOmBroAsynnc(val context: Context, private val ombros: ArrayList<Ombr
     }
     override fun doInBackground(vararg params: String?): List<Ombro> {
         var appData = AppData.getInstance(context)
-        var dao = appData.ombroDao()
+        var dao = appData.ombroRoom()
 
         //if is database is empty
         //insert data db

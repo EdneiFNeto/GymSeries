@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.BycipesAdapter
-import com.gymseries.async.ListarBicepsAsyncTasks
+import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Biceps
 
 class BicepsActivity : AppCompatActivity() {
@@ -19,6 +19,6 @@ class BicepsActivity : AppCompatActivity() {
         var adapter = BycipesAdapter(this, listBiceps)
         recyclerViewBiceps.adapter = adapter
 
-        ListarBicepsAsyncTasks(this, listBiceps, adapter).execute()
+        ListEntityGenericAsync<Biceps>(this, listBiceps, adapter, 0).execute()
     }
 }

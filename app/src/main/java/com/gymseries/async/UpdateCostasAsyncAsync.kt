@@ -6,7 +6,6 @@ import com.gymseries.GenericsUtil
 import com.gymseries.adapter.CostasAdapter
 import com.gymseries.database.AppData
 import com.gymseries.model.Costa
-import com.gymseries.model.Ombro
 
 class UpdateCostasAsyncAsync(
     val context: Context,
@@ -25,7 +24,7 @@ class UpdateCostasAsyncAsync(
 
     override fun doInBackground(vararg params: String?): List<Costa> {
         var data = AppData.getInstance(context)
-        var dao = data.costaDao()
+        var dao = data.costaRoom()
         dao.update(costa)
         return dao.all()
     }

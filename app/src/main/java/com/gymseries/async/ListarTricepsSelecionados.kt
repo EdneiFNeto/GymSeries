@@ -2,11 +2,9 @@ package com.gymseries.async
 
 import android.content.Context
 import android.os.AsyncTask
-import android.util.Log
 import com.gymseries.GenericsUtil
 import com.gymseries.adapter.TricepsAdapter
 import com.gymseries.database.AppData
-import com.gymseries.model.Peito
 import com.gymseries.model.Triceps
 import java.util.*
 
@@ -26,7 +24,7 @@ class ListarTricepsSelecionados(
 
     override fun doInBackground(vararg p0: String?): List<Triceps> {
         var data = AppData.getInstance(context)
-        var dao = data.tricepsDao()
+        var dao = data.tricepsRoom()
         return dao.allStates(true)
     }
 

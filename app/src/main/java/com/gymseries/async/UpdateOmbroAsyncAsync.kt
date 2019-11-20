@@ -6,7 +6,6 @@ import com.gymseries.GenericsUtil
 import com.gymseries.adapter.OmbroAdapter
 import com.gymseries.database.AppData
 import com.gymseries.model.Ombro
-import com.gymseries.model.Peito
 import java.util.ArrayList
 
 class UpdateOmbroAsyncAsync(
@@ -24,7 +23,7 @@ class UpdateOmbroAsyncAsync(
 
     override fun doInBackground(vararg params: String?): List<Ombro> {
         var data = AppData.getInstance(context)
-        var dao = data.ombroDao()
+        var dao = data.ombroRoom()
         dao.update(ombro)
         return dao.all()
     }

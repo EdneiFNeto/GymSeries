@@ -5,7 +5,6 @@ import android.os.AsyncTask
 import com.gymseries.GenericsUtil
 import com.gymseries.adapter.TricepsAdapter
 import com.gymseries.database.AppData
-import com.gymseries.model.Peito
 import com.gymseries.model.Triceps
 
 class UpdateTricepsAsync(
@@ -26,7 +25,7 @@ class UpdateTricepsAsync(
     override fun doInBackground(vararg p0: String?): List<Triceps> {
 
         var data = AppData.getInstance(context)
-        var dao = data.tricepsDao()
+        var dao = data.tricepsRoom()
         var update = dao.update(tricep)
         return dao.all()
     }

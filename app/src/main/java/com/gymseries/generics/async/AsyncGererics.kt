@@ -3,21 +3,24 @@ package com.gymseries.generics.async
 import android.content.Context
 import android.os.AsyncTask
 import androidx.sqlite.db.SimpleSQLiteQuery
-import com.gymseries.database.DataBaseGeneric
+import com.gymseries.database.AppData
 
 abstract class AsyncGererics<T>(
     val context: Context,
-    var entity: T,
-    val lists: ArrayList<T>
+    private val op:Int
 ) : AsyncTask<String, String, List<T>>() {
 
-    override fun onPostExecute(result: List<T>?) {
-        super.onPostExecute(result)
+    override fun doInBackground(vararg params: String?): List<T> {
+        var appData = AppData.getInstance(context)
+        return when(op){
+            0-> return appData.bicepsRoom().all(SimpleSQLiteQuery("SELECT * FROM Biceps")) as List<T>
+            1-> return appData.tricepsRoom().all(SimpleSQLiteQuery("SELECT * FROM Triceps")) as List<T>
+            2-> return appData.peitoRoom().all(SimpleSQLiteQuery("SELECT * FROM Peito")) as List<T>
+            3-> return appData.ombroRoom().all(SimpleSQLiteQuery("SELECT * FROM Ombro")) as List<T>
+            4-> return appData.costaRoom().all(SimpleSQLiteQuery("SELECT * FROM Costa")) as List<T>
+            5-> return appData.pernaRoom().all(SimpleSQLiteQuery("SELECT * FROM Perna")) as List<T>
+            else -> emptyList()
+        }
     }
 
-    override fun doInBackground(vararg params: String?): List<T> {
-        var generic = DataBaseGeneric.getInstance(context)
-        var dao = generic.getOmbroRoom()
-        return dao.all(SimpleSQLiteQuery("SELECT * FROM $entity"))
-    }
 }

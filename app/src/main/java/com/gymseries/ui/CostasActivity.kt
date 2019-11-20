@@ -5,8 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.CostasAdapter
-import com.gymseries.async.ListarCostaAsync
-import com.gymseries.async.ListarOmbrosAsync
+import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Costa
 
 class CostasActivity : AppCompatActivity() {
@@ -19,6 +18,7 @@ class CostasActivity : AppCompatActivity() {
         val costas = ArrayList<Costa>()
         var adapter = CostasAdapter(this, costas)
         recyclerView.adapter = adapter
-        ListarCostaAsync(this, costas, adapter).execute()
+
+        ListEntityGenericAsync<Costa>(this, costas, adapter, 4).execute()
     }
 }

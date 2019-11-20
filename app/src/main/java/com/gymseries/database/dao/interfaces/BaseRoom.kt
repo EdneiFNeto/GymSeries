@@ -2,19 +2,20 @@ package com.gymseries.database.dao.interfaces
 
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteQuery
+import com.gymseries.model.Ombro
 
 @Dao
-abstract class BaseRoom<T> {
+interface BaseRoom<T> {
 
     @Insert
-    fun insert(t: T){}
+    fun insert(t: T)
 
     @Delete
-    fun delete(t: T){}
+    fun delete(t: T)
 
     @Update
-    fun update(t: T){}
+    fun update(t: T)
 
     @RawQuery
-    fun <T>all(query: SupportSQLiteQuery): List<T>{return arrayListOf()}
+    fun all(query: SupportSQLiteQuery ): List<T>
 }

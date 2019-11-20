@@ -4,10 +4,7 @@ import android.content.Context
 import android.os.AsyncTask
 import com.gymseries.GenericsUtil
 import com.gymseries.database.AppData
-import com.gymseries.model.Costa
 import com.gymseries.model.Peito
-import com.gymseries.model.Perna
-import com.gymseries.model.Triceps
 import java.util.ArrayList
 
 class ListarPeitoSelecionados(
@@ -24,7 +21,7 @@ class ListarPeitoSelecionados(
 
     override fun doInBackground(vararg params: String?): List<Peito> {
         var data = AppData.getInstance(context)
-        var dao = data.peitoDao()
+        var dao = data.peitoRoom()
         return dao.allStates(true)
     }
 }

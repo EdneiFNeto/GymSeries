@@ -5,11 +5,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.PeitoAdapter
-import com.gymseries.adapter.TricepsAdapter
-import com.gymseries.async.ListarPeitoAsync
-import com.gymseries.async.ListarTricepsAsyncTasks
+import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Peito
-import com.gymseries.model.Triceps
 
 class PeitoActivity : AppCompatActivity() {
 
@@ -22,6 +19,6 @@ class PeitoActivity : AppCompatActivity() {
         var adapter = PeitoAdapter(this, peitos, true)
         recyclerViewTriceps.adapter = adapter
 
-        ListarPeitoAsync(this, peitos, adapter).execute()
+        ListEntityGenericAsync<Peito>(this, peitos, adapter, 2).execute()
     }
 }

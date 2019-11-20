@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.TricepsAdapter
-import com.gymseries.async.ListarTricepsAsyncTasks
+import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Triceps
 
 class Tricesctivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class Tricesctivity : AppCompatActivity() {
         var adapter = TricepsAdapter(this, triceps, true)
         recyclerViewTriceps.adapter = adapter
 
-        ListarTricepsAsyncTasks(this, triceps, adapter).execute()
+        ListEntityGenericAsync(this, triceps, adapter, 1).execute()
     }
 }
 

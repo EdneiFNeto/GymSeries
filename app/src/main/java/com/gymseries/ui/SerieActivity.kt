@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.*
-import com.gymseries.async.ListarPernaSelecionados
 import com.gymseries.async.ListarTricepsSelecionados
 import com.gymseries.model.Peito
 import com.gymseries.model.Perna

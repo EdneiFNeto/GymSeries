@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.adapter.CostasAdapter
 import com.gymseries.adapter.PernaAdapter
-import com.gymseries.async.ListarCostaAsync
-import com.gymseries.async.ListarPernasAsync
-import com.gymseries.model.Costa
+import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Perna
 
 class PernaActivity : AppCompatActivity() {
@@ -22,6 +19,6 @@ class PernaActivity : AppCompatActivity() {
         var adapter = PernaAdapter(this, pernas, true)
         recyclerView.adapter = adapter
 
-        ListarPernasAsync(this, pernas, adapter).execute()
+        ListEntityGenericAsync(this, pernas, adapter, 5).execute()
     }
 }

@@ -2,7 +2,6 @@ package com.gymseries.async
 
 import android.content.Context
 import android.os.AsyncTask
-import android.util.Log
 import com.gymseries.R
 import com.gymseries.database.AppData
 import com.gymseries.model.Ombro
@@ -45,7 +44,7 @@ class InsertPeitoAsync(val context: Context, private val peitos: ArrayList<Peito
     override fun doInBackground(vararg params: String?): List<Peito> {
 
         var data = AppData.getInstance(context)
-        var dao = data.peitoDao()
+        var dao = data.peitoRoom()
 
         if (dao.all().isEmpty()) {
             for (p in peitos)

@@ -5,7 +5,6 @@ import android.os.AsyncTask
 import com.gymseries.GenericsUtil
 import com.gymseries.adapter.PeitoAdapter
 import com.gymseries.database.AppData
-import com.gymseries.model.Biceps
 import com.gymseries.model.Peito
 
 class UpdatePeitoAsyncAsync(val context: Context,
@@ -22,7 +21,7 @@ class UpdatePeitoAsyncAsync(val context: Context,
     }
     override fun doInBackground(vararg params: String?): List<Peito> {
         var data = AppData.getInstance(context)
-        var dao = data.peitoDao()
+        var dao = data.peitoRoom()
         dao.update(peito)
         return dao.all()
     }

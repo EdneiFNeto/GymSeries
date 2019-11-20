@@ -1,6 +1,7 @@
 package com.gymseries.database
 
 import android.content.Context
+import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -20,12 +21,15 @@ import com.gymseries.model.*
 )
 abstract class AppData : RoomDatabase() {
 
+    abstract fun peitoRoom(): PeitoRoom
+    abstract fun ombroRoom(): OmbroRoom
+    abstract fun pernaRoom(): pernaRoom
+    abstract fun costaRoom(): CostaRoom
+
+
+    abstract fun tricepsRoom(): TricepsRoom
     abstract fun bicepsRoom(): BicepsRoom
-    abstract fun tricepsDao(): TricepsRoom
-    abstract fun peitoDao(): PeitoRoom
-    abstract fun ombroDao(): OmbroRoom
-    abstract fun pernaDao(): pernaRoom
-    abstract fun costaDao(): CostaRoom
+    abstract fun getOmbroRoom(): OmbroTestRoom
 
     companion object {
         fun getInstance(context: Context): AppData {

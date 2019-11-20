@@ -3,6 +3,7 @@ package com.gymseries.async
 import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
+import androidx.sqlite.db.SimpleSQLiteQuery
 import com.gymseries.GenericsUtil
 import com.gymseries.adapter.BycipesAdapter
 import com.gymseries.database.AppData
@@ -27,7 +28,7 @@ class UpdateBicepsAsync(
         var data = AppData.getInstance(context)
         var dao = data.bicepsRoom()
         dao.update(bicep)
-        return dao.all()
+        return dao.all(SimpleSQLiteQuery("SELECT * FROM Biceps"))
     }
 
 }

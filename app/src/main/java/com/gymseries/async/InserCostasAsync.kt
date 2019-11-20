@@ -22,7 +22,7 @@ class InserCostasAsync(
     override fun doInBackground(vararg params: String?): List<Costa> {
 
         var data = AppData.getInstance(context)
-        var dao = data.costaDao()
+        var dao = data.costaRoom()
 
         //if my lists is empty
         //insert boceps

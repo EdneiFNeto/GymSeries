@@ -1,10 +1,8 @@
 package com.gymseries.async
 
 import android.content.Context
-import android.content.Intent
 import android.os.AsyncTask
 import com.gymseries.R
-import com.gymseries.ui.MainActivity
 import com.gymseries.database.AppData
 import com.gymseries.model.Peito
 import com.gymseries.model.Triceps
@@ -50,7 +48,7 @@ class InsertTricepsAsynctasks(val context: Context, var triceps: ArrayList<Trice
     override fun doInBackground(vararg params: String?): List<Triceps> {
 
         var data = AppData.getInstance(context)
-        var dao = data.tricepsDao()
+        var dao = data.tricepsRoom()
 
         //if my lists is empty
         //insert data
