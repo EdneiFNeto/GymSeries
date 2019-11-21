@@ -8,7 +8,7 @@ import com.gymseries.model.Ombro
 interface BaseRoom<T> {
 
     @Insert
-    fun insert(t: T)
+    fun insert(t: T):Long
 
     @Delete
     fun delete(t: T)

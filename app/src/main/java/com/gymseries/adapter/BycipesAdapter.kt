@@ -1,7 +1,6 @@
 package com.gymseries.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +8,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdateBicepsAsync
-import com.gymseries.async.UpdateTricepsAsync
 import com.gymseries.model.Biceps
-import com.gymseries.model.Triceps
-import com.gymseries.utils.AlertDialogUtis
 
 class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>) :
     RecyclerView.Adapter<BycipesAdapter.MyHolder>() {
@@ -100,7 +95,7 @@ class BycipesAdapter(val context: Context, private val biceps: ArrayList<Biceps>
                 descr = bicep.descr
             )
 
-            UpdateBicepsAsync(context, b, this, biceps).execute()
+            //UpdateBicepsAsync(context, b, this, biceps).execute()
             dialog.dismiss()
         }
     }

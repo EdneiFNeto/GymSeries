@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdatePernaAsync
 import com.gymseries.model.Perna
 import java.util.*
 
@@ -106,7 +105,7 @@ class PernaAdapter(
 
         button_salvar.setOnClickListener {
 
-            UpdatePernaAsync(
+            /*UpdatePernaAsync(
                 context,
                 Perna(
                     id = perna.id,
@@ -117,7 +116,7 @@ class PernaAdapter(
                 ),
                 this,
                 pernas
-            ).execute()
+            ).execute()*/
 
             dialog.dismiss()
         }

@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdateOmbroAsyncAsync
 import com.gymseries.model.Ombro
 import java.util.*
 
@@ -89,7 +88,7 @@ class OmbroAdapter(val context: Context, private val ombros: ArrayList<Ombro>) :
 
         button_salvar.setOnClickListener {
 
-            UpdateOmbroAsyncAsync(
+            /*UpdateOmbroAsyncAsync(
                 context,
                 Ombro(
                     id = ombro.id,
@@ -100,7 +99,7 @@ class OmbroAdapter(val context: Context, private val ombros: ArrayList<Ombro>) :
                 ),
                 this,
                 ombros
-            ).execute()
+            ).execute()*/
 
             dialog.dismiss()
         }

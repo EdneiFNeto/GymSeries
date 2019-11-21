@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdatePeitoAsyncAsync
 import com.gymseries.model.Peito
 
 class PeitoAdapter(
@@ -109,7 +108,7 @@ class PeitoAdapter(
 
         button_salvar.setOnClickListener {
 
-            UpdatePeitoAsyncAsync(
+            /*UpdatePeitoAsyncAsync(
                 context,
                 Peito(
                     id = peito.id,
@@ -120,7 +119,7 @@ class PeitoAdapter(
                 ),
                 this,
                 peitos
-            ).execute()
+            ).execute()*/
 
             dialog.dismiss()
         }

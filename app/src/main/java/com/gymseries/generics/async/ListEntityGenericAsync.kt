@@ -5,17 +5,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.GenericsUtil
 
 /**
- * OPtions: select list
- * 0 - Ombro
- * 1 - Biceps
- * 2 - Triceps
+ * Options:
+ * 0 - Biceps
+ * 1 - Triceps
+ * 2 - Peito
+ * 3 - Ombro
+ * 4 - Costas
+ * 5 - Perna
  */
 class ListEntityGenericAsync<T>(
     context: Context,
     private val lista: ArrayList<T>,
     private val adapter: RecyclerView.Adapter<*>,
     op:Int
-) : AsyncGererics<T>(context = context, op = op) {
+) : BaseListAsync<T, Any?, Any?>(context = context, op = op) {
 
     override fun onPostExecute(result: List<T>?) {
         super.onPostExecute(result)

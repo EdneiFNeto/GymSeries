@@ -11,9 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdateCostasAsyncAsync
 import com.gymseries.model.Costa
-import java.util.*
 import kotlin.collections.ArrayList
 
 class CostasAdapter(val context: Context,
@@ -91,7 +89,7 @@ class CostasAdapter(val context: Context,
 
         button_salvar.setOnClickListener {
 
-            UpdateCostasAsyncAsync(
+            /*UpdateCostasAsyncAsync(
                 context,
                 Costa(
                     id = costa.id,
@@ -102,7 +100,7 @@ class CostasAdapter(val context: Context,
                 ),
                 this,
                 costas
-            ).execute()
+            ).execute()*/
 
             dialog.dismiss()
         }

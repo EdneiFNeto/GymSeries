@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.*
-import com.gymseries.async.ListarTricepsSelecionados
 import com.gymseries.model.Peito
 import com.gymseries.model.Perna
 import com.gymseries.model.Triceps
@@ -38,9 +37,9 @@ class SerieActivity : AppCompatActivity() {
         var adapterPerna= PernaAdapter(this, pernas, false)
         serie_perna.adapter = adapterPerna
 
-        ListarTricepsSelecionados(this, adapterTriceps, triceps).execute()
+        /*ListarTricepsSelecionados(this, adapterTriceps, triceps).execute()
         ListarPeitoSelecionados(this, peitoAdapter, peitos).execute()
-        ListarPernaSelecionados(this, adapterPerna, pernas).execute()
+        ListarPernaSelecionados(this, adapterPerna, pernas).execute()*/
 //
 //        ListarOmbroSelecionados(this, adapterTriceps, triceps).execute()
     }

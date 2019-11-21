@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 @Entity
 class Biceps(
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    val descr: String,
+    val id: Long?,
+    val descr: String?,
     val status: Boolean,
-    val repeticoes: String,
-    val peso: String
+    val repeticoes: String?,
+    val peso: String?
 ) {}

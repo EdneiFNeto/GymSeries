@@ -23,7 +23,9 @@ class AlertDialogUtis(val context: Context) {
             var builder = AlertDialog.Builder(context)
             builder.setIcon(R.mipmap.ic_descri_treino)
             val title = biceps.descr
-            builder.setTitle(title.toUpperCase())
+            if (title != null) {
+                builder.setTitle(title.toUpperCase())
+            }
 
             val view: View = LayoutInflater.from(context).inflate(R.layout.layout_select_peso_repeticao_treino, null)
             var spinner_kg = view.findViewById<Spinner>(R.id.edttext_kg)

@@ -8,7 +8,6 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.async.UpdateTricepsAsync
 import com.gymseries.model.Triceps
 
 class TricepsAdapter(val context: Context, private var triceps: ArrayList<Triceps>, private val changeLayout:Boolean ) :
@@ -99,7 +98,7 @@ class TricepsAdapter(val context: Context, private var triceps: ArrayList<Tricep
 
         button_salvar.setOnClickListener {
 
-            UpdateTricepsAsync(
+            /*UpdateTricepsAsync(
                 context,
                 Triceps(
                     id = triceps.id,
@@ -110,7 +109,7 @@ class TricepsAdapter(val context: Context, private var triceps: ArrayList<Tricep
                 ),
                 this,
                 listTriceps
-            ).execute()
+            ).execute()*/
 
             dialog.dismiss()
         }
