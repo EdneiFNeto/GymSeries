@@ -40,7 +40,8 @@ class IntensAdapter(private val context: Context, private  val list: Array<Itens
                 4-> context.startActivity(Intent(context, CostasActivity::class.java))
                 5-> context.startActivity(Intent(context, PernaActivity::class.java))
                 6-> context.startActivity(Intent(context, IMCActivity::class.java))
-                7-> context.startActivity(Intent(context, SerieActivity::class.java))
+//                7-> context.startActivity(Intent(context, SerieActivity::class.java))
+                7-> context.startActivity(Intent(context, SerieATabLayoutctivity::class.java))
             }
         }
     }

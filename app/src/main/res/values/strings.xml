@@ -19,7 +19,7 @@
     <string name="rosca_inversa">Rosca Inversa</string>
     <string name="button_salvar">Salvar</string>
 
-    <string name="testa">Extensão de tríceps deitado</string>
+    <string name="triceps_testa">Extensão de tríceps deitado</string>
     <string name="supinado">Supino no banco reto com pegada fechada</string>
     <string name="mergulho">Mergulho no banco</string>
     <string name="triceps_no_banco">Tríceps no banco</string>
@@ -59,4 +59,10 @@
     <string name="pulover_halter">Pullover com haltere</string>
     <string name="remada_sentada">Pullover com haltere</string>
     <string name="title_perna">Perna</string>
+    <string name="rept">Rept.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="serie_a">Serie A</string>
+    <string name="serie_b">Serie B</string>
 </resources>

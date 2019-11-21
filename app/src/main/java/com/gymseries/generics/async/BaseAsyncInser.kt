@@ -34,51 +34,67 @@ abstract class BaseAsyncInser<T>(
 
         return when (op) {
             0 -> {
-                for (t in list) {
-                    var b = t as Biceps
-                    bicepsRoom.insert(b)
+                var all = bicepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Biceps")) as List<T>
+                if (all.isEmpty()) {
+                    for (t in list) {
+                        var b = t as Biceps
+                        bicepsRoom.insert(b)
+                    }
                 }
-
-                return bicepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Biceps")) as List<T>
+                return all
             }
             1 -> {
-                for (t in list) {
-                    var r = t as Triceps
-                    tricepsRoom.insert(r)
+                var all = bicepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Triceps")) as List<T>
+                if (all.isEmpty()) {
+                    for (t in list) {
+                        var r = t as Triceps
+                        tricepsRoom.insert(r)
+                    }
                 }
-
-                return tricepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Triceps")) as List<T>
+                return all
             }
             2 -> {
-                for (t in list) {
-                    var r = t as Peito
-                    peitoRoom.insert(r)
+                var all = bicepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Peito")) as List<T>
+                if (all.isEmpty()) {
+                    for (t in list) {
+                        var r = t as Peito
+                        peitoRoom.insert(r)
+                    }
                 }
-                return peitoRoom.all(SimpleSQLiteQuery("SELECT * FROM Peito")) as List<T>
+                return all
 
             }
             3 -> {
-                for (t in list) {
-                    var r = t as Ombro
-                    ombroRoom.insert(r)
+
+                var all = bicepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Ombro")) as List<T>
+                if (all.isEmpty()) {
+                    for (t in list) {
+                        var r = t as Ombro
+                        ombroRoom.insert(r)
+                    }
                 }
-                return ombroRoom.all(SimpleSQLiteQuery("SELECT * FROM Ombro")) as List<T>
+                return all
             }
             4 -> {
-                for (t in list) {
-                    var r = t as Costa
-                    costaRoom.insert(r)
+                var all = bicepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Costa")) as List<T>
+                if (all.isEmpty()) {
+                    for (t in list) {
+                        var r = t as Costa
+                        costaRoom.insert(r)
+                    }
                 }
-
-                return costaRoom.all(SimpleSQLiteQuery("SELECT * FROM Costa")) as List<T>
+                return all
 
             }
             5 -> {
-                for (t in list) {
-                    var r = t as Perna
-                    pernaRoom.insert(r)
+                var all = bicepsRoom.all(SimpleSQLiteQuery("SELECT * FROM Perna")) as List<T>
+                if (all.isEmpty()) {
+                    for (t in list) {
+                        var r = t as Perna
+                        pernaRoom.insert(r)
+                    }
                 }
-                return pernaRoom.all(SimpleSQLiteQuery("SELECT * FROM Perna")) as List<T>
+                return all
             }
             else -> emptyList()
         }

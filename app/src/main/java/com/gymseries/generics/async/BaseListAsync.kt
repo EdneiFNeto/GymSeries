@@ -5,7 +5,7 @@ import android.os.AsyncTask
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.gymseries.database.AppData
 
-abstract class BaseListAsync<T, U, V>(
+abstract class BaseListAsync<T>(
     val context: Context,
     private val op:Int
 ) : AsyncTask<String, String, List<T>>() {
