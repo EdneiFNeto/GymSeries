@@ -10,15 +10,10 @@ class TabsAdapter(
     fm: FragmentManager,
     private val numOfTabs:Int
 ) : FragmentPagerAdapter(fm) {
-
-
-    override fun getItem(position: Int): Fragment? {
-        return when(numOfTabs){
-            0-> tab1()
-            1-> tab2()
-            else-> null
-        }
+    override fun getItem(position: Int): Fragment {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 
     private fun tab1(): Fragment? {
         return SerieATabFrgment()
