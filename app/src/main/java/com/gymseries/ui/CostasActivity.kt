@@ -7,6 +7,8 @@ import com.gymseries.R
 import com.gymseries.adapter.MyGenericAdapter
 import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Costa
+import com.gymseries.utils.ActionBarUtils
+import com.gymseries.utils.ResourcesUtils
 
 class CostasActivity : AppCompatActivity() {
 
@@ -15,6 +17,11 @@ class CostasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_costas)
+
+        ActionBarUtils.createTitleActionBar(
+            supportActionBar,
+            ResourcesUtils.getString(this, R.string.title_costas).toUpperCase()
+        )
 
         var recyclerView = findViewById<RecyclerView>(R.id.recycle_view_costas)
         val costas = ArrayList<Costa>()

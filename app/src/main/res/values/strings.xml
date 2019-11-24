@@ -11,7 +11,7 @@
     <string name="imc">Calcular IMC</string>
     <string name="view_serie">Visualizar Série</string>
     <string name="title_biceps">Biceps</string>
-    <string name="title_triceps">Triceps</string>
+    <string name="title_triceps">Tríceps</string>
     <string name="barra_fixa_com_pegada_supinada">Barra fixa com pegada supinada</string>
     <string name="rosca_direta">Rosca Direta</string>
     <string name="rosca_martelo">Rosca Martelo</string>
@@ -31,7 +31,7 @@
     <string name="text_peso">Kg</string>
     <string name="title_dialog_treino">Repetições/Pesos</string>
     <string name="text_num_peso">Quantidade Peso</string>
-    <string name="triceps">Triceps</string>
+    <string name="triceps">Tríceps</string>
     <string name="serie_costas">Serie Costas</string>
     <string name="costas">Costas</string>
     <string name="habilitar_treino">Habilitar Treino</string>
@@ -65,4 +65,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="serie_a">Serie A</string>
     <string name="serie_b">Serie B</string>
+    <string name="title_treino">Treino</string>
+    <string name="title_serie">Séries</string>
+    <string name="serie_a_fragemtn">SerieAFragment</string>
+    <string name="serie_b_fragemtn">SerieBFragment</string>
+    <string name="title_app">GymSeries</string>
 </resources>

@@ -7,6 +7,8 @@ import com.gymseries.R
 import com.gymseries.adapter.MyGenericAdapter
 import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Triceps
+import com.gymseries.utils.ActionBarUtils
+import com.gymseries.utils.ResourcesUtils
 
 class Tricesctivity : AppCompatActivity() {
 
@@ -14,6 +16,11 @@ class Tricesctivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tricesctivity)
+
+        ActionBarUtils.createTitleActionBar(
+            supportActionBar,
+            ResourcesUtils.getString(this, R.string.title_triceps).toUpperCase()
+        )
 
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_triceps)
         val triceps = ArrayList<Triceps>()

@@ -1,7 +1,6 @@
 package com.gymseries.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import com.gymseries.R
 import com.gymseries.generics.async.UpdateGeneric
 
 abstract class BaseAdapter<T>(
-    val context: Context,
+    val context: Context?,
     private val list: ArrayList<T>,
     val op: Int,
     val changeLayout: Boolean
@@ -27,7 +26,7 @@ abstract class BaseAdapter<T>(
         holder.add(list[position])
         if (changeLayout) {
             if (holder.status == "true") {
-                holder.itemView.setBackgroundResource(R.color.colorAccent)
+                holder.itemView.setBackgroundResource(R.color.primaryColor)
             } else {
                 holder.itemView.setBackgroundResource(android.R.color.white)
             }
@@ -36,8 +35,10 @@ abstract class BaseAdapter<T>(
                 dialog(list[position])
             }
 
-        }else{
+        } else {
             convertStringFronModel(holder, list[position])
+            holder.repeticao.text = "3 x ${holder.repeticao.text} Rept."
+            holder.peso.text = "${holder.peso.text} Kg."
         }
     }
 
@@ -55,7 +56,7 @@ abstract class BaseAdapter<T>(
         } else {
             return MyHolder(
                 LayoutInflater.from(context).inflate(
-                    R.layout.activity_serie_adapter,
+                    R.layout.layout_serie,
                     parent,
                     false
                 )
@@ -105,45 +106,49 @@ abstract class BaseAdapter<T>(
         }
 
         //exeibe dialog para opcao de treinos
-        var builder = AlertDialog.Builder(context)
-        builder.setIcon(R.mipmap.ic_descri_treino)
-        builder.setTitle(title)
+        if (context != null) {
+            var builder = AlertDialog.Builder(context)
+            builder.setIcon(R.mipmap.ic_descri_treino)
+            builder.setTitle(title)
 
-        val view: View =
-            LayoutInflater.from(context).inflate(R.layout.layout_select_peso_repeticao_treino, null)
-        var edittext_kg = view.findViewById<EditText>(R.id.edttext_kg)
-        var edittext_num_repeticao = view.findViewById<EditText>(R.id.edittext_repeticao)
-        var button_salvar = view.findViewById<Button>(R.id.button_salvar_dialog_treino)
-        var status = view.findViewById<Switch>(R.id.switch_is_enabled)
+            val view: View =
+                LayoutInflater.from(context)
+                    .inflate(R.layout.layout_select_peso_repeticao_treino, null)
+            var edittext_kg = view.findViewById<EditText>(R.id.edttext_kg)
+            var edittext_num_repeticao = view.findViewById<EditText>(R.id.edittext_repeticao)
+            var button_salvar = view.findViewById<Button>(R.id.button_salvar_dialog_treino)
+            var status = view.findViewById<Switch>(R.id.switch_is_enabled)
 
-        edittext_kg.setText(peso)
-        edittext_num_repeticao.setText(repeticao)
-        if (mySatutus == "true") {
-            status.isChecked = true
-        }
+            edittext_kg.setText(peso)
+            edittext_num_repeticao.setText(repeticao)
+            if (mySatutus == "true") {
+                status.isChecked = true
+            }
 
-        builder.setView(view)
-        var dialog = builder.create()
-        dialog.show()
+            builder.setView(view)
+            var dialog = builder.create()
+            dialog.show()
 
-        button_salvar.setOnClickListener {
-            UpdateGeneric(
-                context,
-                status.isChecked,
-                edittext_kg,
-                edittext_num_repeticao,
-                op,
-                t,
-                list,
-                this
-            ).execute()
-            dialog.dismiss()
+            button_salvar.setOnClickListener {
+                UpdateGeneric(
+                    context,
+                    status.isChecked,
+                    edittext_kg,
+                    edittext_num_repeticao,
+                    op,
+                    t,
+                    list,
+                    this
+                ).execute()
+                dialog.dismiss()
+            }
         }
     }
 
     fun convertStringFronModel(
         holder: MyHolder<T>,
-        model:T) {
+        model: T
+    ) {
         var str = model.toString().split(",")
         for (i in 0..str.size) {
             when (i) {

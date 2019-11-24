@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.IntensAdapter
 import com.gymseries.model.Itens
+import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.ResourcesUtils
 
 class MainActivity : AppCompatActivity() {
@@ -14,46 +15,52 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        ActionBarUtils.createTitleActionBar(
+            supportActionBar,
+            ResourcesUtils.getString(this, R.string.title_app).toUpperCase()
+        )
+
+
         var recyclerView = findViewById<RecyclerView>(R.id.recycle_view_main)
 
         var listItens = arrayOf(
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.biceps,
                 ResourcesUtils.getString(this, R.string.braco),
                 ResourcesUtils.getString(this, R.string.biceps)
             ),
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.triceps,
                 ResourcesUtils.getString(this, R.string.braco),
                 ResourcesUtils.getString(this, R.string.triceps)
             ),
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.peito,
                 ResourcesUtils.getString(this, R.string.serie_peito),
                 ResourcesUtils.getString(this, R.string.peito)
             ),
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.ombro,
                 ResourcesUtils.getString(this, R.string.serie_ombro),
                 ResourcesUtils.getString(this, R.string.ombro)
             ),
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.costas,
                 ResourcesUtils.getString(this, R.string.serie_costas),
                 ResourcesUtils.getString(this, R.string.costas)
             ),
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.pernas,
                 ResourcesUtils.getString(this, R.string.serie_perna),
                 ResourcesUtils.getString(this, R.string.perna)
             ),
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.imc,
                 ResourcesUtils.getString(this, R.string.imc),
                 ResourcesUtils.getString(this, R.string.imc)
             ),
             Itens(
-                R.drawable.ic_launcher_background,
+                R.drawable.imc,
                 ResourcesUtils.getString(this, R.string.view_serie),
                 ResourcesUtils.getString(this, R.string.view_serie)
             )

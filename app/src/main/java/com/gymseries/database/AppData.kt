@@ -1,7 +1,6 @@
 package com.gymseries.database
 
 import android.content.Context
-import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -32,11 +31,16 @@ abstract class AppData : RoomDatabase() {
     abstract fun getOmbroRoom(): OmbroTestRoom
 
     companion object {
-        fun getInstance(context: Context): AppData {
+        fun getInstance(context: Context?): AppData? {
+
+            if(context!=null){
             return Room
                 .databaseBuilder(context, AppData::class.java, "gym_db")
                 .fallbackToDestructiveMigration()
                 .build()
+            }
+
+            return null
         }
     }
 }

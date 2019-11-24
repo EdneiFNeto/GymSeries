@@ -14,6 +14,6 @@ class SerieATabFrgment() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return LayoutInflater.from(context).inflate(R.layout.activity_serie_a, container, false)
+        return LayoutInflater.from(context).inflate(R.layout.activity_fragment_serie, container, false)
     }
 }

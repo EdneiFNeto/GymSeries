@@ -40,8 +40,7 @@ class IntensAdapter(private val context: Context, private  val list: Array<Itens
                 4-> context.startActivity(Intent(context, CostasActivity::class.java))
                 5-> context.startActivity(Intent(context, PernaActivity::class.java))
                 6-> context.startActivity(Intent(context, IMCActivity::class.java))
-//                7-> context.startActivity(Intent(context, SerieActivity::class.java))
-                7-> context.startActivity(Intent(context, SerieATabLayoutctivity::class.java))
+                7-> context.startActivity(Intent(context, SerieAtctivity::class.java))
             }
         }
     }
@@ -49,14 +48,15 @@ class IntensAdapter(private val context: Context, private  val list: Array<Itens
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private var icon: ImageView? = itemView.findViewById(R.id.imageVew_icon);
-        private var title: TextView? = itemView.findViewById(R.id.text_title);
-        private var descr: TextView? = itemView.findViewById(R.id.text_descr);
+        private var icon: ImageView? = itemView.findViewById(R.id.imageVew_icon)
+        private var title: TextView? = itemView.findViewById(R.id.text_title)
+        private var descr: TextView? = itemView.findViewById(R.id.text_descr)
 
         fun add(itens:Itens){
-            icon?.setBackgroundResource(itens.icon)
-            title?.text = itens.title
-            descr?.text = itens.desc
+            icon!!.setBackgroundResource(itens.icon)
+            title!!.text = itens.title
+            descr!!.text = itens.desc
+            icon!!.setBackgroundResource(itens.icon)
         }
     }
 }

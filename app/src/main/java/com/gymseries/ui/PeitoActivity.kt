@@ -7,6 +7,8 @@ import com.gymseries.R
 import com.gymseries.adapter.MyGenericAdapter
 import com.gymseries.generics.async.ListEntityGenericAsync
 import com.gymseries.model.Peito
+import com.gymseries.utils.ActionBarUtils
+import com.gymseries.utils.ResourcesUtils
 
 class PeitoActivity : AppCompatActivity() {
 
@@ -15,6 +17,10 @@ class PeitoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_peito)
 
+        ActionBarUtils.createTitleActionBar(
+            supportActionBar,
+            ResourcesUtils.getString(this, R.string.title_perna).toUpperCase()
+        )
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_peito)
         val peitos = ArrayList<Peito>()
         var adapter = MyGenericAdapter(this, peitos, op, true)

@@ -25,12 +25,12 @@ abstract class BaseAsyncInser<T>(
     override fun doInBackground(vararg p0: String?): List<T> {
 
         var appData = AppData.getInstance(context)
-        var bicepsRoom = appData.bicepsRoom()
-        var tricepsRoom = appData.tricepsRoom()
-        var peitoRoom = appData.peitoRoom()
-        var ombroRoom = appData.ombroRoom()
-        var costaRoom = appData.costaRoom()
-        var pernaRoom = appData.pernaRoom()
+        var bicepsRoom = appData!!.bicepsRoom()
+        var tricepsRoom = appData!!.tricepsRoom()
+        var peitoRoom = appData!!.peitoRoom()
+        var ombroRoom = appData!!.ombroRoom()
+        var costaRoom = appData!!.costaRoom()
+        var pernaRoom = appData!!.pernaRoom()
 
         return when (op) {
             0 -> {
