@@ -15,7 +15,7 @@ import com.gymseries.ui.*
 class IntensAdapter(private val context: Context, private  val list: Array<Itens>):
     RecyclerView.Adapter<IntensAdapter.MyHolder>() {
 
-    private val TAG: String="IntensAdapterLog"
+ .   private val TAG: String="IntensAdapterLog"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.layout_itens_corpo, parent, false)
@@ -39,8 +39,8 @@ class IntensAdapter(private val context: Context, private  val list: Array<Itens
                 3-> context.startActivity(Intent(context, OmbroActivity::class.java))
                 4-> context.startActivity(Intent(context, CostasActivity::class.java))
                 5-> context.startActivity(Intent(context, PernaActivity::class.java))
-                6-> context.startActivity(Intent(context, IMCActivity::class.java))
-                7-> context.startActivity(Intent(context, SerieAtctivity::class.java))
+//                6-> context.startActivity(Intent(context, IMCActivity::class.java))
+//                7-> context.startActivity(Intent(context, SerieAtctivity::class.java))
             }
         }
     }
@@ -53,10 +53,10 @@ class IntensAdapter(private val context: Context, private  val list: Array<Itens
         private var descr: TextView? = itemView.findViewById(R.id.text_descr)
 
         fun add(itens:Itens){
-            icon!!.setBackgroundResource(itens.icon)
-            title!!.text = itens.title
-            descr!!.text = itens.desc
-            icon!!.setBackgroundResource(itens.icon)
+            icon?.setBackgroundResource(itens.icon)
+            title?.text = itens.title
+            descr?.text = itens.desc
+            icon?.setBackgroundResource(itens.icon)
         }
     }
 }

@@ -70,4 +70,6 @@
     <string name="serie_a_fragemtn">SerieAFragment</string>
     <string name="serie_b_fragemtn">SerieBFragment</string>
     <string name="title_app">GymSeries</string>
+    <string name="setting">Configurações</string>
+    <string name="title_imc">IMC</string>
 </resources>

@@ -14,12 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        ActionBarUtils.createTitleActionBar(
-            supportActionBar,
-            ResourcesUtils.getString(this, R.string.title_app).toUpperCase()
-        )
-
+        ActionBarUtils.hiide(supportActionBar)
 
         var recyclerView = findViewById<RecyclerView>(R.id.recycle_view_main)
 
@@ -53,17 +48,17 @@ class MainActivity : AppCompatActivity() {
                 R.drawable.pernas,
                 ResourcesUtils.getString(this, R.string.serie_perna),
                 ResourcesUtils.getString(this, R.string.perna)
-            ),
-            Itens(
-                R.drawable.imc,
-                ResourcesUtils.getString(this, R.string.imc),
-                ResourcesUtils.getString(this, R.string.imc)
-            ),
-            Itens(
-                R.drawable.imc,
-                ResourcesUtils.getString(this, R.string.view_serie),
-                ResourcesUtils.getString(this, R.string.view_serie)
             )
+//            Itens(
+//                R.drawable.imc,
+//                ResourcesUtils.getString(this, R.string.imc),
+//                ResourcesUtils.getString(this, R.string.imc)
+//            ),
+//            Itens(
+//                R.drawable.imc,
+//                ResourcesUtils.getString(this, R.string.view_serie),
+//                ResourcesUtils.getString(this, R.string.view_serie)
+//            )
         )
 
         var adapter = IntensAdapter(this, listItens)

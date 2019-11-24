@@ -12,5 +12,9 @@ class ActionBarUtils {
 
             }
         }
+
+        fun hiide(actionBar: ActionBar?) {
+            actionBar?.hide()
+        }
     }
 }
