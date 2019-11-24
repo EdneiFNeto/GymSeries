@@ -13,7 +13,7 @@
         <activity android:name=".ui.CostasActivity" />
         <activity android:name=".ui.Tricesctivity" />
         <activity
-            android:name=".ui.SerieActivity"
+            android:name=".ui.SerieAActivity"
             android:noHistory="true" />
         <activity
             android:name=".ui.IMCActivity"

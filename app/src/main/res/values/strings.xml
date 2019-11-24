@@ -72,4 +72,10 @@
     <string name="title_app">GymSeries</string>
     <string name="setting">Configurações</string>
     <string name="title_imc">IMC</string>
+    <string name="main_fragemtn">MainFragments</string>
+    <string name="imc_fragemtn">IMCFragments</string>
+    <string name="setting_fragemtn">SettingFragment</string>
+    <string name="title_settings">Configurações</string>
+    <string name="title_home">Home</string>
+    <string name="serie_fragemtn">SerieFragment</string>
 </resources>

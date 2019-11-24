@@ -3,16 +3,15 @@ package com.gymseries.ui
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.gymseries.R
 import com.gymseries.fragments.SerieBFragment
 import com.gymseries.utils.ActionBarUtils
+import com.gymseries.utils.FragmentUtils
 import com.gymseries.utils.ResourcesUtils
 
 class SerieAtctivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private val fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,24 +21,33 @@ class SerieAtctivity : AppCompatActivity(), BottomNavigationView.OnNavigationIte
             ResourcesUtils.getString(this, R.string.title_serie).toUpperCase()
         )
 
-        var bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        var bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_serie)
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
-        changeFragments(SerieAFragment(), ResourcesUtils.getString(this, R.string.serie_a_fragemtn))
+        FragmentUtils.changeFragments(
+            supportFragmentManager,
+            SerieAFragment(),
+            ResourcesUtils.getString(this, R.string.serie_a_fragemtn),
+            R.id.frame_layou_serie
+        )
     }
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_serie_a -> {
-                changeFragments(
+                FragmentUtils.changeFragments(
+                    supportFragmentManager,
                     SerieAFragment(),
-                    ResourcesUtils.getString(this, R.string.serie_a_fragemtn)
+                    ResourcesUtils.getString(this, R.string.serie_a_fragemtn),
+                    R.id.frame_layou_serie
                 )
             }
             R.id.item_serie_b -> {
-                changeFragments(
+                FragmentUtils.changeFragments(
+                    supportFragmentManager,
                     SerieBFragment(),
-                    ResourcesUtils.getString(this, R.string.serie_b_fragemtn)
+                    ResourcesUtils.getString(this, R.string.serie_b_fragemtn),
+                    R.id.frame_layou_serie
                 )
             }
         }
@@ -47,12 +55,7 @@ class SerieAtctivity : AppCompatActivity(), BottomNavigationView.OnNavigationIte
         return true
     }
 
-    private fun changeFragments(fragment: Fragment, tag: String) {
-        fragmentManager
-            .beginTransaction()
-            .replace(R.id.frame_layou_serie, fragment, tag)
-            .commitAllowingStateLoss()
-    }
+
 }
 
 

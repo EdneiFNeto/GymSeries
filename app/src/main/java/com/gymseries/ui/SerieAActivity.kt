@@ -11,7 +11,7 @@ import com.gymseries.model.Peito
 import com.gymseries.model.Perna
 import com.gymseries.model.Triceps
 
-class SerieActivity : AppCompatActivity() {
+class SerieAActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +19,8 @@ class SerieActivity : AppCompatActivity() {
 
         var serie_peito = findViewById<RecyclerView>(R.id.recycleview_series_peito)
         var serie_triceps = findViewById<RecyclerView>(R.id.recycleview_series_triceps)
-        var serie_perna = findViewById<RecyclerView>(R.id.recycleview_series_perna)
-        var serie_ombro = findViewById<RecyclerView>(R.id.recycleview_series_ombro)
+        var serie_perna = findViewById<RecyclerView>(R.id.recycleview_series_perna_a)
+        var serie_ombro = findViewById<RecyclerView>(R.id.recycleview_series_ombro_b)
 
         val triceps = arrayListOf<Triceps>()
         var tricepsAdapter = MyGenericAdapter(this, triceps, 1, false)

@@ -37,9 +37,10 @@ abstract class BaseAdapter<T>(
 
         } else {
             convertStringFronModel(holder, list[position])
-            holder.repeticao.text = "3 x ${holder.repeticao.text} Rept."
-            holder.peso.text = "${holder.peso.text} Kg."
+
         }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder<T> {
@@ -80,8 +81,8 @@ abstract class BaseAdapter<T>(
             for (i in 0..str.size) {
                 when (i) {
                     1 -> title.text = str[i]
-                    2 -> repeticao.text = "Repetição: ${str[i]}"
-                    3 -> peso.text = "Kg: ${str[i]}"
+                    2 -> repeticao.text = "3 x ${str[i]} Rept."
+                    3 -> peso.text = " ${str[i]} Kg."
                     4 -> status = str[i]
                 }
             }
