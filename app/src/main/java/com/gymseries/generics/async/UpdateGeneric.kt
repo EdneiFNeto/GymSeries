@@ -10,6 +10,7 @@ class UpdateGeneric<T>(
     status:Boolean,
     peso:EditText,
     repeticao:EditText,
+    serie:String,
     op: Int,
     t: T,
     val list: ArrayList<T>,
@@ -19,6 +20,7 @@ class UpdateGeneric<T>(
         status = status,
         peso = peso,
         repeticao = repeticao,
+        serie = serie,
         op = op,
         t = t) {
 

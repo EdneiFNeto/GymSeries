@@ -14,7 +14,7 @@ import com.gymseries.GenericsUtil
  * 5 - Perna
  */
 class ListEntityGenericAsync<T>(
-    context: Context,
+    context: Context?,
     private val lista: ArrayList<T>,
     private val adapter: RecyclerView.Adapter<*>,
     op:Int

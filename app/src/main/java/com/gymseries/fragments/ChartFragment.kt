@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.gymseries.R
 
-class SettingFragment : Fragment() {
+class ChartFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

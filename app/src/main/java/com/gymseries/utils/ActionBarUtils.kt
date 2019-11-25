@@ -6,15 +6,19 @@ import androidx.appcompat.app.ActionBar
 class ActionBarUtils {
 
     companion object {
-        fun createTitleActionBar(actionBar: ActionBar?, title:String) {
+        fun createTitleActionBar(actionBar: ActionBar?, title: String) {
             if (actionBar != null) {
                 actionBar.title = title
 
             }
         }
 
-        fun hiide(actionBar: ActionBar?) {
+        fun hide(actionBar: ActionBar?) {
             actionBar?.hide()
+        }
+
+        fun show(actionBar: ActionBar?) {
+            actionBar?.show()
         }
     }
 }

@@ -28,7 +28,7 @@
     <string name="tirceps_corda">Tríceps Cordas</string>
 
     <string name="numero_repeticoes">Nº Repetições</string>
-    <string name="text_peso">Kg</string>
+    <string name="text_kg">Kg</string>
     <string name="title_dialog_treino">Repetições/Pesos</string>
     <string name="text_num_peso">Quantidade Peso</string>
     <string name="triceps">Tríceps</string>
@@ -63,8 +63,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="serie_a">Serie A</string>
-    <string name="serie_b">Serie B</string>
+    <string name="serie_a">Série A</string>
+    <string name="serie_b">Série B</string>
     <string name="title_treino">Treino</string>
     <string name="title_serie">Séries</string>
     <string name="serie_a_fragemtn">SerieAFragment</string>
@@ -84,4 +84,25 @@
     <string name="button_cancelar">Cancelar</string>
     <string name="deletar_serie">Deletar Série</string>
     <string name="msg_delete">Deseja excluir treino?</string>
+    <string name="a">a</string>
+    <string name="b">b</string>
+    <string name="title_desc_imc">Índice de massa corporal(IMC)</string>
+    <string name="title_sub_title_imc">Uma medida da gordura corporal em adultos</string>
+    <string name="text_peso">Peso</string>
+    <string name="text_altura">Altura</string>
+    <string name="text_title_calculadora">Calculadora</string>
+    <string name="sexo_f">Feminino</string>
+    <string name="sexo_m">Masculino</string>
+    <string name="button_calcular_imc">Calcular</string>
+    <string name="title_chart">Gráfico</string>
+    <string name="preencha_campos">*Preencha todos os campos !</string>
+    <string name="titel_idade">Idade</string>
+    <string name="text_saudavel">Saudável</string>
+    <string name="title_calcular_imc">Calcular IMC</string>
+    <string name="text_default_img">0,00 Kg</string>
+    <string name="peso_baixo">Peso Baixo</string>
+    <string name="peso_normal">Peso Normal</string>
+    <string name="sobre_peso">Sobrepeso</string>
+    <string name="sobre_peso_g1">Obesidade (Grau I)</string>
+    <string name="sobre_peso_g2">Obesidade (Grau II)</string>
 </resources>

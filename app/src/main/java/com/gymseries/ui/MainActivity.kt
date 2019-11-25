@@ -3,12 +3,9 @@ package com.gymseries.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.gymseries.R
-import com.gymseries.adapter.IntensAdapter
 import com.gymseries.fragments.*
-import com.gymseries.model.Itens
 import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.FragmentUtils
 import com.gymseries.utils.ResourcesUtils
@@ -19,7 +16,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ActionBarUtils.hiide(supportActionBar)
+        ActionBarUtils.hide(supportActionBar)
 
         FragmentUtils.changeFragments(
             supportFragmentManager,
@@ -57,10 +54,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     R.id.frame_layout_main
                 )
             }
-            R.id.item_config -> {
+            R.id.item_chart -> {
                 FragmentUtils.changeFragments(
                     supportFragmentManager,
-                    SettingFragment(),
+                    ChartFragment(),
                     ResourcesUtils.getString(this, R.string.setting_fragemtn),
                     R.id.frame_layout_main
                 )

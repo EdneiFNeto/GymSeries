@@ -23,35 +23,42 @@ class SplashActivity : AppCompatActivity() {
                 descr = ResourcesUtils.getString(this, R.string.barra_fixa_com_pegada_supinada),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Biceps(
                 id = 2,
                 descr = ResourcesUtils.getString(this, R.string.rosca_direta),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
+
             ),
             Biceps(
                 id = 3,
                 descr = ResourcesUtils.getString(this, R.string.rosca_martelo),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
+
             ),
             Biceps(
                 id = 4,
                 descr = ResourcesUtils.getString(this, R.string.rosca_concentrada),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Biceps(
                 id = 5,
                 descr = ResourcesUtils.getString(this, R.string.rosca_inversa),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             )
         )
         var triceps = arrayListOf<Triceps>(
@@ -61,35 +68,40 @@ class SplashActivity : AppCompatActivity() {
                 descr = ResourcesUtils.getString(this, R.string.triceps_no_banco),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Triceps(
                 id = 2,
                 descr = ResourcesUtils.getString(this, R.string.tirceps_corda),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Triceps(
                 id = 3,
                 descr = ResourcesUtils.getString(this, R.string.extencao_alter_sob_cabeca),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Triceps(
                 id = 4,
                 descr = ResourcesUtils.getString(this, R.string.triceps_testa),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Triceps(
                 id = 5,
                 descr = ResourcesUtils.getString(this, R.string.mergulho),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             )
         )
         var costas = arrayListOf<Costa>(
@@ -98,13 +110,15 @@ class SplashActivity : AppCompatActivity() {
                 descr = ResourcesUtils.getString(this, R.string.barra_fixa),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ), Costa(
                 id = 5,
                 descr = ResourcesUtils.getString(this, R.string.barra_fixa),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             )
         )
         var pernas = arrayListOf<Perna>(
@@ -114,21 +128,24 @@ class SplashActivity : AppCompatActivity() {
                 descr = ResourcesUtils.getString(this, R.string.extencao_alter_sob_cabeca),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Perna(
                 id = 2,
                 descr = ResourcesUtils.getString(this, R.string.agaichamento_livre),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Perna(
                 id = 3,
                 descr = ResourcesUtils.getString(this, R.string.extensora),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             )
         )
         var ombros = arrayListOf<Ombro>(
@@ -138,14 +155,16 @@ class SplashActivity : AppCompatActivity() {
                 descr = ResourcesUtils.getString(this, R.string.ombro_alternada),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Ombro(
                 id = 3,
                 descr = ResourcesUtils.getString(this, R.string.ombro_remada_aparelho),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             )
         )
         var peito = arrayListOf<Peito>(
@@ -155,14 +174,16 @@ class SplashActivity : AppCompatActivity() {
                 descr = ResourcesUtils.getString(this, R.string.supino_reto),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             ),
             Peito(
                 id = 3,
                 descr = ResourcesUtils.getString(this, R.string.supino_45),
                 status = false,
                 repeticoes = "",
-                peso = ""
+                peso = "",
+                serie = null
             )
         )
 

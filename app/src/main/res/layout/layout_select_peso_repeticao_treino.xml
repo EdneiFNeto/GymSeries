@@ -38,6 +38,26 @@
         android:layout_height="wrap_content"
         android:background="@drawable/border_line"/>
 
+    <RadioGroup
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radio_serie_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/serie_a"/>
+
+        <RadioButton
+            android:layout_marginLeft="12dp"
+            android:id="@+id/radio_serie_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/serie_b"/>
+    </RadioGroup>
+
     <Switch
         android:layout_marginTop="18dp"
         android:id="@+id/switch_is_enabled"

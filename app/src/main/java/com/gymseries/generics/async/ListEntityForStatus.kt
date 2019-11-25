@@ -17,9 +17,10 @@ class ListEntityForStatus<T>(
     context: Context?,
     private val lista: ArrayList<T>,
     private val adapter: RecyclerView.Adapter<*>,
+    serie:String,
     op:Int,
     status:Boolean
-) : BaseListEntityStatus<T>(context = context, op = op, status = status){
+) : BaseListEntityStatus<T>(context = context, op = op, serie=serie, status = status){
 
     private val TAG = "ListEntityForStatusLog"
 

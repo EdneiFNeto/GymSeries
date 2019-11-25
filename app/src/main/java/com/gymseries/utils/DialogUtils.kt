@@ -1,6 +1,5 @@
 package com.gymseries.utils
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.widget.EditText
@@ -9,12 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.generics.AddEntityGenericAsync
 import com.gymseries.model.Biceps
-import com.gymseries.model.Triceps
 
-class DialogUtils{
+class DialogUtils {
 
     companion object {
-        private fun <T>showDialogAddSerie(context: Context, list: ArrayList<T>, adapter:RecyclerView.Adapter<*>) {
+        private fun <T> showDialogAddSerie(
+            context: Context,
+            list: ArrayList<T>,
+            adapter: RecyclerView.Adapter<*>
+        ) {
 
             var dialog = AlertDialog.Builder(context)
             dialog.setIcon(R.drawable.ic_info)
@@ -25,24 +27,36 @@ class DialogUtils{
             var num_repeticao = view.findViewById<EditText>(R.id.edt_text_dialog_num_repeticao)
             var peso = view.findViewById<EditText>(R.id.edt_text_dialog_peso)
 
-            dialog.setPositiveButton(ResourcesUtils.getString(context, R.string.button_confirmar)) { dialog, which ->
+            dialog.setPositiveButton(
+                ResourcesUtils.getString(
+                    context,
+                    R.string.button_confirmar
+                )
+            ) { dialog, which ->
 
-                var biceps:ArrayList<Biceps> = ArrayList()
+                var biceps: ArrayList<Biceps> = ArrayList()
                 biceps.add(
-                        Biceps(
-                                id = 0L,
-                                descr = treino.text.toString(),
-                                status = false,
-                                repeticoes = num_repeticao.text.toString(),
-                                peso = peso.text.toString()
-                        )
+                    Biceps(
+                        id = 0L,
+                        descr = treino.text.toString(),
+                        status = false,
+                        repeticoes = num_repeticao.text.toString(),
+                        peso = peso.text.toString(),
+                        serie = null
+
+                    )
                 )
 
                 AddEntityGenericAsync(context, 0, biceps, adapter).execute()
                 dialog.dismiss()
             }
 
-            dialog.setNegativeButton(ResourcesUtils.getString(context, R.string.button_cancelar)) { dialog, _ ->
+            dialog.setNegativeButton(
+                ResourcesUtils.getString(
+                    context,
+                    R.string.button_cancelar
+                )
+            ) { dialog, _ ->
                 dialog.dismiss()
             }
 

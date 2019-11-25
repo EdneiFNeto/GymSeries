@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.SerieAActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,28 +19,6 @@
             android:text="@string/serie_a"
             android:textAlignment="center"
             android:textSize="22dp" />
-
-        <!--Peito -->
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/peito"
-                android:textColor="@android:color/white" />
-
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_peito"
             android:layout_width="match_parent"
@@ -49,71 +26,18 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
 
-        <!-- Triceos -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/triceps"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_triceps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
-
-        <!-- Ombro -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/ombro"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_ombro_b"
+            android:id="@+id/recycleview_series_ombro_a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
-
-        <!-- Perna -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/perna"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_perna_a"
             android:layout_width="match_parent"
@@ -131,96 +55,25 @@
             android:textAlignment="center"
             android:textSize="22dp" />
 
-        <!--Biceps -->
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/peito"
-                android:textColor="@android:color/white" />
-
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_boceps"
+            android:id="@+id/recycleview_series_biceps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
 
-        <!-- Costas -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/triceps"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_costas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
-
-        <!-- Ombro -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/ombro"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_ombro_b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/activity_serie_adapter" />
-
-        <!-- Pernas -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/perna"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview_series_perna_b"
             android:layout_width="match_parent"

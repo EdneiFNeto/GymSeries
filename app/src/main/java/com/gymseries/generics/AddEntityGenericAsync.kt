@@ -15,10 +15,12 @@ import java.util.*
  * 4 - Costas
  * 5 - Perna
  */
-class AddEntityGenericAsync<T>(context: Context,
-                               val op: Int,
-                               val list: ArrayList<T>,
-                               val adapter: RecyclerView.Adapter<*>) :
+class AddEntityGenericAsync<T>(
+    context: Context,
+    val op: Int,
+    val list: ArrayList<T>,
+    val adapter: RecyclerView.Adapter<*>
+) :
         BaseAddAsync<T>(context, op, list) {
 
     private var TAG ="AddEntityGenericAsyncLog"
@@ -26,6 +28,6 @@ class AddEntityGenericAsync<T>(context: Context,
     override fun onPostExecute(result: List<T>?) {
         super.onPostExecute(result)
         if(GenericsUtil<T>().results(result, list))
-            adapter.notifyDataSetChanged()
+            adapter?.notifyDataSetChanged()
     }
 }

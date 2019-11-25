@@ -14,7 +14,6 @@ import com.gymseries.R
 import com.gymseries.adapter.MyGenericAdapter
 import com.gymseries.generics.AddEntityGenericAsync
 import com.gymseries.generics.async.ListEntityGenericAsync
-import com.gymseries.model.Biceps
 import com.gymseries.model.Ombro
 import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.ResourcesUtils
@@ -45,6 +44,7 @@ class OmbroActivity : AppCompatActivity() {
         inflater.inflate(R.menu.add_serie, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when (item.itemId) {
@@ -55,6 +55,7 @@ class OmbroActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
     private fun showDialogAddSerie(context: Context) {
 
         var dialog = AlertDialog.Builder(context)
@@ -66,20 +67,33 @@ class OmbroActivity : AppCompatActivity() {
         var num_repeticao = view.findViewById<EditText>(R.id.edt_text_dialog_num_repeticao)
         var peso = view.findViewById<EditText>(R.id.edt_text_dialog_peso)
 
-        dialog.setPositiveButton(ResourcesUtils.getString(context, R.string.button_confirmar)) { dialog, which ->
-            ombros.add(Ombro(
+        dialog.setPositiveButton(
+            ResourcesUtils.getString(
+                context,
+                R.string.button_confirmar
+            )
+        ) { dialog, which ->
+            ombros.add(
+                Ombro(
                     id = 0L,
                     descr = treino.text.toString(),
                     status = false,
                     repeticoes = num_repeticao.text.toString(),
-                    peso = peso.text.toString()
-            ))
+                    peso = peso.text.toString(),
+                    serie = null
+                )
+            )
 
             AddEntityGenericAsync(context, 3, ombros, adapter).execute()
             dialog.dismiss()
         }
 
-        dialog.setNegativeButton(ResourcesUtils.getString(context, R.string.button_cancelar)) { dialog, _ ->
+        dialog.setNegativeButton(
+            ResourcesUtils.getString(
+                context,
+                R.string.button_cancelar
+            )
+        ) { dialog, _ ->
             dialog.dismiss()
         }
 

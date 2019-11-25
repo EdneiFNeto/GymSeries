@@ -16,9 +16,10 @@ import com.gymseries.model.*
  * 4 - Costas
  * 5 - Perna
  */
-abstract class BaseAddAsync<T>(val context: Context,
-                               private val op: Int,
-                               private val list: List<T>) :
+abstract class BaseAddAsync<T>(
+    val context: Context?,
+    private val op: Int,
+    private val list: List<T>) :
         AsyncTask<String, String, List<T>>() {
 
     private var TAG = "BaseAddAsyncLog"
@@ -31,6 +32,7 @@ abstract class BaseAddAsync<T>(val context: Context,
         var ombroRoom = appData!!.ombroRoom()
         var costaRoom = appData!!.costaRoom()
         var pernaRoom = appData!!.pernaRoom()
+        var imcRoom = appData!!.imcRoom()
 
         return when (op) {
             0 -> {
@@ -92,6 +94,16 @@ abstract class BaseAddAsync<T>(val context: Context,
                     }
                 }
                 return pernaRoom.all(SimpleSQLiteQuery("SELECT * FROM Perna")) as List<T>
+            }
+            6 -> {
+                if (list.isNotEmpty()) {
+                    for (t in list) {
+                        var b = t as IMC
+                        var insert = imcRoom.insert(b)
+                        Log.e(TAG, "Insert $insert")
+                    }
+                }
+                return imcRoom.all(SimpleSQLiteQuery("SELECT * FROM IMC")) as List<T>
             }
             else -> emptyList()
         }

@@ -32,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:background="@drawable/border_line"
-        android:hint="@string/text_peso"
+        android:hint="@string/text_kg"
         android:paddingBottom="4dp" />
 </LinearLayout>
