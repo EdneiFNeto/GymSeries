@@ -78,4 +78,10 @@
     <string name="title_settings">Configurações</string>
     <string name="title_home">Home</string>
     <string name="serie_fragemtn">SerieFragment</string>
+    <string name="add_serie">Adicionar Série</string>
+    <string name="title_alert">Alerta</string>
+    <string name="button_confirmar">Confirmar</string>
+    <string name="button_cancelar">Cancelar</string>
+    <string name="deletar_serie">Deletar Série</string>
+    <string name="msg_delete">Deseja excluir treino?</string>
 </resources>

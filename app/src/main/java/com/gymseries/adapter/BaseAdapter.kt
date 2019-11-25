@@ -4,20 +4,21 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Switch
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
+import com.gymseries.database.dao.OmbroRoom_Impl
+import com.gymseries.generics.DeleteEntityGenericAsync
 import com.gymseries.generics.async.UpdateGeneric
+import com.gymseries.model.*
+import com.gymseries.utils.ResourcesUtils
 
 abstract class BaseAdapter<T>(
-    val context: Context?,
-    private val list: ArrayList<T>,
-    val op: Int,
-    val changeLayout: Boolean
+        val context: Context?,
+        private val list: ArrayList<T>,
+        val op: Int,
+        val changeLayout: Boolean
 ) : RecyclerView.Adapter<BaseAdapter.MyHolder<T>>() {
 
     var TAG = "BaseAdapterLog"
@@ -35,12 +36,19 @@ abstract class BaseAdapter<T>(
                 dialog(list[position])
             }
 
+            holder.itemView.setOnLongClickListener {
+                Toast.makeText(context, "Item ${holder.title.text} - ${holder.id}", Toast.LENGTH_SHORT).show()
+                if (context != null) {
+                    dialogDelete(context, holder.id, holder)
+                }
+                true
+            }
+
         } else {
             convertStringFronModel(holder, list[position])
-
+            holder.repeticao.text = if (holder.repeticao.text.toString() != "") "3, 4 ou 6 x ${holder.repeticao.text} Rept." else "3 ou 4 x 0 Rept."
+            holder.peso.text = if (holder.peso.text != "") "${holder.peso.text}  Kg." else "0 Kg"
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder<T> {
@@ -48,21 +56,23 @@ abstract class BaseAdapter<T>(
 
         if (changeLayout) {
             return MyHolder(
-                LayoutInflater.from(context).inflate(
-                    R.layout.activity_treino,
-                    parent,
-                    false
-                )
+                    LayoutInflater.from(context).inflate(
+                            R.layout.activity_treino,
+                            parent,
+                            false
+                    )
             )
         } else {
             return MyHolder(
-                LayoutInflater.from(context).inflate(
-                    R.layout.layout_serie,
-                    parent,
-                    false
-                )
+                    LayoutInflater.from(context).inflate(
+                            R.layout.layout_serie,
+                            parent,
+                            false
+                    )
             )
         }
+
+
     }
 
     override fun getItemCount(): Int {
@@ -70,7 +80,7 @@ abstract class BaseAdapter<T>(
     }
 
     class MyHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+        lateinit var id: String
         lateinit var status: String
         var title = itemView.findViewById<TextView>(R.id.text_title_treino)
         var repeticao = itemView.findViewById<TextView>(R.id.text_num_repeticao)
@@ -80,9 +90,10 @@ abstract class BaseAdapter<T>(
             var str = t.toString().split(",")
             for (i in 0..str.size) {
                 when (i) {
+                    0 -> id = str[i]
                     1 -> title.text = str[i]
-                    2 -> repeticao.text = "3 x ${str[i]} Rept."
-                    3 -> peso.text = " ${str[i]} Kg."
+                    2 -> repeticao.text = if (str[i] != "") "3, 4 ou 6 x ${str[i]} Rept." else "3 ou 4 x 0 Rept."
+                    3 -> peso.text = if (str[i] != "") "${str[i]} Kg." else "0 Kg"
                     4 -> status = str[i]
                 }
             }
@@ -106,22 +117,22 @@ abstract class BaseAdapter<T>(
             }
         }
 
-        //exeibe dialog para opcao de treinos
+        //show dialog para options de treino
         if (context != null) {
+
             var builder = AlertDialog.Builder(context)
             builder.setIcon(R.mipmap.ic_descri_treino)
             builder.setTitle(title)
 
-            val view: View =
-                LayoutInflater.from(context)
-                    .inflate(R.layout.layout_select_peso_repeticao_treino, null)
-            var edittext_kg = view.findViewById<EditText>(R.id.edttext_kg)
+            val view: View = LayoutInflater.from(context).inflate(R.layout.layout_select_peso_repeticao_treino, null)
+            var edittext_peso = view.findViewById<EditText>(R.id.edttext_kg)
             var edittext_num_repeticao = view.findViewById<EditText>(R.id.edittext_repeticao)
             var button_salvar = view.findViewById<Button>(R.id.button_salvar_dialog_treino)
             var status = view.findViewById<Switch>(R.id.switch_is_enabled)
 
-            edittext_kg.setText(peso)
+            edittext_peso.setText(peso)
             edittext_num_repeticao.setText(repeticao)
+
             if (mySatutus == "true") {
                 status.isChecked = true
             }
@@ -132,14 +143,14 @@ abstract class BaseAdapter<T>(
 
             button_salvar.setOnClickListener {
                 UpdateGeneric(
-                    context,
-                    status.isChecked,
-                    edittext_kg,
-                    edittext_num_repeticao,
-                    op,
-                    t,
-                    list,
-                    this
+                        context,
+                        status.isChecked,
+                        edittext_peso,
+                        edittext_num_repeticao,
+                        op,
+                        t,
+                        list,
+                        this
                 ).execute()
                 dialog.dismiss()
             }
@@ -147,8 +158,8 @@ abstract class BaseAdapter<T>(
     }
 
     fun convertStringFronModel(
-        holder: MyHolder<T>,
-        model: T
+            holder: MyHolder<T>,
+            model: T
     ) {
         var str = model.toString().split(",")
         for (i in 0..str.size) {
@@ -159,6 +170,78 @@ abstract class BaseAdapter<T>(
                 4 -> holder.status = str[i]
             }
         }
+    }
+
+    fun dialogDelete(context: Context, id: String, holder: MyHolder<T>) {
+
+        var dialog = AlertDialog.Builder(context)
+        dialog.setIcon(R.drawable.ic_info)
+        dialog.setTitle(ResourcesUtils.getString(context, R.string.deletar_serie))
+        dialog.setMessage(ResourcesUtils.getString(context, R.string.msg_delete))
+        dialog.setCancelable(false)
+
+        dialog.setPositiveButton(ResourcesUtils.getString(context, R.string.button_confirmar)) { dialog, _ ->
+
+            when (op) {
+                0 -> {
+                    DeleteEntityGenericAsync(context, 0, Biceps(
+                            id = id.toLong(),
+                            descr = holder.title.text.toString(),
+                            status = holder.status.toBoolean(),
+                            repeticoes = holder.repeticao.text.toString(),
+                            peso = holder.peso.text.toString()), list = list as ArrayList<Biceps>, adapter = this).execute()
+                }
+                1 -> {
+                    DeleteEntityGenericAsync(context, 1, Triceps(
+                            id = id.toLong(),
+                            descr = holder.title.text.toString(),
+                            status = holder.status.toBoolean(),
+                            repeticoes = holder.repeticao.text.toString(),
+                            peso = holder.peso.text.toString()), list = list as ArrayList<Triceps>, adapter = this).execute()
+                }
+                2 -> {
+                    DeleteEntityGenericAsync(context, 2, Peito(
+                            id = id.toLong(),
+                            descr = holder.title.text.toString(),
+                            status = holder.status.toBoolean(),
+                            repeticoes = holder.repeticao.text.toString(),
+                            peso = holder.peso.text.toString()), list = list as ArrayList<Peito>, adapter = this).execute()
+                }
+                3 -> {
+                    DeleteEntityGenericAsync(context, 3, Ombro(
+                            id = id.toLong(),
+                            descr = holder.title.text.toString(),
+                            status = holder.status.toBoolean(),
+                            repeticoes = holder.repeticao.text.toString(),
+                            peso = holder.peso.text.toString()), list = list as ArrayList<Ombro>, adapter = this).execute()
+                }
+                4 -> {
+                    DeleteEntityGenericAsync(context, 4, Costa(
+                            id = id.toLong(),
+                            descr = holder.title.text.toString(),
+                            status = holder.status.toBoolean(),
+                            repeticoes = holder.repeticao.text.toString(),
+                            peso = holder.peso.text.toString()), list = list as ArrayList<Costa>, adapter = this).execute()
+                }
+                5 -> {
+                    DeleteEntityGenericAsync(context, 5, Perna(
+                            id = id.toLong(),
+                            descr = holder.title.text.toString(),
+                            status = holder.status.toBoolean(),
+                            repeticoes = holder.repeticao.text.toString(),
+                            peso = holder.peso.text.toString()), list = list as ArrayList<Perna>, adapter = this).execute()
+                }
+            }
+
+            dialog.dismiss()
+        }
+
+        dialog.setNegativeButton(ResourcesUtils.getString(context, R.string.button_cancelar)) { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        var alert = dialog.create()
+        alert.show()
     }
 }
 

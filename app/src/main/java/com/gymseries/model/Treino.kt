@@ -10,6 +10,8 @@ open class Treino(
     open val peso: String,
     open val status: Boolean
 ) {
+
+
     override fun toString(): String {
         return String.format("%s,%s,%s,%s,%s", id, descr, repeticoes, peso, status)
     }

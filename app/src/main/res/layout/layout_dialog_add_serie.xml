@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+
+    <EditText
+        android:inputType="text"
+        android:id="@+id/edt_text_dialog_treino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_line"
+        android:hint="@string/title_treino"
+        android:paddingBottom="4dp" />
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/edt_text_dialog_num_repeticao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/border_line"
+        android:hint="@string/numero_repeticoes"
+        android:paddingBottom="4dp" />
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/edt_text_dialog_peso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/border_line"
+        android:hint="@string/text_peso"
+        android:paddingBottom="4dp" />
+</LinearLayout>
