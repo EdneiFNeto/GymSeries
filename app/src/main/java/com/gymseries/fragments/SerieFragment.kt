@@ -4,15 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.MyGenericAdapter
 import com.gymseries.generics.async.ListEntityForStatus
 import com.gymseries.model.*
+import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.ResourcesUtils
 
 class SerieFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        var supportActionBar = (activity as AppCompatActivity).supportActionBar
+        ActionBarUtils.hide(supportActionBar)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

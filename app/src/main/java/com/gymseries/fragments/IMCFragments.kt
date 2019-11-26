@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
 import com.gymseries.adapter.IMCAdapter
-import com.gymseries.adapter.MyGenericAdapter
 import com.gymseries.async.InsertIMC
 import com.gymseries.async.ListIMCAsync
 import com.gymseries.model.IMC
@@ -24,7 +23,7 @@ import java.text.DecimalFormat
 
 class IMCFragments : Fragment() {
 
-    private var adapter: MyGenericAdapter<IMC>? = null
+    private lateinit var adapter: IMCAdapter
     private var imcs: ArrayList<IMC> = arrayListOf()
     private var sexo: String? = ""
 
@@ -38,25 +37,23 @@ class IMCFragments : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
 
         val myView = LayoutInflater.from(context).inflate(R.layout.activity_imc, container, false)
         var recyclerView = myView.findViewById<RecyclerView>(R.id.recycle_view_imc)
-        var adapter = IMCAdapter(context, imcs)
+        adapter = IMCAdapter(context, imcs)
         recyclerView.adapter = adapter
-
         ListIMCAsync(context, imcs, adapter).execute()
 
         return myView
     }
 
     private fun calcularIMC(
+
         peso: EditText?,
         altura: EditText?,
         resultadoImc: EditText?,
-        sexo: String?
-    ) {
+        sexo: String?) {
 
         var p = peso?.text.toString()
         var a = altura?.text.toString()
@@ -71,7 +68,7 @@ class IMCFragments : Fragment() {
 
         resultado = validaResultado(imc, resultado, imcFormatado, resultadoImc)
 
-        imcs = arrayListOf(
+        imcs.add(
             IMC(
                 id = 0L,
                 peso = p.toDouble(),
@@ -79,7 +76,7 @@ class IMCFragments : Fragment() {
                 sexo = sexo,
                 data = DataUtils.getDataAtualHora(),
                 resultado = resultado,
-                imc = imc.toString()
+                imc = imcFormatado
             )
         )
 
@@ -123,7 +120,7 @@ class IMCFragments : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 
-        val item = menu.add("Calcular IMC")
+        val item = menu.add(ResourcesUtils.getString(context, R.string.title_dialof_calc_imc))
         item.setIcon(R.drawable.ic_calculator)
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         item.setOnMenuItemClickListener {

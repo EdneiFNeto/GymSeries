@@ -37,6 +37,7 @@ class IMCAdapter(val context: Context?, private val imcs: ArrayList<IMC>) :
         }
 
         holder.peso.text = holder.peso.text.toString().replace(".", ",")
+
         when {
             holder.result.text == ResourcesUtils.getString(context, R.string.peso_baixo) -> {
                 holder.result.setBackgroundResource(R.color.colorYellow)

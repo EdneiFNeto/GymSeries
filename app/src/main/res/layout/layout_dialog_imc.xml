@@ -46,6 +46,7 @@
                     android:paddingBottom="8dp" />
 
                 <RadioGroup
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
@@ -79,6 +80,7 @@
         </LinearLayout>
 
         <EditText
+            android:visibility="gone"
             android:id="@+id/edt_text_result_imc"
             android:layout_width="0dp"
             android:layout_marginTop="16dp"

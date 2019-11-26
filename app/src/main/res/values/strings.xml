@@ -105,4 +105,5 @@
     <string name="sobre_peso">Sobrepeso</string>
     <string name="sobre_peso_g1">Obesidade (Grau I)</string>
     <string name="sobre_peso_g2">Obesidade (Grau II)</string>
+    <string name="title_dialof_calc_imc">Calcular IMC</string>
 </resources>

@@ -14,7 +14,7 @@ class ListIMCAsync(val context: Context?,
 
     override fun doInBackground(vararg params: String?): List<IMC>? {
         var appData = AppData.getInstance(context)
-        return appData?.imcRoom()?.all(SimpleSQLiteQuery("SELECT * FROM IMC"))
+        return appData?.imcRoom()?.all(SimpleSQLiteQuery("SELECT * FROM IMC ORDER BY id DESC"))
     }
 
     override fun onPostExecute(result: List<IMC>?) {
