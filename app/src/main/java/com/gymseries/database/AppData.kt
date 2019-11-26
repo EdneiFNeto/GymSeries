@@ -14,9 +14,10 @@ import com.gymseries.model.*
         Ombro::class,
         Perna::class,
         IMC::class,
+        Charts::class,
         Costa::class],
 
-    version = 17,
+    version = 18,
     exportSchema = false
 )
 abstract class AppData : RoomDatabase() {
@@ -29,6 +30,7 @@ abstract class AppData : RoomDatabase() {
     abstract fun bicepsRoom(): BicepsRoom
     abstract fun getOmbroRoom(): OmbroTestRoom
     abstract fun imcRoom(): IMCRoom
+    abstract fun chartsRoom(): ChartsRoom
 
     companion object {
         fun getInstance(context: Context?): AppData? {

@@ -2,6 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="12dp">
 
+    <EditText
+        android:id="@+id/edt_text_peito_media"
+        style="@style/EdtTextNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_line"
+        android:hint="@string/title_peito" />
+
+    <EditText
+        android:id="@+id/edt_text_braco_media"
+        style="@style/EdtTextNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_line"
+        android:hint="@string/title_braco" />
+
+    <EditText
+        android:id="@+id/edt_text_cintura_media"
+        style="@style/EdtTextNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_line"
+        android:hint="@string/title_cintura" />
+
+    <EditText
+        android:id="@+id/edt_text_quadril_media"
+        style="@style/EdtTextNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_line"
+        android:hint="@string/title_quadril" />
+
+    <EditText
+        android:id="@+id/edt_text_coxa_media"
+        style="@style/EdtTextNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_line"
+        android:hint="@string/title_coxa" />
+
+    <EditText
+        android:id="@+id/edt_text_panturrilha_media"
+        style="@style/EdtTextNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_line"
+        android:hint="@string/title_panturilha" />
 </LinearLayout>

@@ -9,15 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SerieAtctivity"></activity>
         <activity android:name=".ui.CostasActivity" />
         <activity android:name=".ui.Tricesctivity" />
-        <activity
-            android:name=".ui.SerieAActivity"
-            android:noHistory="true" />
-        <activity
-            android:name=".ui.IMCActivity"
-            android:noHistory="true" />
         <activity
             android:name=".ui.PernaActivity"
             android:noHistory="true" />

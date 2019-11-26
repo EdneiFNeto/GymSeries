@@ -10,12 +10,20 @@
 
     <style name="TextNormal">
         <!-- Customize your theme here. -->
-
-
         <item name="android:background">@color/primaryLightColor</item>
         <item name="android:padding">12dp</item>
         <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="EdtTextNormal">
+        <!-- Customize your theme here. -->
+        <item name="android:background">@drawable/border_line</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:inputType">numberDecimal</item>
     </style>
 
 </resources>

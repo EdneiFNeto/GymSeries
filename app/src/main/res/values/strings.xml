@@ -107,4 +107,9 @@
     <string name="sobre_peso_g2">Obesidade (Grau II)</string>
     <string name="title_dialof_calc_imc">Calcular IMC</string>
     <string name="title_dialog_chart">Adicionar Medidas</string>
+    <string name="title_braco">Braço</string>
+    <string name="title_cintura">Cintura</string>
+    <string name="title_quadril">Quadril</string>
+    <string name="title_coxa">Coxa</string>
+    <string name="title_panturilha">Panturrilha</string>
 </resources>
