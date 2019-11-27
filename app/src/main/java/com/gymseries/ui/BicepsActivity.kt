@@ -30,7 +30,7 @@ class BicepsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_biceps_triceps)
         ActionBarUtils.createTitleActionBar(
             supportActionBar,
-            ResourcesUtils.getString(this, R.string.title_biceps).toUpperCase()
+            ResourcesUtils.getString(this, R.string.title_biceps)
         )
 
         var recyclerViewBiceps = findViewById<RecyclerView>(R.id.recycle_view_biceps)

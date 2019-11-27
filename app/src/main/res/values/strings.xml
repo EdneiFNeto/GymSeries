@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gym Series</string>
+    <string name="app_name">Fitness Gym</string>
     <string name="braco">Serie Braço</string>
     <string name="biceps">Biceps</string>
     <string name="serie_peito">Série Peito</string>
@@ -82,7 +82,7 @@
     <string name="title_alert">Alerta</string>
     <string name="button_confirmar">Confirmar</string>
     <string name="button_cancelar">Cancelar</string>
-    <string name="deletar_serie">Deletar Série</string>
+    <string name="deletar_serie">Deletar</string>
     <string name="msg_delete">Deseja excluir treino?</string>
     <string name="a">a</string>
     <string name="b">b</string>
@@ -114,4 +114,5 @@
     <string name="title_panturilha">Panturrilha</string>
     <string name="title_add_medidas">Adicionar Medidas</string>
     <string name="about">Sobre</string>
+    <string name="title_help">Ajuda</string>
 </resources>

@@ -28,7 +28,7 @@ class OmbroActivity : AppCompatActivity() {
 
         ActionBarUtils.createTitleActionBar(
             supportActionBar,
-            ResourcesUtils.getString(this, R.string.title_ombro).toUpperCase()
+            ResourcesUtils.getString(this, R.string.title_ombro)
         )
 
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_ombro)

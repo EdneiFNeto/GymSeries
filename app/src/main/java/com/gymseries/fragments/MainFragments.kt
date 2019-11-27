@@ -75,10 +75,17 @@ class MainFragments : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-
-        val item = menu.add(ResourcesUtils.getString(context, R.string.title_dialof_calc_imc))
-        item.setIcon(R.drawable.ic_menu_lateral)
-        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_helpes, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_about -> {
+
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

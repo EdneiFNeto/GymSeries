@@ -30,7 +30,7 @@ class CostasActivity : AppCompatActivity() {
 
         ActionBarUtils.createTitleActionBar(
             supportActionBar,
-            ResourcesUtils.getString(this, R.string.title_costas).toUpperCase()
+            ResourcesUtils.getString(this, R.string.title_costas)
         )
 
         var recyclerView = findViewById<RecyclerView>(R.id.recycle_view_costas)

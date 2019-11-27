@@ -29,7 +29,7 @@ class Tricesctivity : AppCompatActivity() {
 
         ActionBarUtils.createTitleActionBar(
             supportActionBar,
-            ResourcesUtils.getString(this, R.string.title_triceps).toUpperCase()
+            ResourcesUtils.getString(this, R.string.title_triceps)
         )
 
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_triceps)

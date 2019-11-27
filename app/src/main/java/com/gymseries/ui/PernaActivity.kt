@@ -30,7 +30,7 @@ class PernaActivity : AppCompatActivity() {
 
         ActionBarUtils.createTitleActionBar(
             supportActionBar,
-            ResourcesUtils.getString(this, R.string.title_perna).toUpperCase()
+            ResourcesUtils.getString(this, R.string.title_perna)
         )
 
 

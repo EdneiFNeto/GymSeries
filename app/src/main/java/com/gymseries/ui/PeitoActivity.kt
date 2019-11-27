@@ -29,7 +29,7 @@ class PeitoActivity : AppCompatActivity() {
 
         ActionBarUtils.createTitleActionBar(
             supportActionBar,
-            ResourcesUtils.getString(this, R.string.title_perna).toUpperCase()
+            ResourcesUtils.getString(this, R.string.title_peito)
         )
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_peito)
         peitos = ArrayList<Peito>()
