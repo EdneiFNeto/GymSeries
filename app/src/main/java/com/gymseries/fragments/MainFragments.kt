@@ -1,9 +1,11 @@
 package com.gymseries.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -12,14 +14,20 @@ import com.gymseries.adapter.IntensAdapter
 import com.gymseries.model.Itens
 import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.ResourcesUtils
+import android.text.style.ForegroundColorSpan
+import android.text.SpannableString
+import android.graphics.Color
+
 
 class MainFragments : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var supportActionBar = (activity as AppCompatActivity).supportActionBar
-        ActionBarUtils.hide(supportActionBar)
+        ActionBarUtils.title(supportActionBar, ResourcesUtils.getString(context, R.string.title_serie))
+        setHasOptionsMenu(true)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -64,5 +72,13 @@ class MainFragments : Fragment() {
         var adapter = IntensAdapter(context, listItens)
         recyclerView.adapter = adapter
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
+        val item = menu.add(ResourcesUtils.getString(context, R.string.title_dialof_calc_imc))
+        item.setIcon(R.drawable.ic_menu_lateral)
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }

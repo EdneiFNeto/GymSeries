@@ -8,9 +8,10 @@
 
 
     <ImageView
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:src="@mipmap/ic_logo_gym"
+        android:padding="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_gym"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

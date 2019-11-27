@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--    <color name="primaryColor">#ffa000</color>-->
-<!--    <color name="primaryLightColor">#ffd149</color>-->
-<!--    <color name="primaryDarkColor">#c67100</color>-->
-<!--    <color name="primaryTextColor">#000000</color>-->
-
-    <color name="primaryColor">#d1adff</color>
-    <color name="primaryLightColor">#ffdfff</color>
-    <color name="primaryDarkColor">#9f7dcc</color>
-    <color name="primaryTextColor">#000000</color>
+    <color name="primaryColor">#311b92</color>
+    <color name="primaryLightColor">#6746c3</color>
+    <color name="primaryDarkColor">#000063</color>
+    <color name="primaryTextColor">#fff</color>
 
     <color name="colorCinza">#C7C7C7</color>
     <color name="colorYellow">#FFEB3B</color>
@@ -19,4 +14,7 @@
     <color name="colorOrange">#FF9800</color>
     <color name="colorPele">#EEC488</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorblack">#000</color>
+    <color name="colorblue">#00BCD4</color>
+
 </resources>

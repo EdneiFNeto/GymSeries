@@ -1,9 +1,11 @@
 package com.gymseries.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -18,8 +20,10 @@ class SerieFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         var supportActionBar = (activity as AppCompatActivity).supportActionBar
-        ActionBarUtils.hide(supportActionBar)
+        ActionBarUtils.title(supportActionBar, ResourcesUtils.getString(context, R.string.title_treino))
+//        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -33,7 +37,6 @@ class SerieFragment : Fragment() {
         /**
          * Serie A
          */
-
         var serie_peito = view.findViewById<RecyclerView>(R.id.recycleview_series_peito)
         val peitos = arrayListOf<Peito>()
         var peitosAdapter = MyGenericAdapter(context, peitos, 2, false)

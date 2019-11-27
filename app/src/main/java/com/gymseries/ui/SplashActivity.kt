@@ -2,11 +2,13 @@ package com.gymseries.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.gymseries.R
 import com.gymseries.generics.InserGenericAsync
 import com.gymseries.model.*
+import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.ResourcesUtils
 
 class SplashActivity : AppCompatActivity() {
@@ -16,6 +18,13 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        ActionBarUtils.hide(supportActionBar)
+        Handler().postDelayed({
+            initThreads()
+        }, 3000)
+    }
+
+    private fun initThreads() {
 
         var biceps = arrayListOf<Biceps>(
             Biceps(
@@ -187,57 +196,40 @@ class SplashActivity : AppCompatActivity() {
             )
         )
 
-        var t0 = Thread(Runnable {
-            Log.e(TAG, "Executando thread 1")
-            InserGenericAsync<Biceps>(this, 0, biceps).execute()
-        })
+        Thread(Runnable {
+            Log.e(TAG, "Executando thread 0")
+            InserGenericAsync(this, 0, biceps).execute()
 
-        var t1 = Thread(Runnable {
-            Log.e(TAG, "Executando thread 2")
-            InserGenericAsync(this, 1, triceps).execute()
-        })
+            Thread(Runnable {
 
-        var t2 = Thread(Runnable {
-            Log.e(TAG, "Executando thread 5")
-            InserGenericAsync(this, 2, peito).execute()
-        })
+                Log.e(TAG, "Executando thread 1")
+                InserGenericAsync(this, 1, triceps).execute()
 
-        var t3 = Thread(Runnable {
-            Log.e(TAG, "Executando thread 3")
-            InserGenericAsync(this, 3, ombros).execute()
-        })
+                Thread(Runnable {
 
+                    Log.e(TAG, "Executando thread 2")
+                    InserGenericAsync(this, 2, peito).execute()
 
-        var t4 = Thread(Runnable {
-            Log.e(TAG, "Executando thread 5")
-            InserGenericAsync(this, 4, costas).execute()
-        })
+                    Thread(Runnable {
 
-        var t5 = Thread(Runnable {
-            Log.e(TAG, "Executando thread 5")
-            InserGenericAsync(this, 5, pernas).execute()
-            startActivity(Intent(this, MainActivity::class.java))
-        })
+                        Log.e(TAG, "Executando thread 3")
+                        InserGenericAsync(this, 3, ombros).execute()
 
+                        Thread(Runnable {
 
-        t0.start()
-        t0.join()
+                            Log.e(TAG, "Executando thread 4")
+                            InserGenericAsync(this, 4, costas).execute()
 
-        t1.start()
-        t1.join()
+                            Thread(Runnable {
+                                Log.e(TAG, "Executando thread 5")
+                                InserGenericAsync(this, 5, pernas).execute()
+                                startActivity(Intent(this, MainActivity::class.java))
 
-        t2.start()
-        t2.join()
-
-        t3.start()
-        t3.join()
-
-        t4.start()
-        t4.join()
-
-        t5.start()
-        t5.join()
-
+                            }).start()
+                        }).start()
+                    }).start()
+                }).start()
+            }).start()
+        }).start()
     }
-
 }

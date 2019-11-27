@@ -29,8 +29,9 @@ class IMCFragments : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         var supportActionBar = (activity as AppCompatActivity).supportActionBar
-        ActionBarUtils.show(supportActionBar)
+        ActionBarUtils.title(supportActionBar, ResourcesUtils.getString(context, R.string.title_imc))
         setHasOptionsMenu(true)
     }
 
@@ -128,7 +129,7 @@ class IMCFragments : Fragment() {
             if (context != null) {
 
                 var builder = AlertDialog.Builder(context!!)
-                builder.setIcon(R.drawable.ic_calculator)
+                builder.setIcon(R.drawable.ic_calculator_black)
                 builder.setTitle(ResourcesUtils.getString(context, R.string.title_calcular_imc))
                 val myView = LayoutInflater.from(context).inflate(R.layout.layout_dialog_imc, null)
                 builder.setView(myView)

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GymSeries</string>
+    <string name="app_name">Gym Series</string>
     <string name="braco">Serie Braço</string>
     <string name="biceps">Biceps</string>
     <string name="serie_peito">Série Peito</string>
@@ -112,4 +112,6 @@
     <string name="title_quadril">Quadril</string>
     <string name="title_coxa">Coxa</string>
     <string name="title_panturilha">Panturrilha</string>
+    <string name="title_add_medidas">Adicionar Medidas</string>
+    <string name="about">Sobre</string>
 </resources>

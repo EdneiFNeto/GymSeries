@@ -17,7 +17,7 @@ import com.gymseries.model.*
         Charts::class,
         Costa::class],
 
-    version = 18,
+    version = 21,
     exportSchema = false
 )
 abstract class AppData : RoomDatabase() {
@@ -33,6 +33,7 @@ abstract class AppData : RoomDatabase() {
     abstract fun chartsRoom(): ChartsRoom
 
     companion object {
+
         fun getInstance(context: Context?): AppData? {
 
             if(context!=null){

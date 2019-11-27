@@ -10,5 +10,11 @@ class DataUtils {
             val date = Date()
             return dateFormat.format(date)
         }
+
+        fun getDataAtual(): String {
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+            val date = Date()
+            return dateFormat.format(date)
+        }
     }
 }

@@ -1,55 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp">
 
-    <EditText
-        android:id="@+id/edt_text_peito_media"
-        style="@style/EdtTextNormal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_line"
-        android:hint="@string/title_peito" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/edt_text_braco_media"
-        style="@style/EdtTextNormal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/border_line"
-        android:hint="@string/title_braco" />
+        <EditText
+            android:id="@+id/edt_text_peito_media"
+            style="@style/EdtTextNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border_line"
+            android:hint="@string/title_peito" />
 
-    <EditText
-        android:id="@+id/edt_text_cintura_media"
-        style="@style/EdtTextNormal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/border_line"
-        android:hint="@string/title_cintura" />
+        <EditText
+            android:id="@+id/edt_text_braco_media"
+            style="@style/EdtTextNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_line"
+            android:hint="@string/title_braco" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/edt_text_quadril_media"
-        style="@style/EdtTextNormal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_line"
-        android:hint="@string/title_quadril" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/edt_text_coxa_media"
-        style="@style/EdtTextNormal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/border_line"
-        android:hint="@string/title_coxa" />
+        <EditText
+            android:id="@+id/edt_text_cintura_media"
+            style="@style/EdtTextNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border_line"
+            android:hint="@string/title_cintura" />
 
-    <EditText
-        android:id="@+id/edt_text_panturrilha_media"
-        style="@style/EdtTextNormal"
+        <EditText
+            android:id="@+id/edt_text_quadril_media"
+            style="@style/EdtTextNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_line"
+            android:hint="@string/title_quadril" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_line"
-        android:hint="@string/title_panturilha" />
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:layout_weight="1"
+            android:id="@+id/edt_text_coxa_media"
+            style="@style/EdtTextNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_line"
+            android:hint="@string/title_coxa" />
+
+        <EditText
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:id="@+id/edt_text_panturrilha_media"
+            style="@style/EdtTextNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_line"
+            android:hint="@string/title_panturilha" />
+    </LinearLayout>
+
 </LinearLayout>

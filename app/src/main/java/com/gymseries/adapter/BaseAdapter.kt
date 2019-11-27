@@ -83,7 +83,7 @@ abstract class BaseAdapter<T>(
 
         lateinit var id: String
         lateinit var status: String
-        lateinit var serie: String
+        var serie: String? = null
         var title = itemView.findViewById<TextView>(R.id.text_title_treino)
         var repeticao = itemView.findViewById<TextView>(R.id.text_num_repeticao)
         var peso = itemView.findViewById<TextView>(R.id.text_kg)
@@ -127,7 +127,7 @@ abstract class BaseAdapter<T>(
         if (context != null) {
 
             var builder = AlertDialog.Builder(context)
-            builder.setIcon(R.mipmap.ic_descri_treino)
+            builder.setIcon(R.drawable.ic_serie)
             builder.setTitle(title)
 
             val view: View = LayoutInflater.from(context) .inflate(R.layout.layout_select_peso_repeticao_treino, null)
@@ -184,12 +184,12 @@ abstract class BaseAdapter<T>(
     }
 
     fun onRadioButtonClicked(itemView: View) {
+
         when (itemView.id) {
             R.id.radio_serie_a -> {
                 var serieA = itemView.findViewById<RadioButton>(R.id.radio_serie_a)
                 if (serieA.isChecked) {
                 }
-
             }
             R.id.radio_serie_b -> {
             }
@@ -215,7 +215,7 @@ abstract class BaseAdapter<T>(
     fun dialogDelete(context: Context, id: String, holder: MyHolder<T>) {
 
         var dialog = AlertDialog.Builder(context)
-        dialog.setIcon(R.drawable.ic_info)
+        dialog.setIcon(R.drawable.ic_delete)
         dialog.setTitle(ResourcesUtils.getString(context, R.string.deletar_serie))
         dialog.setMessage(ResourcesUtils.getString(context, R.string.msg_delete))
         dialog.setCancelable(false)

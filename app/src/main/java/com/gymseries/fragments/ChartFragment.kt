@@ -1,19 +1,27 @@
 package com.gymseries.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.gymseries.R
 import com.gymseries.adapter.ChartAdapter
 import com.gymseries.async.InsertMedia
 import com.gymseries.async.ListarMedidas
 import com.gymseries.model.Charts
 import com.gymseries.utils.ActionBarUtils
+import com.gymseries.utils.DataUtils
 import com.gymseries.utils.ResourcesUtils
+
 
 class ChartFragment : Fragment() {
 
@@ -23,7 +31,10 @@ class ChartFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var supportActionBar = (activity as AppCompatActivity).supportActionBar
-        ActionBarUtils.show(supportActionBar)
+        ActionBarUtils.title(
+            supportActionBar,
+            ResourcesUtils.getString(context, R.string.title_chart)
+        )
         setHasOptionsMenu(true)
     }
 
@@ -32,14 +43,17 @@ class ChartFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         var myView =
             LayoutInflater.from(context).inflate(R.layout.layout_medidas_fragment, container, false)
+        var recyclerView = myView.findViewById<RecyclerView>(R.id.recycle_view_chart)
 
-        var recycleview = myView.findViewById<RecyclerView>(R.id.recycle_view_charts)
         charts = arrayListOf()
         adapter = ChartAdapter(context, charts)
-        recycleview.adapter = adapter
+        recyclerView.adapter = adapter
+
         ListarMedidas(context, charts, adapter).execute()
+
         return myView
     }
 
@@ -53,8 +67,9 @@ class ChartFragment : Fragment() {
             if (context != null) {
 
                 var builder = AlertDialog.Builder(context!!)
-                builder.setIcon(R.drawable.ic_edit)
-                builder.setTitle(ResourcesUtils.getString(context, R.string.title_calcular_imc))
+                builder.setIcon(R.drawable.ic_edit_black)
+                builder.setTitle(ResourcesUtils.getString(context, R.string.title_add_medidas))
+
                 val myView =
                     LayoutInflater.from(context).inflate(R.layout.layout_dialog_medidas, null)
                 builder.setView(myView)
@@ -72,26 +87,36 @@ class ChartFragment : Fragment() {
                         R.string.button_confirmar
                     )
                 ) { dialog, _ ->
-                    dialog.dismiss()
-                    charts.add(
-                        Charts(
-                            id = 0L,
-                            braco = braco.text.toString().toInt(),
-                            peito = peito.text.toString().toInt(),
-                            cintura = cintura.text.toString().toInt(),
-                            coxa = coxa.text.toString().toInt(),
-                            quadril = quadril.text.toString().toInt(),
-                            panturrilha = panturrilha.text.toString().toInt()
-                        )
-                    )
 
-                    InsertMedia(context, charts, adapter).execute()
+                    if (braco.text.isNotEmpty()
+                        && peito.text.isNotEmpty()
+                        && cintura.text.isNotEmpty()
+                        && coxa.text.isNotEmpty()
+                        && quadril.text.isNotEmpty()
+                        && panturrilha.text.isNotEmpty()
+                    ) {
+
+                        charts.add(
+                            Charts(
+                                id = 0L,
+                                braco = braco.text.toString(),
+                                peito = peito.text.toString(),
+                                cintura = cintura.text.toString(),
+                                coxa = coxa.text.toString(),
+                                quadril = quadril.text.toString(),
+                                panturrilha = panturrilha.text.toString(),
+                                data = DataUtils.getDataAtual()
+                            )
+                        )
+                        InsertMedia(context, charts, adapter).execute()
+                        dialog.dismiss()
+                    } else
+                        Toast.makeText(context, ResourcesUtils.getString(context, R.string.preencha_campos), Toast.LENGTH_SHORT).show()
                 }
 
                 var dialog = builder.create()
                 dialog.show()
             }
-
             true
         }
 

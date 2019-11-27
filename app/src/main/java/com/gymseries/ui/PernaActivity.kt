@@ -62,7 +62,7 @@ class PernaActivity : AppCompatActivity() {
     private fun showDialogAddSerie(context: Context) {
 
         var dialog = AlertDialog.Builder(context)
-        dialog.setIcon(R.drawable.ic_info)
+        dialog.setIcon(R.drawable.ic_serie)
         dialog.setTitle(ResourcesUtils.getString(context, R.string.add_serie))
         dialog.setCancelable(false)
         val view = LayoutInflater.from(context).inflate(R.layout.layout_dialog_add_serie, null)

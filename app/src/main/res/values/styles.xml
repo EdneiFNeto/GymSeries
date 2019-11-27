@@ -16,6 +16,14 @@
         <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
+    <style name="TextTitleChart">
+        <!-- Customize your theme here. -->
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="EdtTextNormal">
         <!-- Customize your theme here. -->
         <item name="android:background">@drawable/border_line</item>
