@@ -34,4 +34,7 @@
         <item name="android:inputType">numberDecimal</item>
     </style>
 
+    <dimen name="12_dp">12dp</dimen>
+
+
 </resources>

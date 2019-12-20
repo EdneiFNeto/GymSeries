@@ -115,4 +115,10 @@
     <string name="title_add_medidas">Adicionar Medidas</string>
     <string name="about">Sobre</string>
     <string name="title_help">Ajuda</string>
+    <string name="hint_hieght">Altura</string>
+    <string name="hint_peso">Peso</string>
+    <string name="switch_sexo">Masculino/Feminino</string>
+    <string name="fala_init">Ola, para começar, preencha os campos acima.</string>
+
+
 </resources>
