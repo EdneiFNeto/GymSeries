@@ -223,7 +223,7 @@ class SplashActivity : AppCompatActivity() {
                             Thread(Runnable {
                                 Log.e(TAG, "Executando thread 5")
                                 InserGenericAsync(this, 5, pernas).execute()
-                                startActivity(Intent(this, MainActivity::class.java))
+                                startActivity(Intent(this, FormInitActivity::class.java))
 
                             }).start()
                         }).start()
