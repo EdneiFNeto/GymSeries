@@ -2,6 +2,8 @@ package com.gymseries.generics
 
 import android.content.Context
 import android.util.Log
+import com.anychart.charts.Resource
+import com.gymseries.utils.ResourcesUtils
 
 /**
  * Options:
@@ -14,7 +16,7 @@ import android.util.Log
  */
 class InserGenericAsync<T>(
     context: Context?,
-    op: Int,
+    op: String,
     list: ArrayList<T>
 ) : BaseAsyncInser<T>(context = context, op = op, list = list) {
 
@@ -23,6 +25,5 @@ class InserGenericAsync<T>(
     override fun onPostExecute(result: List<T>?) {
         super.onPostExecute(result)
         Log.e(TAG, "Success ${result?.size}")
-
     }
 }

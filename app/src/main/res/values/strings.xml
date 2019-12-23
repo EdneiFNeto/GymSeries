@@ -119,6 +119,19 @@
     <string name="hint_peso">Peso</string>
     <string name="fala_init">Ola, para começar, preencha os campos acima.</string>
     <string name="switch_sexo">Masculino/Feminino</string>
+    <string name="hint_save">Salvar</string>
+    <string name="hint_altura">Altura</string>
+    <string name="op_user">op_user</string>
+    <string name="op_imc">op_imc</string>
+    <string name="op_perna">op_perna</string>
+    <string name="op_costa">op_costa</string>
+    <string name="op_ombro">op_ombro</string>
+    <string name="op_peito">op_peito</string>
+    <string name="op_triceps">op_triceps</string>
+    <string name="op_biceps">op_biceps</string>
+    <string name="message_fail_save">Falha ao inseirir os dados</string>
+    <string name="message_success_save">Sucesso ao inserir os dados!</string>
+    <string name="loading">Carregando...</string>
 
 
 </resources>

@@ -10,6 +10,7 @@ import com.gymseries.model.*
 @Database(
     entities = [Biceps::class,
         Triceps::class,
+        User::class,
         Peito::class,
         Ombro::class,
         Perna::class,
@@ -17,7 +18,7 @@ import com.gymseries.model.*
         Charts::class,
         Costa::class],
 
-    version = 21,
+    version = 22,
     exportSchema = false
 )
 abstract class AppData : RoomDatabase() {
@@ -31,6 +32,7 @@ abstract class AppData : RoomDatabase() {
     abstract fun getOmbroRoom(): OmbroTestRoom
     abstract fun imcRoom(): IMCRoom
     abstract fun chartsRoom(): ChartsRoom
+    abstract fun userRoom(): UserRoom
 
     companion object {
 

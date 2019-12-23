@@ -197,33 +197,35 @@ class SplashActivity : AppCompatActivity() {
         )
 
         Thread(Runnable {
+
             Log.e(TAG, "Executando thread 0")
-            InserGenericAsync(this, 0, biceps).execute()
+            InserGenericAsync(this, ResourcesUtils.getString(this, R.string.op_biceps), biceps).execute()
 
             Thread(Runnable {
 
                 Log.e(TAG, "Executando thread 1")
-                InserGenericAsync(this, 1, triceps).execute()
+                InserGenericAsync(this, ResourcesUtils.getString(this, R.string.op_triceps), triceps).execute()
 
                 Thread(Runnable {
 
                     Log.e(TAG, "Executando thread 2")
-                    InserGenericAsync(this, 2, peito).execute()
+                    InserGenericAsync(this, ResourcesUtils.getString(this, R.string.op_peito), peito).execute()
 
                     Thread(Runnable {
 
                         Log.e(TAG, "Executando thread 3")
-                        InserGenericAsync(this, 3, ombros).execute()
+                        InserGenericAsync(this, ResourcesUtils.getString(this, R.string.op_ombro), ombros).execute()
 
                         Thread(Runnable {
 
                             Log.e(TAG, "Executando thread 4")
-                            InserGenericAsync(this, 4, costas).execute()
+                            InserGenericAsync(this, ResourcesUtils.getString(this, R.string.op_costa), costas).execute()
 
                             Thread(Runnable {
+
                                 Log.e(TAG, "Executando thread 5")
-                                InserGenericAsync(this, 5, pernas).execute()
-                                startActivity(Intent(this, FormInitActivity::class.java))
+                                InserGenericAsync(this, ResourcesUtils.getString(this, R.string.op_perna), pernas).execute()
+                                startActivity(Intent(this, LoadActivity::class.java))
 
                             }).start()
                         }).start()
