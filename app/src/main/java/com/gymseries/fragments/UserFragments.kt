@@ -11,83 +11,86 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.adapter.IMCAdapter
-import com.gymseries.async.InsertIMC
-import com.gymseries.async.ListIMCAsync
-import com.gymseries.model.IMC
+import com.gymseries.adapter.UserAdapter
+import com.gymseries.generics.async.ListEntityGenericAsync
+import com.gymseries.model.User
 import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.DataUtils
+import com.gymseries.utils.FormatUtils
 import com.gymseries.utils.ResourcesUtils
-import java.text.DecimalFormat
 
 
-class IMCFragments : Fragment() {
+class UserFragments : Fragment() {
 
-    private lateinit var adapter: IMCAdapter
-    private var imcs: ArrayList<IMC> = arrayListOf()
+    private lateinit var adapter: UserAdapter
+    private var users: ArrayList<User> = arrayListOf()
     private var sexo: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         var supportActionBar = (activity as AppCompatActivity).supportActionBar
-        ActionBarUtils.title(supportActionBar, ResourcesUtils.getString(context, R.string.title_imc))
+        ActionBarUtils.title(
+            supportActionBar,
+            ResourcesUtils.getString(context, R.string.title_imc)
+        )
         setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?
+    ): View? {
 
         val myView = LayoutInflater.from(context).inflate(R.layout.activity_imc, container, false)
         var recyclerView = myView.findViewById<RecyclerView>(R.id.recycle_view_imc)
-        adapter = IMCAdapter(context, imcs)
+        adapter = UserAdapter(context, users)
         recyclerView.adapter = adapter
-        ListIMCAsync(context, imcs, adapter).execute()
+
+
+        ListEntityGenericAsync(context, users, adapter,
+            ResourcesUtils.getString(context, R.string.op_user)).execute()
 
         return myView
     }
 
     private fun calcularIMC(
-
         peso: EditText?,
         altura: EditText?,
         resultadoImc: EditText?,
-        sexo: String?) {
+        sexo: String
+    ) {
 
         var p = peso?.text.toString()
         var a = altura?.text.toString()
         var imc = p.toDouble() / (a.toDouble() * a.toDouble())
 
         resultadoImc?.setTextColor(resources.getColor(android.R.color.black))
-
-        val formato = "#,##0.00"
-        val d = DecimalFormat(formato)
-        var imcFormatado = d.format(imc)
+        var imcFormatado = FormatUtils.formatarMoeda(imc)
         var resultado = ""
 
-        resultado = validaResultado(imc, resultado, imcFormatado, resultadoImc)
+//        resultado = validaResultado(imc, resultado, imcFormatado, resultadoImc)
+//
+//        users.add(
+//            User(
+//                id = 0L,
+//                peso = p.toDouble(),
+//                altura = a.toDouble(),
+//                sexo = sexo,
+//                data = DataUtils.getDataAtualHora(),
+//                resultado = resultado,
+//                imc = imcFormatado
+//            )
+//        )
 
-        imcs.add(
-            IMC(
-                id = 0L,
-                peso = p.toDouble(),
-                altura = a.toDouble(),
-                sexo = sexo,
-                data = DataUtils.getDataAtualHora(),
-                resultado = resultado,
-                imc = imcFormatado
-            )
-        )
-
-        InsertIMC(context, imcs, adapter).execute()
+//        InsertIMC(context, users, adapter).execute()
     }
+
 
     private fun validaResultado(
         imc: Double,
         resultado: String,
-        imcFormatado: String?,
         resultadoImc: EditText?
     ): String {
         var resultado1 = resultado
@@ -157,7 +160,7 @@ class IMCFragments : Fragment() {
                 button_calcular_imc.setOnClickListener {
 
                     if (peso.text.toString().isNotEmpty() && altura.text.toString().isNotEmpty()) {
-                        calcularIMC(peso, altura, result_imc, sexo)
+//                        calcularIMC(peso, altura, result_imc, sexo)
                     } else
                         Toast.makeText(
                             context,

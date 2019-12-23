@@ -17,7 +17,7 @@ class ListEntityGenericAsync<T>(
     context: Context?,
     private val lista: ArrayList<T>,
     private val adapter: RecyclerView.Adapter<*>,
-    op:Int
+    op:String
 ) : BaseListAsync<T>(context = context, op = op) {
 
     override fun onPostExecute(result: List<T>?) {

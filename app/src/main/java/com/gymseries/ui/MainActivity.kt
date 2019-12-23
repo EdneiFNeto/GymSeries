@@ -6,7 +6,6 @@ import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.gymseries.R
 import com.gymseries.fragments.*
-import com.gymseries.utils.ActionBarUtils
 import com.gymseries.utils.FragmentUtils
 import com.gymseries.utils.ResourcesUtils
 
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             } R.id.item_imc -> {
                 FragmentUtils.changeFragments(
                     supportFragmentManager,
-                    IMCFragments(),
+                    UserFragments(),
                     ResourcesUtils.getString(this, R.string.imc_fragemtn),
                     R.id.frame_layout_main
                 )

@@ -1,6 +1,7 @@
 package com.gymseries.adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +10,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
-import com.gymseries.model.IMC
+import com.gymseries.model.User
+import com.gymseries.utils.FormatUtils
 import com.gymseries.utils.ResourcesUtils
 import java.util.ArrayList
 
-class IMCAdapter(val context: Context?, private val imcs: ArrayList<IMC>) :
-    RecyclerView.Adapter<IMCAdapter.MyHolder>() {
+class UserAdapter(val context: Context?, private val imcs: ArrayList<User>) :
+    RecyclerView.Adapter<UserAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         return MyHolder(
@@ -80,11 +82,25 @@ class IMCAdapter(val context: Context?, private val imcs: ArrayList<IMC>) :
         val imc = itemView.findViewById<TextView>(R.id.text_imc)
         val result = itemView.findViewById<Button>(R.id.button_result_card_imc)
 
-        fun add(i: IMC) {
-            peso.text = if(i.peso > 0) "Peso: ${i.peso}Kg" else "Peso 0Kg"
-            data.text = if(i.data.isNotEmpty()) "${i.data}" else "Não existe data"
-            result.text = if(i.resultado.isNotEmpty()) i.resultado else "Não existe resultado"
-            imc.text = if(i.imc.isNotEmpty()) "IMC: ${i.imc}" else "IMC: 0"
+        fun add(i: User) {
+            peso.text = if (i.peso > 0) "Peso: ${i.peso}Kg" else "Peso 0Kg"
+            data.text = if (i.data.isNotEmpty()) "${i.data}" else "Não existe data"
+            result.text = if (i.resultado.isNotEmpty()) {
+                    resultado(i.imc.toString().toDouble())
+            } else "Não existe resultado"
+
+            imc.text = if (i.imc.toString().isNotEmpty()) "IMC: ${FormatUtils.formatarMoeda(i.imc.toString().toDouble())}" else "IMC: 0"
+        }
+
+        private fun resultado(imc:Double): String {
+            if (imc < 18.5) {
+                return "Peso Baixo"
+            } else if (imc > 18.5 && imc <= 24.9) {
+                return "Peso Baixo"
+            } else if (imc > 24.9 && imc <= 29.9) {
+                return "Sobrepeso"
+            }
+            return ""
         }
     }
 

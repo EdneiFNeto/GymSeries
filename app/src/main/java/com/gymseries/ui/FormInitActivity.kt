@@ -8,6 +8,7 @@ import com.gymseries.async.InsertUsers
 import com.gymseries.generics.InserGenericAsync
 import com.gymseries.interfaces.onListener
 import com.gymseries.model.User
+import com.gymseries.utils.DataUtils
 import com.gymseries.utils.ResourcesUtils
 import kotlinx.android.synthetic.main.activity_form_init.*
 
@@ -28,8 +29,8 @@ class FormInitActivity : AppCompatActivity(), onListener {
 
     override fun onClick(v: View?) {
         super.onClick(v)
-        when(v?.id){
-            R.id.button_salvar->salvar()
+        when (v?.id) {
+            R.id.button_salvar -> salvar()
         }
     }
 
@@ -37,12 +38,17 @@ class FormInitActivity : AppCompatActivity(), onListener {
 
         var altura = text_altura.text.toString()
         var peso = text_peso.text.toString()
-        when(switch_sexo.isChecked){
-            true->sexo="F"
-            false->sexo="M"
+        sexo = when {
+            radio_sexo_feminino.isChecked -> "F"
+            radio_sexo_masculino.isChecked -> "M"
+            else -> ""
         }
 
-        var user = User(0L, altura, peso, sexo)
+        var resultado = peso.toDouble()/(altura.toDouble()* altura.toDouble())
+
+        var user = User(0L, altura.toDouble(), peso.toDouble(), sexo, resultado.toString(),
+            DataUtils.getDataAtualHora(), resultado.toString())
+
         InsertUsers(this, user).execute()
     }
 }

@@ -80,16 +80,26 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:id="@+id/switch_sexo"
-                android:checked="false"
-                android:text="@string/switch_sexo"
-                android:textColor="@color/primaryTextColor"
-                android:textColorHint="@color/primaryTextColor"
-                android:textSize="16dp" />
+            <RadioGroup
+
+                android:id="@+id/radio_sexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/radio_sexo_masculino"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:textColor="@color/primaryTextColor"
+                    android:id="@+id/radio_sexo_masculino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/masculino"/>
+                <RadioButton
+                    android:textColor="@color/primaryTextColor"
+                    android:id="@+id/radio_sexo_feminino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feminino"/>
+            </RadioGroup>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_salvar"

@@ -18,7 +18,7 @@ import com.gymseries.model.*
         Charts::class,
         Costa::class],
 
-    version = 22,
+    version = 23,
     exportSchema = false
 )
 abstract class AppData : RoomDatabase() {

@@ -36,7 +36,7 @@ class PeitoActivity : AppCompatActivity() {
         adapter = MyGenericAdapter(this, peitos, op, true)
         recyclerViewTriceps.adapter = adapter
 
-        ListEntityGenericAsync<Peito>(this, peitos, adapter, op).execute()
+        ListEntityGenericAsync<Peito>(this, peitos, adapter, ResourcesUtils.getString(this, R.string.op_peito)).execute()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

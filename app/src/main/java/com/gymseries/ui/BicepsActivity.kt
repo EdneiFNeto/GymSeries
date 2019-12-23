@@ -37,7 +37,7 @@ class BicepsActivity : AppCompatActivity() {
         biceps = ArrayList()
         adapter = MyGenericAdapter(this, biceps, op, true)
         recyclerViewBiceps.adapter = adapter
-        ListEntityGenericAsync(this, biceps, adapter, op).execute()
+        ListEntityGenericAsync(this, biceps, adapter, ResourcesUtils.getString(this, R.string.op_biceps)).execute()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

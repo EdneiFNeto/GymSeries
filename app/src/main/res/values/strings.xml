@@ -132,6 +132,9 @@
     <string name="message_fail_save">Falha ao inseirir os dados</string>
     <string name="message_success_save">Sucesso ao inserir os dados!</string>
     <string name="loading">Carregando...</string>
+    <string name="men">Homen</string>
+    <string name="masculino">Masculino</string>
+    <string name="feminino">Feminino</string>
 
 
 </resources>

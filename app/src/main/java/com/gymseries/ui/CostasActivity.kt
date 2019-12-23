@@ -38,7 +38,7 @@ class CostasActivity : AppCompatActivity() {
         adapter = MyGenericAdapter(this, costas, op, true)
         recyclerView.adapter = adapter
 
-        ListEntityGenericAsync<Costa>(this, costas, adapter, op).execute()
+        ListEntityGenericAsync<Costa>(this, costas, adapter, ResourcesUtils.getString(this, R.string.op_costa)).execute()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

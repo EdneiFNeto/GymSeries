@@ -36,7 +36,7 @@ class OmbroActivity : AppCompatActivity() {
         adapter = MyGenericAdapter(this, ombros, op, true)
         recyclerViewTriceps.adapter = adapter
 
-        ListEntityGenericAsync<Ombro>(this, ombros, adapter, op).execute()
+        ListEntityGenericAsync<Ombro>(this, ombros, adapter, ResourcesUtils.getString(this, R.string.op_ombro)).execute()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

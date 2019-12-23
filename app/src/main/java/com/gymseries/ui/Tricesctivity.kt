@@ -36,7 +36,7 @@ class Tricesctivity : AppCompatActivity() {
         triceps = ArrayList<Triceps>()
         adapter = MyGenericAdapter(this, triceps, op, true)
         recyclerViewTriceps.adapter = adapter
-        ListEntityGenericAsync(this, triceps, adapter, op).execute()
+        ListEntityGenericAsync(this, triceps, adapter, ResourcesUtils.getString(this, R.string.op_triceps)).execute()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

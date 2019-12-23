@@ -7,9 +7,12 @@ import androidx.room.PrimaryKey
 class User(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
-    val altura: String,
-    val peso: String,
-    val sexo: String
+    val altura: Double,
+    val peso: Double,
+    val sexo: String,
+    val resultado:String,
+    val  data:String,
+    val imc: String?
 ) {
 
     override fun toString(): String {

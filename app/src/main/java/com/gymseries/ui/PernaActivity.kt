@@ -39,7 +39,7 @@ class PernaActivity : AppCompatActivity() {
         adapter = MyGenericAdapter(this, pernas, op, true)
         recyclerView.adapter = adapter
 
-        ListEntityGenericAsync(this, pernas, adapter, op).execute()
+        ListEntityGenericAsync(this, pernas, adapter, ResourcesUtils.getString(this, R.string.op_perna)).execute()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

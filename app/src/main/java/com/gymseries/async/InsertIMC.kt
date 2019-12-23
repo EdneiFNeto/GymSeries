@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
 import androidx.sqlite.db.SimpleSQLiteQuery
-import com.gymseries.adapter.IMCAdapter
+import com.gymseries.adapter.UserAdapter
 import com.gymseries.database.AppData
 import com.gymseries.model.IMC
 import java.util.ArrayList
@@ -12,7 +12,7 @@ import java.util.ArrayList
 class InsertIMC(
     val context: Context?,
     val imcs: ArrayList<IMC>,
-    val adapter: IMCAdapter
+    val adapter: UserAdapter
 ) : AsyncTask<String, String, List<IMC>>() {
     private val TAG = "InsertIMCLog"
 
