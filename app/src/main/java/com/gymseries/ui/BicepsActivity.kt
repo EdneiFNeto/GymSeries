@@ -35,8 +35,10 @@ class BicepsActivity : AppCompatActivity() {
 
         var recyclerViewBiceps = findViewById<RecyclerView>(R.id.recycle_view_biceps)
         biceps = ArrayList()
-        adapter = MyGenericAdapter(this, biceps, op, true)
+
+        adapter = MyGenericAdapter(this, biceps, ResourcesUtils.getString(this, R.string.op_biceps), true)
         recyclerViewBiceps.adapter = adapter
+
         ListEntityGenericAsync(this, biceps, adapter, ResourcesUtils.getString(this, R.string.op_biceps)).execute()
     }
 

@@ -34,7 +34,7 @@ class Tricesctivity : AppCompatActivity() {
 
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_triceps)
         triceps = ArrayList<Triceps>()
-        adapter = MyGenericAdapter(this, triceps, op, true)
+        adapter = MyGenericAdapter(this, triceps, ResourcesUtils.getString(this, R.string.op_triceps), true)
         recyclerViewTriceps.adapter = adapter
         ListEntityGenericAsync(this, triceps, adapter, ResourcesUtils.getString(this, R.string.op_triceps)).execute()
     }

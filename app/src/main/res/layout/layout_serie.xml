@@ -55,13 +55,13 @@
             app:layout_constraintStart_toEndOf="@+id/text_num_repeticao"
             app:layout_constraintTop_toTopOf="@+id/text_num_repeticao" />
 
-        <ImageView
+        <TextView
+            android:id="@+id/text_sigla_serie"
+            android:layout_marginRight="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/ic_pencil"
-            android:visibility="gone"
+            android:text="@string/serie_a"
+            android:textSize="26dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

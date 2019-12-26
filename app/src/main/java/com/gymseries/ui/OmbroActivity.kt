@@ -33,7 +33,7 @@ class OmbroActivity : AppCompatActivity() {
 
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_ombro)
         ombros = ArrayList<Ombro>()
-        adapter = MyGenericAdapter(this, ombros, op, true)
+        adapter = MyGenericAdapter(this, ombros, ResourcesUtils.getString(this, R.string.op_ombro), true)
         recyclerViewTriceps.adapter = adapter
 
         ListEntityGenericAsync<Ombro>(this, ombros, adapter, ResourcesUtils.getString(this, R.string.op_ombro)).execute()

@@ -35,7 +35,7 @@ class CostasActivity : AppCompatActivity() {
 
         var recyclerView = findViewById<RecyclerView>(R.id.recycle_view_costas)
         costas = ArrayList<Costa>()
-        adapter = MyGenericAdapter(this, costas, op, true)
+        adapter = MyGenericAdapter(this, costas, ResourcesUtils.getString(this, R.string.op_costa), true)
         recyclerView.adapter = adapter
 
         ListEntityGenericAsync<Costa>(this, costas, adapter, ResourcesUtils.getString(this, R.string.op_costa)).execute()

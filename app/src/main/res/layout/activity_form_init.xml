@@ -50,6 +50,7 @@
                 app:hintTextColor="@color/primaryTextColor">
 
                 <com.google.android.material.textfield.TextInputEditText
+
                     android:layout_width="match_parent"
                     android:id="@+id/text_altura"
                     android:layout_height="wrap_content"

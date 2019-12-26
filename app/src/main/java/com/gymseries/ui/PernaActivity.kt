@@ -36,7 +36,7 @@ class PernaActivity : AppCompatActivity() {
 
         var recyclerView = findViewById<RecyclerView>(R.id.recycle_view_perna)
         pernas = ArrayList<Perna>()
-        adapter = MyGenericAdapter(this, pernas, op, true)
+        adapter = MyGenericAdapter(this, pernas, ResourcesUtils.getString(this, R.string.op_perna), true)
         recyclerView.adapter = adapter
 
         ListEntityGenericAsync(this, pernas, adapter, ResourcesUtils.getString(this, R.string.op_perna)).execute()

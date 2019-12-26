@@ -33,7 +33,7 @@ class PeitoActivity : AppCompatActivity() {
         )
         var recyclerViewTriceps = findViewById<RecyclerView>(R.id.recycle_view_peito)
         peitos = ArrayList<Peito>()
-        adapter = MyGenericAdapter(this, peitos, op, true)
+        adapter = MyGenericAdapter(this, peitos, ResourcesUtils.getString(this, R.string.op_peito), true)
         recyclerViewTriceps.adapter = adapter
 
         ListEntityGenericAsync<Peito>(this, peitos, adapter, ResourcesUtils.getString(this, R.string.op_peito)).execute()

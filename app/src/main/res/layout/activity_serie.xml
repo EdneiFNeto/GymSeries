@@ -1,86 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview_series"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/layout_serie" />
 
-        <!-- SERIE A -->
-        <TextView
-            android:id="@+id/title_serie_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryDarkColor"
-            android:padding="12dp"
-            android:text="@string/serie_a"
-            android:textColor="@color/primaryTextColor"
-            android:textAlignment="center"
-            android:textSize="22dp" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_peito"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_triceps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_ombro_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_perna_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-
-        <!-- SERIE B -->
-        <TextView
-            android:id="@+id/title_serie_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryDarkColor"
-            android:padding="12dp"
-            android:text="@string/serie_b"
-            android:textColor="@color/primaryTextColor"
-            android:textAlignment="center"
-            android:textSize="22dp" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_biceps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_costas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_ombro_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_series_perna_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/activity_serie_adapter" />
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

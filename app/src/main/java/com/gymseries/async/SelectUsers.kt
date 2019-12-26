@@ -12,12 +12,19 @@ import com.gymseries.database.AppData
 import com.gymseries.model.User
 import com.gymseries.ui.FormInitActivity
 import com.gymseries.ui.MainActivity
-import com.gymseries.utils.IntentUtils
 
-class SelectUsers(val context: Context, private val imgLoad: ImageView) :
-    AsyncTask<String, String, List<User>>() {
+class SelectUsers(
+    val context: Context,
+    val gif: ImageView
+) : AsyncTask<String, String, List<User>>() {
 
-    private val time: Long = 3000
+    override fun onPreExecute() {
+        super.onPreExecute()
+        Glide.with(context)
+            .load(R.drawable.load_fitness) // aqui é teu gif
+            .asGif()
+            .into(gif)
+    }
 
     override fun doInBackground(vararg params: String?): List<User>? {
         var appData = AppData.getInstance(context)
@@ -25,25 +32,22 @@ class SelectUsers(val context: Context, private val imgLoad: ImageView) :
         return usersRoom?.all(SimpleSQLiteQuery("SELECT * FROM User"))
     }
 
-    override fun onPreExecute() {
-        super.onPreExecute()
-        Glide.with(context)
-            .load(R.drawable.load_fitness)
-            .into(imgLoad)
-    }
-
     override fun onPostExecute(result: List<User>?) {
         super.onPostExecute(result)
         if (result != null) {
             if (result.isNotEmpty()) {
-                IntentUtils.initHandlerActivity(context,MainActivity::class.java)
+                statiAcitivy(MainActivity::class.java)
             } else {
-                IntentUtils.initHandlerActivity(context,FormInitActivity::class.java)
+                statiAcitivy(FormInitActivity::class.java)
             }
         } else {
-                IntentUtils.initHandlerActivity(context,FormInitActivity::class.java)
+            statiAcitivy(FormInitActivity::class.java)
         }
     }
 
-
+    private fun statiAcitivy(myClass: Class<*>) {
+        Handler().postDelayed({
+            context.startActivity(Intent(context, myClass))
+        }, 2000)
+    }
 }

@@ -9,32 +9,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.LoadActivity"></activity>
-        <activity android:name=".ui.FormInitActivity" />
-        <activity android:name=".ui.CostasActivity" />
-        <activity android:name=".ui.Tricesctivity" />
+
+        <activity android:name=".ui.LoadActivity"
+            android:noHistory="true"/>
+
+        <activity android:name=".ui.FormInitActivity"
+            android:noHistory="true"/>
+
+        <activity android:name=".ui.CostasActivity"
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"/>
+
+        <activity android:name=".ui.Tricesctivity"
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"/>
+
         <activity
             android:name=".ui.PernaActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"/>
+
         <activity
             android:name=".ui.OmbroActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"/>
+
         <activity
             android:name=".ui.PeitoActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity" />
+
         <activity
             android:name=".ui.BicepsActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity" />
+
         <activity android:name=".ui.MainActivity" />
+
         <activity
             android:name=".ui.SplashActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+    </application>
 </manifest>

@@ -1,7 +1,6 @@
 package com.gymseries.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,13 @@ import com.gymseries.R
 import com.gymseries.generics.DeleteEntityGenericAsync
 import com.gymseries.generics.async.UpdateGeneric
 import com.gymseries.model.*
+import com.gymseries.utils.LayoutUtils
 import com.gymseries.utils.ResourcesUtils
 
 abstract class BaseAdapter<T>(
     val context: Context?,
     private val list: ArrayList<T>,
-    val op: Int,
+    val op: String,
     val changeLayout: Boolean
 ) : RecyclerView.Adapter<BaseAdapter.MyHolder<T>>() {
 
@@ -45,35 +45,19 @@ abstract class BaseAdapter<T>(
 
         } else {
             convertStringFronModel(holder, list[position])
-            holder.repeticao.text =
-                if (holder.repeticao.text.toString() != "") "3, 4 ou 6 x ${holder.repeticao.text} Rept." else "3 ou 4 x 0 Rept."
+            holder.repeticao.text = if (holder.repeticao.text.toString() != "") "3, 4 ou 6 x ${holder.repeticao.text} Rept." else "3 ou 4 x 0 Rept."
             holder.peso.text = if (holder.peso.text != "") "${holder.peso.text}  Kg." else "0 Kg"
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder<T> {
-
-
-        if (changeLayout) {
-            return MyHolder(
-                LayoutInflater.from(context).inflate(
-                    R.layout.activity_treino,
-                    parent,
-                    false
-                )
-            )
+        return if (changeLayout) {
+            MyHolder(LayoutUtils.inflateLayout(context, parent, R.layout.activity_treino))
         } else {
-            return MyHolder(
-                LayoutInflater.from(context).inflate(
-                    R.layout.layout_serie,
-                    parent,
-                    false
-                )
-            )
+            MyHolder(LayoutUtils.inflateLayout(context, parent, R.layout.layout_serie))
         }
-
-
     }
+
 
     override fun getItemCount(): Int {
         return list.size
@@ -94,8 +78,7 @@ abstract class BaseAdapter<T>(
                 when (i) {
                     0 -> id = str[i]
                     1 -> title.text = str[i]
-                    2 -> repeticao.text =
-                        if (str[i] != "") "3, 4 ou 6 x ${str[i]} Rept." else "3 ou 4 x 0 Rept."
+                    2 -> repeticao.text = if (str[i] != "") "3, 4 ou 6 x ${str[i]} Rept." else "0 Rept."
                     3 -> peso.text = if (str[i] != "") "${str[i]} Kg." else "0 Kg"
                     5 -> status = str[i]
                 }
@@ -166,17 +149,8 @@ abstract class BaseAdapter<T>(
 
             button_salvar.setOnClickListener {
 
-                UpdateGeneric(
-                    context,
-                    status.isChecked,
-                    edittext_peso,
-                    edittext_num_repeticao,
-                    serie,
-                    op,
-                    t,
-                    list,
-                    this
-                ).execute()
+                UpdateGeneric(context, status.isChecked, edittext_peso,
+                    edittext_num_repeticao, serie, op, t, list,this).execute()
 
                 dialog.dismiss()
             }
@@ -228,7 +202,7 @@ abstract class BaseAdapter<T>(
         ) { dialog, _ ->
 
             when (op) {
-                0 -> {
+                ResourcesUtils.getString(context, R.string.op_biceps) -> {
                     DeleteEntityGenericAsync(
                         context, 0, Biceps(
                             id = id.toLong(),
@@ -240,7 +214,7 @@ abstract class BaseAdapter<T>(
                         ), list = list as ArrayList<Biceps>, adapter = this
                     ).execute()
                 }
-                1 -> {
+                ResourcesUtils.getString(context, R.string.op_triceps) -> {
                     DeleteEntityGenericAsync(
                         context, 1, Triceps(
                             id = id.toLong(),
@@ -252,7 +226,7 @@ abstract class BaseAdapter<T>(
                         ), list = list as ArrayList<Triceps>, adapter = this
                     ).execute()
                 }
-                2 -> {
+                ResourcesUtils.getString(context, R.string.op_peito) -> {
                     DeleteEntityGenericAsync(
                         context, 2, Peito(
                             id = id.toLong(),
@@ -264,7 +238,7 @@ abstract class BaseAdapter<T>(
                         ), list = list as ArrayList<Peito>, adapter = this
                     ).execute()
                 }
-                3 -> {
+                ResourcesUtils.getString(context, R.string.op_ombro) -> {
                     DeleteEntityGenericAsync(
                         context, 3, Ombro(
                             id = id.toLong(),
@@ -276,7 +250,7 @@ abstract class BaseAdapter<T>(
                         ), list = list as ArrayList<Ombro>, adapter = this
                     ).execute()
                 }
-                4 -> {
+                ResourcesUtils.getString(context, R.string.op_costa) -> {
                     DeleteEntityGenericAsync(
                         context, 4, Costa(
                             id = id.toLong(),
@@ -288,7 +262,7 @@ abstract class BaseAdapter<T>(
                         ), list = list as ArrayList<Costa>, adapter = this
                     ).execute()
                 }
-                5 -> {
+                ResourcesUtils.getString(context, R.string.op_perna) -> {
                     DeleteEntityGenericAsync(
                         context, 5, Perna(
                             id = id.toLong(),

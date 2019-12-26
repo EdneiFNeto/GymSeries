@@ -15,7 +15,6 @@ class LoadActivity : AppCompatActivity() {
 
         var actionBar = supportActionBar
         actionBar?.hide()
-
         SelectUsers(this, img_load).execute()
     }
 }

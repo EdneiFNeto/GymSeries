@@ -11,6 +11,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_view_triceps"
         android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:padding="8dp"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/activity_treino" />

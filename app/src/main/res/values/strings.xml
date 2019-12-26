@@ -84,8 +84,8 @@
     <string name="button_cancelar">Cancelar</string>
     <string name="deletar_serie">Deletar</string>
     <string name="msg_delete">Deseja excluir treino?</string>
-    <string name="a">a</string>
-    <string name="b">b</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
     <string name="title_desc_imc">Índice de massa corporal(IMC)</string>
     <string name="title_sub_title_imc">Uma medida da gordura corporal em adultos</string>
     <string name="text_peso">Peso</string>
@@ -135,6 +135,7 @@
     <string name="men">Homen</string>
     <string name="masculino">Masculino</string>
     <string name="feminino">Feminino</string>
+    <string name="op_serie">op_serie</string>
 
 
 </resources>

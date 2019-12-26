@@ -6,23 +6,17 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 import com.gymseries.R
 import com.gymseries.database.AppData
 import com.gymseries.model.*
+import com.gymseries.utils.LoggerUtil
 import com.gymseries.utils.ResourcesUtils
 
-/**
- * Options:
- * 0 - biceps
- * 1 - triceps
- * 2 - Peito
- * 3 - Ombro
- * 4 - Costas
- * 5 - Perna
- */
 
 abstract class BaseAsyncInser<T>(
     val context: Context?,
     val op: String,
     private val list: List<T>
 ) : AsyncTask<String, String, List<T>>() {
+
+    private val TAG = "BaseAsyncInserLog"
 
     override fun doInBackground(vararg p0: String?): List<T> {
 
@@ -35,6 +29,7 @@ abstract class BaseAsyncInser<T>(
         var pernaRoom = appData?.pernaRoom()
         var imcRoom = appData?.imcRoom()
         var usersRoom = appData?.userRoom()
+        var serieRoom = appData?.serieRoom()
 
         return when (op) {
             ResourcesUtils.getString(context, R.string.op_biceps) -> {
@@ -120,6 +115,14 @@ abstract class BaseAsyncInser<T>(
                 }
                 return all
             }
+            ResourcesUtils.getString(context, R.string.op_serie) -> {
+                for (serie in list) {
+                    var r = serie as Serie
+                    var insert = serieRoom?.insert(r)
+                }
+                return serieRoom?.all(SimpleSQLiteQuery("SELECT * FROM Serie")) as List<T>
+            }
+
             else -> emptyList()
         }
     }

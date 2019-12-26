@@ -16,9 +16,10 @@ import com.gymseries.model.*
         Perna::class,
         IMC::class,
         Charts::class,
+        Serie::class,
         Costa::class],
 
-    version = 23,
+    version = 27,
     exportSchema = false
 )
 abstract class AppData : RoomDatabase() {
@@ -33,6 +34,7 @@ abstract class AppData : RoomDatabase() {
     abstract fun imcRoom(): IMCRoom
     abstract fun chartsRoom(): ChartsRoom
     abstract fun userRoom(): UserRoom
+    abstract fun serieRoom(): SerieRomm
 
     companion object {
 
