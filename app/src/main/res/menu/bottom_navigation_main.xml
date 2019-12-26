@@ -1,11 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item android:id="@+id/item_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/title_home"/>
+        android:title="@string/title_serie"/>
 
     <item android:id="@+id/item_treino"
-        android:icon="@drawable/ic_serie_"
+        android:icon="@mipmap/ic_item_treino_black"
         android:title="@string/title_treino" />
 
     <item android:id="@+id/item_imc"
@@ -15,4 +16,5 @@
     <item android:id="@+id/item_chart"
         android:icon="@drawable/ic_chart"
         android:title="@string/title_chart" />
+
 </menu>

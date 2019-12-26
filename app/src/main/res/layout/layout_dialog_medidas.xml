@@ -1,85 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp">
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:hint="@string/title_peito"
+        app:boxStrokeColor="@color/colorblack"
+        app:boxStrokeWidth="1dp">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_text_peito_media"
-            style="@style/EdtTextNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/border_line"
-            android:hint="@string/title_peito" />
+            android:inputType="numberDecimal" />
 
-        <EditText
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_braco"
+        android:layout_marginTop="12dp"
+        app:boxStrokeColor="@color/colorblack"
+        app:boxStrokeWidth="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_text_braco_media"
-            style="@style/EdtTextNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_weight="1"
-            android:background="@drawable/border_line"
-            android:hint="@string/title_braco" />
-    </LinearLayout>
+            android:inputType="numberDecimal" />
 
-    <LinearLayout
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:hint="@string/title_cintura"
+        android:layout_marginTop="12dp"
+        app:boxStrokeColor="@color/colorblack"
+        app:boxStrokeWidth="1dp">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_text_cintura_media"
-            style="@style/EdtTextNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/border_line"
-            android:hint="@string/title_cintura" />
+            android:inputType="numberDecimal" />
 
-        <EditText
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_quadril"
+        app:boxStrokeColor="@color/colorblack"
+        app:boxStrokeWidth="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_text_quadril_media"
-            style="@style/EdtTextNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_weight="1"
-            android:background="@drawable/border_line"
-            android:hint="@string/title_quadril" />
+            android:inputType="numberDecimal" />
 
-    </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_coxa"
+        app:boxStrokeColor="@color/colorblack"
+        app:boxStrokeWidth="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_text_coxa_media"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="12dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:hint="@string/title_panturilha"
+        app:boxStrokeColor="@color/colorblack"
+        app:boxStrokeWidth="1dp">
 
-
-        <EditText
-            android:layout_weight="1"
-            android:id="@+id/edt_text_coxa_media"
-            style="@style/EdtTextNormal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_line"
-            android:hint="@string/title_coxa" />
-
-        <EditText
-            android:layout_marginLeft="12dp"
-            android:layout_weight="1"
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_text_panturrilha_media"
-            style="@style/EdtTextNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_line"
-            android:hint="@string/title_panturilha" />
-    </LinearLayout>
+            android:inputType="numberDecimal" />
 
+    </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

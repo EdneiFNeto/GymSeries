@@ -1,6 +1,5 @@
 package com.gymseries.fragments
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.widget.EditText
@@ -9,10 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.github.mikephil.charting.charts.BarChart
-import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.data.BarDataSet
-import com.github.mikephil.charting.data.BarEntry
 import com.gymseries.R
 import com.gymseries.adapter.ChartAdapter
 import com.gymseries.async.InsertMedia
@@ -51,7 +46,6 @@ class ChartFragment : Fragment() {
         charts = arrayListOf()
         adapter = ChartAdapter(context, charts)
         recyclerView.adapter = adapter
-
         ListarMedidas(context, charts, adapter).execute()
 
         return myView
@@ -63,7 +57,6 @@ class ChartFragment : Fragment() {
         item.setIcon(R.drawable.ic_edit)
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         item.setOnMenuItemClickListener {
-
             if (context != null) {
 
                 var builder = AlertDialog.Builder(context!!)

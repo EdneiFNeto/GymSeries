@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             } R.id.item_imc -> {
                 FragmentUtils.changeFragments(
                     supportFragmentManager,
-                    UserFragments(),
+                    IMCFragments(),
                     ResourcesUtils.getString(this, R.string.imc_fragemtn),
                     R.id.frame_layout_main
                 )

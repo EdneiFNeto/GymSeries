@@ -35,11 +35,10 @@ class SeriesAdapter(val context: Context?,
 
         fun add(serie:Serie){
 
-            title.text = "${serie.id} - ${serie.descr} - ${serie.status}"
+            title.text = "${serie.descr}"
             numRepeticao.text = "${serie.repeticoes} Rept."
             textPeso.text = "${serie.peso} Kg."
             textSerie.text = serie.serie
-
         }
     }
 

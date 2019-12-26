@@ -20,7 +20,7 @@ import com.gymseries.utils.FormatUtils
 import com.gymseries.utils.ResourcesUtils
 
 
-class UserFragments : Fragment() {
+class IMCFragments : Fragment() {
 
     private lateinit var adapter: UserAdapter
     private var users: ArrayList<User> = arrayListOf()
@@ -32,8 +32,8 @@ class UserFragments : Fragment() {
         var supportActionBar = (activity as AppCompatActivity).supportActionBar
         ActionBarUtils.title(
             supportActionBar,
-            ResourcesUtils.getString(context, R.string.title_imc)
-        )
+            ResourcesUtils.getString(context, R.string.title_imc))
+
         setHasOptionsMenu(true)
     }
 
@@ -139,39 +139,19 @@ class UserFragments : Fragment() {
 
                 var peso = myView.findViewById<EditText>(R.id.edt_text_peso_imc)
                 var altura = myView.findViewById<EditText>(R.id.edt_text_altura_imc)
-                var result_imc = myView.findViewById<EditText>(R.id.edt_text_result_imc)
-                var radio_sexo_f = myView.findViewById<RadioButton>(R.id.radio_sexo_f)
-                var radio_sexo_m = myView.findViewById<RadioButton>(R.id.radio_sexo_m)
                 var button_calcular_imc = myView.findViewById<Button>(R.id.button_calcular_imc)
                 var dialog = builder.create()
-
-                radio_sexo_f.setOnClickListener {
-                    if (radio_sexo_f.isChecked) {
-                        sexo = radio_sexo_f.text.toString()
-                    }
-                }
-                radio_sexo_m.setOnClickListener {
-                    if (radio_sexo_m.isChecked) {
-                        sexo = radio_sexo_m.text.toString()
-
-                    }
-                }
 
                 button_calcular_imc.setOnClickListener {
 
                     if (peso.text.toString().isNotEmpty() && altura.text.toString().isNotEmpty()) {
-//                        calcularIMC(peso, altura, result_imc, sexo)
+                    //calcularIMC(peso, altura, result_imc, sexo)
                     } else
-                        Toast.makeText(
-                            context,
-                            ResourcesUtils.getString(context, R.string.preencha_campos),
-                            Toast.LENGTH_SHORT
+                        Toast.makeText(context, ResourcesUtils.getString(context, R.string.preencha_campos),Toast.LENGTH_SHORT
                         ).show()
 
                     dialog.dismiss()
                 }
-
-
                 dialog.show()
             }
 

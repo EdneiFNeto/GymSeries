@@ -1,6 +1,7 @@
 package com.gymseries.adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,11 +28,25 @@ abstract class BaseAdapter<T>(
 
     override fun onBindViewHolder(holder: MyHolder<T>, position: Int) {
         holder.add(list[position])
+
         if (changeLayout) {
             if (holder.status == "true") {
                 holder.itemView.setBackgroundResource(R.color.primaryColor)
+
+                if (context != null) {
+                    holder.title.setTextColor(context.resources.getColor(R.color.primaryTextColor))
+                    holder.repeticao.setTextColor(context.resources.getColor(R.color.primaryTextColor))
+                    holder.peso.setTextColor(context.resources.getColor(R.color.primaryTextColor))
+                    holder.icon.setImageDrawable(context.resources.getDrawable(R.mipmap.ic_series_white))
+                }
             } else {
                 holder.itemView.setBackgroundResource(android.R.color.white)
+                if (context != null) {
+                    holder.title.setTextColor(context.resources.getColor(R.color.colorblack))
+                    holder.repeticao.setTextColor(context.resources.getColor(R.color.colorblack))
+                    holder.peso.setTextColor(context.resources.getColor(R.color.colorblack))
+                    holder.icon.setImageDrawable(context.resources.getDrawable(R.drawable.ic_serie))
+                }
             }
 
             holder.itemView.setOnClickListener {
@@ -74,6 +89,7 @@ abstract class BaseAdapter<T>(
         var title = itemView.findViewById<TextView>(R.id.text_title_treino)
         var repeticao = itemView.findViewById<TextView>(R.id.text_num_repeticao)
         var peso = itemView.findViewById<TextView>(R.id.text_kg)
+        var icon = itemView.findViewById<ImageView>(R.id.imageView_treino)
 
         fun add(t: T) {
             var str = t.toString().split(",")
@@ -103,7 +119,7 @@ abstract class BaseAdapter<T>(
 
         for (i in 0..str.size) {
             when (i) {
-                0->  id = str[i]
+                0 -> id = str[i]
                 1 -> title = str[i]
                 2 -> repeticao = str[i]
                 3 -> peso = str[i]
@@ -154,7 +170,18 @@ abstract class BaseAdapter<T>(
             dialog.show()
 
             button_salvar.setOnClickListener {
-                UpdateGeneric(context, status.isChecked, edittext_peso, edittext_num_repeticao, title,  serie, op, t, list, this).execute()
+                UpdateGeneric(
+                    context,
+                    status.isChecked,
+                    edittext_peso,
+                    edittext_num_repeticao,
+                    title,
+                    serie,
+                    op,
+                    t,
+                    list,
+                    this
+                ).execute()
                 dialog.dismiss()
             }
         }
