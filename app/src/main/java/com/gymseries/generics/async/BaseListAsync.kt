@@ -23,7 +23,8 @@ abstract class BaseListAsync<T>(
             ResourcesUtils.getString(context, R.string.op_perna)-> return appData?.pernaRoom()?.all(SimpleSQLiteQuery("SELECT * FROM Perna")) as List<T>
             ResourcesUtils.getString(context, R.string.op_imc)-> return appData?.imcRoom()?.all(SimpleSQLiteQuery("SELECT * FROM IMC")) as List<T>
             ResourcesUtils.getString(context, R.string.op_user)-> return appData?.userRoom()?.all(SimpleSQLiteQuery("SELECT * FROM User")) as List<T>
-            ResourcesUtils.getString(context, R.string.op_serie)-> return appData?.serieRoom()?.all(SimpleSQLiteQuery("SELECT * FROM Serie ORDER BY serie ASC")) as List<T>
+            ResourcesUtils.getString(context, R.string.op_serie)-> return appData?.serieRoom()?.all(SimpleSQLiteQuery("SELECT * FROM Serie WHERE status = ? ORDER BY serie ASC",
+                arrayOf(true))) as List<T>
             else -> emptyList()
         }
     }

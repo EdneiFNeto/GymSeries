@@ -34,10 +34,12 @@ class SeriesAdapter(val context: Context?,
         private val textSerie = itemView.findViewById<TextView>(R.id.text_sigla_serie)
 
         fun add(serie:Serie){
-            title.text = serie.descr
+
+            title.text = "${serie.id} - ${serie.descr} - ${serie.status}"
             numRepeticao.text = "${serie.repeticoes} Rept."
             textPeso.text = "${serie.peso} Kg."
             textSerie.text = serie.serie
+
         }
     }
 

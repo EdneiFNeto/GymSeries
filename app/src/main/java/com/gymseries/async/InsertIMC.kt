@@ -26,7 +26,7 @@ class InsertIMC(
                 imcRoom?.insert(i)
         }
 
-        return imcRoom?.all(SimpleSQLiteQuery("SELECT * FROM IMC ORDER BY id DESC"))
+        return imcRoom?.all(SimpleSQLiteQuery("SELECT * FROM IMC ORDER BY title DESC"))
     }
 
     override fun onPostExecute(result: List<IMC>?) {

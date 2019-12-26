@@ -74,7 +74,7 @@ class UserFragments : Fragment() {
 //
 //        users.add(
 //            User(
-//                id = 0L,
+//                title = 0L,
 //                peso = p.toDouble(),
 //                altura = a.toDouble(),
 //                sexo = sexo,

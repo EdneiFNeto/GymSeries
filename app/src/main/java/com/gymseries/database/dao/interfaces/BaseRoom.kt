@@ -11,7 +11,7 @@ interface BaseRoom<T> {
     fun insert(t: T):Long
 
     @Delete
-    fun delete(t: T)
+    fun delete(t: T):Int
 
     @Update
     fun update(t: T):Int

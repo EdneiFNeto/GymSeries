@@ -22,45 +22,49 @@ class ListEntityForStatus<T>(
     private var series = ArrayList<Serie?>()
 
 
+    //if is result is success, list data and add in array series
     override fun onPostExecute(result: List<T>?) {
         super.onPostExecute(result)
         LoggerUtil(TAG).error("Results $result")
 
         if (result != null) {
             if (result.isNotEmpty()) {
-
                 for (r in result) {
-
                     when(op){
-
                         ResourcesUtils.getString(context, R.string.op_biceps)->{
                             var b = r as Biceps
-                            series.add(Serie(id = b.id, descr = b.descr, peso = b.peso, repeticoes = b.repeticoes, serie = b.serie, status = b.status))
+                            var serie = Serie(null, b.descr, b.peso, b.repeticoes,b.serie,  b.status)
+                            series.add(serie)
                         }
                         ResourcesUtils.getString(context, R.string.op_triceps)->{
-                            var t = r as Triceps
-                            series.add(Serie(id = t.id, descr = t.descr, peso = t.peso, repeticoes = t.repeticoes, serie = t.serie, status = t.status))
+                            var b = r as Triceps
+                            var serie = Serie(null, b.descr, b.peso, b.repeticoes,b.serie,  b.status)
+                            series.add(serie)
                         }
                         ResourcesUtils.getString(context, R.string.op_ombro)->{
-                            var t = r as Ombro
-                            series.add(Serie(id = t.id, descr = t.descr, peso = t.peso, repeticoes = t.repeticoes, serie = t.serie, status = t.status))
+                            var b = r as Ombro
+                            var serie = Serie(null, b.descr, b.peso, b.repeticoes,b.serie,  b.status)
+                            series.add(serie)
                         }
                         ResourcesUtils.getString(context, R.string.op_peito)->{
-                            var t = r as Peito
-                            series.add(Serie(id = t.id, descr = t.descr, peso = t.peso, repeticoes = t.repeticoes, serie = t.serie, status = t.status))
+                            var b = r as Peito
+                            var serie = Serie(null, b.descr, b.peso, b.repeticoes,b.serie,  b.status)
+                            series.add(serie)
                         }
                         ResourcesUtils.getString(context, R.string.op_perna)->{
-                            var t = r as Perna
-                            series.add(Serie(id = t.id, descr = t.descr, peso = t.peso, repeticoes = t.repeticoes, serie = t.serie, status = t.status))
+                            var b = r as Perna
+                            var serie = Serie(null, b.descr, b.peso, b.repeticoes,b.serie,  b.status)
+                            series.add(serie)
                         }
                         ResourcesUtils.getString(context, R.string.op_costa)->{
-                            var t = r as Costa
-                            series.add(Serie(id = t.id, descr = t.descr, peso = t.peso, repeticoes = t.repeticoes, serie = t.serie, status = t.status))
+                            var b = r as Costa
+                            var serie = Serie(null, b.descr, b.peso, b.repeticoes,b.serie,  b.status)
+                            series.add(serie)
                         }
                     }
                 }
 
-                LoggerUtil(TAG).error("Series $series")
+                //verify exists
                 InserGenericAsync(context, ResourcesUtils.getString(context, R.string.op_serie), series).execute()
             }
         }

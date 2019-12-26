@@ -8,10 +8,12 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.gymseries.R
+import com.gymseries.async.ListStatusSerie
 import com.gymseries.generics.DeleteEntityGenericAsync
 import com.gymseries.generics.async.UpdateGeneric
 import com.gymseries.model.*
 import com.gymseries.utils.LayoutUtils
+import com.gymseries.utils.LoggerUtil
 import com.gymseries.utils.ResourcesUtils
 
 abstract class BaseAdapter<T>(
@@ -45,7 +47,8 @@ abstract class BaseAdapter<T>(
 
         } else {
             convertStringFronModel(holder, list[position])
-            holder.repeticao.text = if (holder.repeticao.text.toString() != "") "3, 4 ou 6 x ${holder.repeticao.text} Rept." else "3 ou 4 x 0 Rept."
+            holder.repeticao.text =
+                if (holder.repeticao.text.toString() != "") "3, 4 ou 6 x ${holder.repeticao.text} Rept." else "3 ou 4 x 0 Rept."
             holder.peso.text = if (holder.peso.text != "") "${holder.peso.text}  Kg." else "0 Kg"
         }
     }
@@ -78,7 +81,8 @@ abstract class BaseAdapter<T>(
                 when (i) {
                     0 -> id = str[i]
                     1 -> title.text = str[i]
-                    2 -> repeticao.text = if (str[i] != "") "3, 4 ou 6 x ${str[i]} Rept." else "0 Rept."
+                    2 -> repeticao.text =
+                        if (str[i] != "") "3, 4 ou 6 x ${str[i]} Rept." else "0 Rept."
                     3 -> peso.text = if (str[i] != "") "${str[i]} Kg." else "0 Kg"
                     5 -> status = str[i]
                 }
@@ -95,9 +99,11 @@ abstract class BaseAdapter<T>(
         var peso = ""
         var mySatutus = ""
         var serie = ""
+        var id = ""
 
         for (i in 0..str.size) {
             when (i) {
+                0->  id = str[i]
                 1 -> title = str[i]
                 2 -> repeticao = str[i]
                 3 -> peso = str[i]
@@ -113,7 +119,7 @@ abstract class BaseAdapter<T>(
             builder.setIcon(R.drawable.ic_serie)
             builder.setTitle(title)
 
-            val view: View = LayoutInflater.from(context) .inflate(R.layout.layout_select_peso_repeticao_treino, null)
+            val view: View = LayoutInflater.from(context).inflate(R.layout.layout_select_peso_repeticao_treino, null)
             var edittext_peso = view.findViewById<EditText>(R.id.edttext_kg)
             var edittext_num_repeticao = view.findViewById<EditText>(R.id.edittext_repeticao)
             var button_salvar = view.findViewById<Button>(R.id.button_salvar_dialog_treino)
@@ -121,9 +127,9 @@ abstract class BaseAdapter<T>(
             var radio_serie_a = view.findViewById<RadioButton>(R.id.radio_serie_a)
             var radio_serie_b = view.findViewById<RadioButton>(R.id.radio_serie_b)
 
-            if(serie == ResourcesUtils.getString(context, R.string.a)){
+            if (serie == ResourcesUtils.getString(context, R.string.a)) {
                 radio_serie_a.isChecked = true
-            }else if (serie == ResourcesUtils.getString(context, R.string.b)){
+            } else if (serie == ResourcesUtils.getString(context, R.string.b)) {
                 radio_serie_b.isChecked = true
             }
 
@@ -148,10 +154,7 @@ abstract class BaseAdapter<T>(
             dialog.show()
 
             button_salvar.setOnClickListener {
-
-                UpdateGeneric(context, status.isChecked, edittext_peso,
-                    edittext_num_repeticao, serie, op, t, list,this).execute()
-
+                UpdateGeneric(context, status.isChecked, edittext_peso, edittext_num_repeticao, title,  serie, op, t, list, this).execute()
                 dialog.dismiss()
             }
         }

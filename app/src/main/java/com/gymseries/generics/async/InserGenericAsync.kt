@@ -12,9 +12,4 @@ class InserGenericAsync<T>(
 ) : BaseAsyncInser<T>(context = context, op = op, list = list) {
 
     val TAG = "InserGenericAsyncLog"
-
-    override fun onPostExecute(result: List<T>?) {
-        super.onPostExecute(result)
-        Log.e(TAG, "Success ${result?.size}")
-    }
 }

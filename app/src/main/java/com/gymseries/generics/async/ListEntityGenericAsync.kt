@@ -6,12 +6,7 @@ import com.gymseries.GenericsUtil
 
 /**
  * Options:
- * 0 - Biceps
- * 1 - Triceps
- * 2 - Peito
- * 3 - Ombro
- * 4 - Costas
- * 5 - Perna
+ * ResourscesUtil.getString(context, title)
  */
 class ListEntityGenericAsync<T>(
     context: Context?,

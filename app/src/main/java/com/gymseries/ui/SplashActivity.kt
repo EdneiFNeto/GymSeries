@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
 
         var biceps = arrayListOf<Biceps>(
             Biceps(
-                id = 1,
+                id = null,
                 descr = ResourcesUtils.getString(this, R.string.barra_fixa_com_pegada_supinada),
                 status = false,
                 repeticoes = "",
@@ -36,7 +36,7 @@ class SplashActivity : AppCompatActivity() {
                 serie = null
             ),
             Biceps(
-                id = 2,
+                id = null,
                 descr = ResourcesUtils.getString(this, R.string.rosca_direta),
                 status = false,
                 repeticoes = "",
@@ -45,7 +45,7 @@ class SplashActivity : AppCompatActivity() {
 
             ),
             Biceps(
-                id = 3,
+                id = null,
                 descr = ResourcesUtils.getString(this, R.string.rosca_martelo),
                 status = false,
                 repeticoes = "",
@@ -54,7 +54,7 @@ class SplashActivity : AppCompatActivity() {
 
             ),
             Biceps(
-                id = 4,
+                id = null,
                 descr = ResourcesUtils.getString(this, R.string.rosca_concentrada),
                 status = false,
                 repeticoes = "",
@@ -62,7 +62,7 @@ class SplashActivity : AppCompatActivity() {
                 serie = null
             ),
             Biceps(
-                id = 5,
+                id = null,
                 descr = ResourcesUtils.getString(this, R.string.rosca_inversa),
                 status = false,
                 repeticoes = "",

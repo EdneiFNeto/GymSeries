@@ -29,7 +29,7 @@ class InsertMedia(val context: Context?, private val charts: ArrayList<Charts>, 
             for (c in charts)
                 chartsRoom?.insert(c)
         }
-        return chartsRoom?.all(SimpleSQLiteQuery("SELECT * FROM Charts ORDER BY id DESC"))
+        return chartsRoom?.all(SimpleSQLiteQuery("SELECT * FROM Charts ORDER BY title DESC"))
     }
 
 }

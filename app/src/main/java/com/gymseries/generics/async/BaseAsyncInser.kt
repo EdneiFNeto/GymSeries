@@ -116,9 +116,33 @@ abstract class BaseAsyncInser<T>(
                 return all
             }
             ResourcesUtils.getString(context, R.string.op_serie) -> {
-                for (serie in list) {
-                    var r = serie as Serie
-                    var insert = serieRoom?.insert(r)
+                for(n in list){
+                    var s = n as Serie
+                    LoggerUtil(TAG).error("Descr ${s.descr}")
+                    LoggerUtil(TAG).error("Descr ${s.peso}")
+                    LoggerUtil(TAG).error("Descr ${s.repeticoes}")
+                    LoggerUtil(TAG).error("Descr ${s.serie}")
+                    LoggerUtil(TAG).error("Descr ${s.status}")
+
+                    var all = serieRoom?.all(SimpleSQLiteQuery("SELECT * FROM Serie WHERE descr = ?", arrayOf(s.descr)))
+                    var idSerie:Long? = 0
+                    var statusSerie:Boolean? = null
+
+                    if(all!=null){
+                        if(all.isNotEmpty()){
+                            for(a in all){
+                                idSerie = a.id
+                                statusSerie = a.status
+                                LoggerUtil(TAG).error("Status $statusSerie")
+                            }
+                            var serie = Serie(idSerie, s.descr, s.peso, s.repeticoes, s.serie,  statusSerie)
+                            var update = serieRoom?.update(serie)
+                            LoggerUtil(TAG).error("Update $update")
+                        }else{
+                            var insert = serieRoom?.insert(s)
+                            LoggerUtil(TAG).error("Inser $insert")
+                        }
+                    }
                 }
                 return serieRoom?.all(SimpleSQLiteQuery("SELECT * FROM Serie")) as List<T>
             }

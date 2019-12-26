@@ -43,7 +43,7 @@ class ChartAdapter(val context: Context?, val charts: ArrayList<Charts>) :
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-//        val anyChartView = itemView.findViewById<AnyChartView>(R.id.chart)
+//        val anyChartView = itemView.findViewById<AnyChartView>(R.title.chart)
         fun add(charts: Charts, context: Context?) {
 //            var cartesian: Cartesian = AnyChart.column()
 //            var data: ArrayList<DataEntry> = arrayListOf()

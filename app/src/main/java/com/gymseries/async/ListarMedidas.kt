@@ -35,7 +35,7 @@ class ListarMedidas(
     override fun doInBackground(vararg params: String?): List<Charts>? {
 
         var data = AppData.getInstance(context)
-        return data?.chartsRoom()?.all(SimpleSQLiteQuery("SELECT * FROM Charts ORDER BY id DESC"))
+        return data?.chartsRoom()?.all(SimpleSQLiteQuery("SELECT * FROM Charts ORDER BY title DESC"))
     }
 
 }
